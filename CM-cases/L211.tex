@@ -1,0 +1,333 @@
+\documentclass[11pt]{article}
+%--------------------------------------------------------------------------
+\usepackage{amsfonts,amssymb,amsmath,amsthm,latexsym,graphics,epsfig,amsfonts}
+\usepackage{verbatim,enumerate,array,booktabs,color,bigstrut,prettyref,tikz-cd}
+\usepackage{multirow}
+\usepackage[all]{xy}
+\usepackage[backref]{hyperref}
+\usepackage[OT2,T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{tabularray}
+\UseTblrLibrary{amsmath,varwidth}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{arydshln}
+%--------------------------------------------------------------------------
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\mathdash}{\relbar\mkern-8mu\relbar}
+\newcommand*\circled[2][1.6]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height={\f@size*#1},] (char) {\vphantom{WAH1g}#2};}}
+\makeatother
+%\addtolength{\textwidth}{4cm} 
+\addtolength{\textheight}{3.5cm} 
+\addtolength{\topmargin}{-2cm}
+%\addtolength{\marginparwidth}{-2cm} 
+\newcommand\myiso{\stackrel{\mathclap{\normalfont\mbox{\small $p$}}}{-}}
+\newcommand\myisot{\stackrel{\mathclap{\normalfont\mbox{\small $3$}}}{-}}
+\newcommand{\pref}[1]{\prettyref{#1}}
+%------------------------------------
+\newcommand{\Kd}{\operatorname{K}}
+\newcommand{\kI}{\operatorname{I}}
+\newcommand{\kII}{\operatorname{II}}
+\newcommand{\kIII}{\operatorname{III}}
+\newcommand{\kIV}{\operatorname{IV}}
+%-------------------------------------
+\newrefformat{eq}{\textup{(\ref{#1})}}
+\newrefformat{prty}{\textup{(\ref{#1})}}
+
+\definecolor{mylinkcolor}{rgb}{0.8,0,0}
+\definecolor{myurlcolor}{rgb}{0,0,0.8}
+\definecolor{mycitecolor}{rgb}{0,0,0.8}
+\hypersetup{colorlinks=true,urlcolor=myurlcolor,citecolor=mycitecolor,linkcolor=mylinkcolor,linktoc=page,breaklinks=true}
+%\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+%\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}
+\addtolength{\textwidth}{4cm} \addtolength{\hoffset}{-2cm}
+\addtolength{\marginparwidth}{-2cm}
+%\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{definition}[defn]{Definition}
+\newtheorem{claim}[defn]{Claim}
+%\theoremstyle{plain}
+\newtheorem{thmA}{Theorem A}
+\newtheorem{thmB}{Theorem B}
+\newtheorem{thm2}{Theorem}
+\newtheorem{prop2}{Proposition}
+\newtheorem{note}{Note}
+\newtheorem{corollary}[defn]{Corollary}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{property}[defn]{Property}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{theorem}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{proposition}[defn]{Proposition}
+\newtheorem{thmnn}{Theorem}
+\newtheorem{conj}[defn]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{remarks}{Remarks}
+\newtheorem{ack}{Acknowledgements}
+\newtheorem{remark}[defn]{Remark}
+\newtheorem{question}[defn]{Question}
+\newtheorem{example}[defn]{Example}
+%-------------------------------------
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Qbar}{\overline{\Q}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\modQ}{\,\text{mod}\,(\Q^)^2}
+%-------------------------------------
+\newcommand{\mysquare}[1]{\tikz{\path[draw] (0,0) rectangle node{\tiny #1} (8pt,8pt) ;}}
+\newcommand{\mycircle}[1]{\tikz{\path[draw] (0,0) circle (4pt) node{\tiny #1};}}
+%-------------------------------------
+\begin{document}
+\title{Type $L_2(11)$}
+\date{\today}
+\maketitle
+%-------------------------------------
+\section{Setting}
+The isogeny graphs of type $L_2(11)$ are given by two isogenous elliptic curves:
+
+\[ 
+\begin{tikzcd}
+E_1 \arrow[dash]{r}{11} & E_{11}\,.
+\end{tikzcd}
+\]
+
+\noindent The modular curve $X_0(11)$ is an elliptic curve of rank $0$ over the rationals. More precisely, we can choose the Weierstrass model $y^2 + y = x^3 - x^2 - 10\, x - 20$ for $X_0(11)$. 
+The $j$-forgetful map $j\colon X_0(11) \to X_0(1)$ is given by
+$$
+j=
+\frac{P(x)+y\,Q(x)}
+   {\left(-17
+   x^2-x y-243 x-105
+   y+859\right)^3}
+$$
+with
+$$
+\begin{array}{ll}
+ P(x) =   & 
+ x^8+160170 x^7 +22013817 x^6 -1234891244 x^5    +18403682346 x^4  -145947253957x^3\\[6pt]
+     & +1422949497947x^2 +5880426893238 x+7325611514413 \\[6pt]
+Q(x)=&
+   -692 x^6 
+   -12510792 x^5  
+   +815793738 x^4
+   -17947463042x^3 
+   +112966993208 x^2 \\[6pt]
+   &
+   +491634446704 x
+   -468196759663
+\end{array}
+$$
+One has
+$$
+X_0(11)(\Q)=
+\{
+(0 : 1 : 0), (5 : -6 : 1), (5 : 5 : 1), (16 : -61 : 1), (16 : 60 : 1)\}
+$$
+and thus:
+$$
+j((0 : 1 : 0))= \infty\,,\quad
+j((16 : -61 : 1))= \infty\,,
+$$
+$$
+j((16 : 60 : 1))= -11^2 \,,\quad
+j((5 : -6 : 1))= - 11 \cdot 131^3 \,,\quad
+j((5 : 5 : 1))= - 2^{15} \,.
+$$
+Its rational points are: two rational cusps
+$(\infty)=(0:1:0)$, $(0)=(16:-61:1)$, one rational CM point $(5 : 5 : 1)$ that corresponds to a $\tau_b=\frac{1}{2}+\frac{\sqrt{-11}}{2\cdot 11}\in\mathbb H$ and two non-cuspidal non-CM points 
+$(16 : 60 : 1)$ and 
+$(5 : -6 : 1)$ that correspond to
+$\tau_a=0.5+0.09227...i$, and $\tau'_a=0.5+0.24630...i\in\mathbb H$. That is
+$$
+j(\tau_b)=-2^{15},\qquad j(\tau_a)=-11^{2},\qquad j(\tau'_a)=-11\cdot 131^{3},
+$$
+and we have $j(11\tau_b)=j(\tau_b)$ and $j(11\tau_a)=j(\tau'_a)$.
+
+\
+
+We choose Weierstrass equations:
+\vskip 0.5truecm
+\begin{tblr}
+{cells={mode=imath},hlines,vlines,measure=vbox,
+colspec=clll}
+E & \text{Minimal Weierstrass model} & j(E) &\text{label}\\
+\hline
+E_{1_a} & y^2+xy+y=x^3+x^2-30x-76 & -11\cdot 131^{3} & \texttt{121a1}\\
+E_{11_a} & y^2+xy+y=x^3+x^2-305x+7888 & -11^{2} & \texttt{121a2}\\
+\hline
+E_{1_b} & y^2+y=x^3-x^2-7x+10 & -2^{15} & \texttt{121b1}\\
+E_{11_b} & y^2+y=x^3-x^2-887x-10143 & -2^{15} & \texttt{121b2}\\
+\end{tblr}
+\vskip 0.5truecm
+
+so that one has:
+\vskip 0.5truecm
+
+\begin{tblr}{cc}
+\begin{tblr}
+{cells={mode=imath},hlines,vlines,measure=vbox,
+colspec=cll}
+%-------------------------------------------------
+ E  & E_{1_a}& E_{11_a}\\
+c_4(E) & 11\cdot 131 & 11^{4}\\
+c_6(E) & 11\cdot 4973 & -11^{5}\cdot 43\\  
+\Delta(E) & -11^{2} & -11^{10}\\
+\end{tblr}
+&
+\begin{tblr}
+{cells={mode=imath},hlines,vlines,measure=vbox,
+colspec=cll}
+ E  & E_{1_b} &  E_{11_b} \\
+\hline 
+c_4(E) & 2^{5}\cdot 11
+ & 2^{5}\cdot 11^{3}\\
+c_6(E) & -2^{3}\cdot 7\cdot 11^{2}
+ & 2^{3}\cdot 7\cdot 11^{5}  \\  
+\Delta(E) & -11^{3}
+ & -11^{9} \\
+\end{tblr}
+\end{tblr}
+
+\vskip 0.5truecm
+\noindent and, with this choice, the
+corresponding isogenies are normalized. 
+
+\
+
+For $k\in \{a,b\}$, we have that the Faltings curve (circled)
+in the graph is
+\[
+\begin{tblr}[mode=imath]{|c|c|}
+\hline
+ \circled[0.8]{$E_{1_k}$} \longrightarrow E_{11_k} \\
+\hline
+% \circled[0.8]{$E'_1$} \longrightarrow E'_{11} \\
+%\hline
+\end{tblr}
+\]
+Note that any $\mathbb Q$-isogeny class of elliptic curves of type $L_2(11)$ is isomorphic to $ 
+\begin{tikzcd}
+E_{1_k} \arrow[dash]{r}{11}  & E_{11_k} 
+\end{tikzcd}
+$ for some  $k\in \{a,b\}$.
+%or to $ 
+%\begin{tikzcd}
+%E'_1 \arrow[dash]{r}{11}  & E'_{11} 
+%\end{tikzcd}
+%$.
+
+Note that $E_{1_b}$ and $E_{11_b}$ have complex multiplication by the ring of integers of $\mathbf{Q}(\sqrt{-11})$ and $E_{11_b}=E_{1_b}^{-11}$.
+
+
+\section{Signatures, minimal models, Kodaira symbols, and Pal values}
+
+\vskip 0.3truecm
+
+$$
+\begin{tblr}
+%[caption = {$L_2(11)$ data for $p$=11}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-3}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cllcc}
+%----------------------------------------------
+\SetCell[c=5]{c} p=11   & & &  \\ 
+ E & \SetCell[c=1]{c} \operatorname{sig}_{11}(E)  & \SetCell[c=1]{c} \Kd_{11}(E) & \SetCell[c=2]{c} u_{11}(d)  \\
+%----------------------------------------------
+ E_{1_a} & (1,1,2)  & \kII & 1 & 1  \\
+ E_{11_a} &(4,5,10)   & \kII^* & 11 & 1 \\
+ %----------------------------------------------
+\hline
+ E_{1_b} & (1,2,3)   & \kIII& 1 & 1\\
+ E_{11_b} & (3,5,9)   & \kIII^* & 11 & 1  \\
+%----------------------------------------------
+ \SetCell[c=3,r=2]{c}   & & &  d\equiv 0 &  d\not\equiv 0  \\
+                        & & & \SetCell[c=2]{c} d \Mod{11}   \\
+\end{tblr}
+$$
+
+\vskip 0.75truecm
+
+\newpage
+
+\section{Conclusion}
+
+\begin{prop}
+%Let 
+%$ 
+%\begin{tikzcd}
+%E_1 \arrow[dash]{r}{11}  & E_{11} 
+%\end{tikzcd}
+%$
+%be a $\mathbf{Q}$-isogeny graph of type $L_{2}(11)$. 
+Let $k\in\{a,b\}$. For every square-free integer $d$, 
+the probability of a vertex
+to be the Faltings curve (circled)
+in the twisted isogeny graph 
+$
+\begin{tikzcd} 
+E_{1_k}^d \arrow[dash]{r}{11}  & E_{11_k}^d
+\end{tikzcd}
+$ 
+is given by:
+
+\[
+\begin{tblr}[mode=imath]{|c|c|c|}
+\hline
+\text{twisted isogeny graph} & \text{condition}  &\text{Prob} \\
+\hline
+ \circled[0.8]{$E_{1_k}^d$} \longrightarrow E_{11_k}^d  & d\not\equiv 0\,(11) & 11/12 \\
+\hline
+ E_{1_k}^d \longrightarrow \circled[0.8]{$E_{11_k}^d$}  &  d\equiv 0\,(11) & 1/12 \\
+\hline
+\end{tblr}
+\]
+
+
+
+\end{prop}
+
+\vskip 0.35truecm
+
+\noindnet{\it Proof.} From the previous tables one gets:
+
+\vskip 0.5truecm
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%-------------------------------------------------
+ \SetCell[c=1]{c} [u(E)(d)] & \SetCell[c=1]{c} d & \SetCell[c=1]{c}\text{Prob}\\
+%-------------------------------------------------
+ \SetCell[r=1]{c} (1:1) & d\not\equiv 0\,(11)&\SetCell[r=2]{c} \left(\frac{11}{12},\frac{1}{12}\right) \\
+  \SetCell[r=1]{c} (1:11) & d\equiv 0\,(11)& \\
+%-------------------------------------------------
+\end{tblr}
+
+\end{document}
+
+
+\begin{longtblr}
+[caption = {$L_2(11)$ data for $p$=2}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-4}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = clclccc}
+%----------------------------------------------
+\SetCell[c=7]{c} p=2  & & & & & \\ 
+ E & \SetCell[c=1]{c} \operatorname{sig}_2(E) & u & \SetCell[c=1]{c} \Kd_2(E) & \SetCell[c=3]{c} u_2(d)  \\
+%----------------------------------------------
+ E_1 & (0,0,0) & 1 & I_{0} & 1 & 1/2 & 1/2 \\
+ E_{11} &(0,0,0)  & 1 & I_{0} & 1 & 1/2 & 1/2\\
+ %----------------------------------------------
+\hline
+ E'_1 & (0,0,0)  & 1 & I_{0}& 1 & 1/2 & 1/2\\
+ E'_{11} & (0,0,0)  & 1 & I_{0} & 1 & 1/2 & 1/2 \\
+%----------------------------------------------
+ \SetCell[c=4,r=2]{c}  & & & &  d\equiv 1 &  d\equiv 2  & d\equiv 3 \\
+                       & & & & \SetCell[c=3]{c} d \Mod{4}   \\
+\end{longtblr}
+

@@ -1,0 +1,273 @@
+\documentclass[11pt]{article}
+%--------------------------------------------------------------------------
+\usepackage{amsfonts,amssymb,amsmath,amsthm,latexsym,graphics,epsfig,amsfonts}
+\usepackage{verbatim,enumerate,array,booktabs,color,bigstrut,prettyref,tikz-cd}
+\usepackage{multirow}
+\usepackage[all]{xy}
+\usepackage[backref]{hyperref}
+\usepackage[OT2,T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{tabularray}
+\UseTblrLibrary{amsmath,varwidth}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{arydshln}
+%--------------------------------------------------------------------------
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\mathdash}{\relbar\mkern-8mu\relbar}
+\newcommand*\circled[2][1.6]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height={\f@size*#1},] (char) {\vphantom{WAH1g}#2};}}
+\makeatother
+%\addtolength{\textwidth}{4cm} 
+\addtolength{\textheight}{3.5cm} 
+\addtolength{\topmargin}{-2cm}
+%\addtolength{\marginparwidth}{-2cm} 
+\newcommand\myiso{\stackrel{\mathclap{\normalfont\mbox{\small $p$}}}{-}}
+\newcommand\myisot{\stackrel{\mathclap{\normalfont\mbox{\small $3$}}}{-}}
+\newcommand{\pref}[1]{\prettyref{#1}}
+%------------------------------------
+\newcommand{\Kd}{\operatorname{K}}
+\newcommand{\kI}{\operatorname{I}}
+\newcommand{\kII}{\operatorname{II}}
+\newcommand{\kIII}{\operatorname{III}}
+\newcommand{\kIV}{\operatorname{IV}}
+%-------------------------------------
+\newrefformat{eq}{\textup{(\ref{#1})}}
+\newrefformat{prty}{\textup{(\ref{#1})}}
+
+\definecolor{mylinkcolor}{rgb}{0.8,0,0}
+\definecolor{myurlcolor}{rgb}{0,0,0.8}
+\definecolor{mycitecolor}{rgb}{0,0,0.8}
+\hypersetup{colorlinks=true,urlcolor=myurlcolor,citecolor=mycitecolor,linkcolor=mylinkcolor,linktoc=page,breaklinks=true}
+%\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+%\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}
+\addtolength{\textwidth}{4cm} \addtolength{\hoffset}{-2cm}
+\addtolength{\marginparwidth}{-2cm}
+%\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{definition}[defn]{Definition}
+\newtheorem{claim}[defn]{Claim}
+%\theoremstyle{plain}
+\newtheorem{thmA}{Theorem A}
+\newtheorem{thmB}{Theorem B}
+\newtheorem{thm2}{Theorem}
+\newtheorem{prop2}{Proposition}
+\newtheorem{note}{Note}
+\newtheorem{corollary}[defn]{Corollary}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{property}[defn]{Property}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{theorem}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{proposition}[defn]{Proposition}
+\newtheorem{thmnn}{Theorem}
+\newtheorem{conj}[defn]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{remarks}{Remarks}
+\newtheorem{ack}{Acknowledgements}
+\newtheorem{remark}[defn]{Remark}
+\newtheorem{question}[defn]{Question}
+\newtheorem{example}[defn]{Example}
+%-------------------------------------
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Qbar}{\overline{\Q}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\modQ}{\,\text{mod}\,(\Q^)^2}
+%-------------------------------------
+\newcommand{\mysquare}[1]{\tikz{\path[draw] (0,0) rectangle node{\tiny #1} (8pt,8pt) ;}}
+\newcommand{\mycircle}[1]{\tikz{\path[draw] (0,0) circle (4pt) node{\tiny #1};}}
+%-------------------------------------
+\begin{document}
+\title{Type $L_2(17)$}
+\date{\today}
+\maketitle
+%-------------------------------------
+\section{Setting}
+The isogeny graphs of type $L_2(17)$ are given by two isogenous elliptic curves:
+
+\[ 
+\begin{tikzcd}
+E_1 \arrow[dash]{r}{17} & E_{17}\,.
+\end{tikzcd}
+\]
+
+\noindent The modular curve $X_0(17)$ is elliptic of rank $0$. Its rational points are: two rational cusps and two non-cuspidal non-CM points $\tau,\tau'\in\mathbb H$. Their corresponding $j$-invariants are:
+$$
+j(\tau)=\frac{-17\cdot 373^{3}}{2^{17}},\qquad j(\tau')=\frac{-17^{2}\cdot 101^{3}}{2}.
+$$
+We have $j(17\tau)=j(\tau')$.
+
+\
+
+We can (and do) choose Weierstrass equations:
+\vskip 0.5truecm
+\begin{tblr}
+{cells={mode=imath},hlines,vlines,measure=vbox,
+colspec=clll}
+E & \text{Minimal Weierstrass model} & j(E) &\text{label}\\
+\hline
+E_{1} & y^2 + xy = x^3 + x^2 - 660x - 7600 & \frac{-17\cdot 373^{3}}{2^{17}} & \texttt{14450n1}\\
+E_{17} & y^2 + xy = x^3 + x^2 - 878710x + 316677750  & \frac{-17^{2}\cdot 101^{3}}{2} & \texttt{14450n2}\\
+\end{tblr}
+\vskip 0.5truecm
+
+so that one has:
+\vskip 0.5truecm
+
+\begin{tblr}
+{cells={mode=imath},hlines,vlines,measure=vbox,
+colspec=cll}
+%-------------------------------------------------
+ E  & E_{1}& E_{17}\\
+c_4(E) & 5\cdot 17\cdot 373 & 5\cdot 17^{4}\cdot 101\\
+c_6(E) & 5^{2}\cdot 17\cdot 14891 &-5^{2}\cdot 17^{5}\cdot 7717 \\  
+\Delta(E) & -2^{17}\cdot 5^{3}\cdot 17^{2}  & -2\cdot 5^{3}\cdot 17^{10}\\
+\end{tblr}
+
+
+\vskip 0.5truecm
+\noindent and, with this choice, the isogeny graph is normalized. 
+
+\
+
+We have that the Faltings curve (circled)
+in the graph is
+\[
+\begin{tblr}[mode=imath]{|c|c|}
+\hline
+ \circled[0.8]{$E_{1}$} \longrightarrow E_{17} \\
+\hline
+\end{tblr}
+\]
+Note that any $\mathbb Q$-isogeny class of elliptic curves of type $L_2(17)$ is isomorphic to $ 
+\begin{tikzcd}
+E_{1} \arrow[dash]{r}{17}  & E_{17} \,.
+\end{tikzcd}
+\newpage 
+
+
+\section{Signatures, minimal models, Kodaira symbols, and Pal values}
+
+\vskip 0.3truecm
+
+$$
+\begin{tblr}
+%[caption = {$L_2(17)$ data for $p$=2}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-3}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = clclccc}
+%----------------------------------------------
+\SetCell[c=7]{c} p=2  &  & & & \\ 
+ E & \SetCell[c=1]{c} \operatorname{sig}_2(E)  & \SetCell[c=1]{c} \Kd_2(E) & \SetCell[c=3]{c} u_2(d)  \\
+%----------------------------------------------
+ E_1 & (0,0,17) & \kI_{17} & 1 & 1/2 & 1/2 \\
+ E_{17} &(0,0,1)   & \kI_{1} & 1 & 1/2 & 1/2\\
+%----------------------------------------------
+ \SetCell[c=3,r=2]{c}  & & &  d\equiv 1 &  d\equiv 2  & d\equiv 3 \\
+                       & & & \SetCell[c=3]{c} d \Mod{4}   \\
+\end{tblr}
+$$
+
+\vskip 0.75truecm
+
+$$
+\begin{tblr}
+%[caption = {$L_2(17)$ data for $p$=5}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+colspec  = cllccc}
+%----------------------------------------------
+\SetCell[c=4]{c} p=5  & & & \\ 
+ E & \SetCell[c=1]{c} \operatorname{sig}_5(E)  & \SetCell[c=1]{c} \Kd_5(E) & \SetCell[c=1]{c} u_5(d)  \\
+%----------------------------------------------
+ E_1 & (1,2,3)  & \kIII & 1  \\
+ E_{17} & (1,2,3)  & \kIII & 1  \\
+%----------------------------------------------
+ \end{tblr}
+$$
+
+\vskip 0.75truecm
+
+$$
+\begin{tblr}
+%[caption = {$L_2(17)$ data for $p$=11}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-3}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cllcc}
+%----------------------------------------------
+\SetCell[c=5]{c} p=17   & & &  \\ 
+ E & \SetCell[c=1]{c} \operatorname{sig}_{17}(E)  & \SetCell[c=1]{c} \Kd_{17}(E) & \SetCell[c=2]{c} u_{17}(d)  \\
+%----------------------------------------------
+ E_{1} & (1,1,2)  & \kII & 1 & 1  \\
+ E_{17} &(4,5,10)   & \kII^* & 17 & 1 \\
+ %----------------------------------------------
+ \SetCell[c=3,r=2]{c}   & & &  d\equiv 0 &  d\not\equiv 0  \\
+                        & & & \SetCell[c=2]{c} d \Mod{17}   \\
+\end{tblr}
+$$
+
+\vskip 0.75truecm
+
+%\newpage
+\section{Conclusion}
+
+\begin{prop}
+%Let 
+%$ 
+%\begin{tikzcd}
+%E_1 \arrow[dash]{r}{11}  & E_{11} 
+%\end{tikzcd}
+%$
+%be a $\mathbf{Q}$-isogeny graph of type $L_{2}(11)$. 
+For every square-free integer $d$, 
+the probability of a vertex
+to be the Faltings curve (circled)
+in the twisted isogeny graph 
+$
+\begin{tikzcd} 
+E_{1}^d \arrow[dash]{r}{17}  & E_{17}^d
+\end{tikzcd}
+$ 
+is given by:
+
+\[
+\begin{tblr}[mode=imath]{|c|c|c|}
+\hline
+\text{twisted isogeny graph} & \text{condition}  &\text{Prob} \\
+\hline
+ \circled[0.8]{$E_{1}^d$} \longrightarrow E_{17}^d  & d\not\equiv 0\,(17) & 17/18 \\
+\hline
+ E_{1}^d \longrightarrow \circled[0.8]{$E_{17}^d$}  &  d\equiv 0\,(17) & 1/18 \\
+\hline
+\end{tblr}
+\]
+
+
+
+\end{prop}
+
+\vskip 0.35truecm
+
+\noindnet{\it Proof.} From the previous tables one gets:
+
+\vskip 0.5truecm
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%-------------------------------------------------
+ \SetCell[c=1]{c} [u(E)(d)] & \SetCell[c=1]{c} d & \SetCell[c=1]{c}\text{Prob}\\
+%-------------------------------------------------
+\SetCell[r=1]{c} (1:1) & d\not\equiv 0\,(17)&\SetCell[r=2]{c} \left(\frac{17}{18},\frac{1}{18}\right) \\
+  \SetCell[r=1]{c} (1:17) & d\equiv 0\,(17)& \\
+%-------------------------------------------------
+\end{tblr}
+
+\end{document}
+
+
+

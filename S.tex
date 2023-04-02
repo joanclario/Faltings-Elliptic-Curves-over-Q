@@ -1,0 +1,656 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,latexsym,graphics,epsfig,amsfonts}
+\usepackage{verbatim,enumerate,array,booktabs,color,bigstrut,prettyref,tikz-cd}
+\usepackage{multirow}
+\usepackage[all]{xy}
+\usepackage[backref]{hyperref}
+\usepackage[OT2,T1]{fontenc}
+%\usepackage{ctable}
+\usepackage{mathtools}
+
+\usepackage{longtable}
+
+\usepackage{mathtools}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\mathdash}{\relbar\mkern-8mu\relbar}
+\newcommand*\circled[2][1.6]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height={\f@size*#1},] (char) {\vphantom{WAH1g}#2};}}
+\makeatother
+
+\usepackage{tabularray}
+\UseTblrLibrary{amsmath,varwidth}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{arydshln}
+
+\newcommand\myiso{\stackrel{\mathclap{\normalfont\mbox{\small $p$}}}{-}}
+\newcommand\myisot{\stackrel{\mathclap{\normalfont\mbox{\small $3$}}}{-}}
+
+\newcommand{\pref}[1]{\prettyref{#1}}
+\newrefformat{eq}{\textup{(\ref{#1})}}
+\newrefformat{prty}{\textup{(\ref{#1})}}
+
+\definecolor{mylinkcolor}{rgb}{0.8,0,0}
+\definecolor{myurlcolor}{rgb}{0,0,0.8}
+\definecolor{mycitecolor}{rgb}{0,0,0.8}
+\hypersetup{colorlinks=true,urlcolor=myurlcolor,citecolor=mycitecolor,linkcolor=mylinkcolor,linktoc=page,breaklinks=true}
+
+%\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+%\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}
+
+\addtolength{\textwidth}{4cm} \addtolength{\hoffset}{-2cm}
+\addtolength{\marginparwidth}{-2cm}
+
+%\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{definition}[defn]{Definition}
+\newtheorem{claim}[defn]{Claim}
+
+%\theoremstyle{plain}
+\newtheorem{thmA}{Theorem A}
+\newtheorem{thmB}{Theorem B}
+\newtheorem{thm2}{Theorem}
+\newtheorem{prop2}{Proposition}
+\newtheorem{note}{Note}
+
+\newtheorem{corollary}[defn]{Corollary}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{property}[defn]{Property}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{theorem}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{proposition}[defn]{Proposition}
+\newtheorem{thmnn}{Theorem}
+\newtheorem{conj}[defn]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{remarks}{Remarks}
+\newtheorem{ack}{Acknowledgements}
+\newtheorem{remark}[defn]{Remark}
+\newtheorem{question}[defn]{Question}
+\newtheorem{example}[defn]{Example}
+
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Qbar}{\overline{\Q}}
+\newcommand{\Z}{\mathbb Z}
+
+\newcommand{\modQ}{\,\text{mod}\,(\Q^)^2}
+
+\newcommand{\mysquare}[1]{\tikz{\path[draw] (0,0) rectangle node{\tiny #1} (8pt,8pt) ;}}
+\newcommand{\mycircle}[1]{\tikz{\path[draw] (0,0) circle (4pt) node{\tiny #1};}}
+
+%------------------------------------
+\newcommand{\Kd}{\operatorname{K}}
+\newcommand{\kI}{\operatorname{I}}
+\newcommand{\kII}{\operatorname{II}}
+\newcommand{\kIII}{\operatorname{III}}
+\newcommand{\kIV}{\operatorname{IV}}
+%-------------------------------------
+
+\begin{document}
+\title{Type $S$}
+\date{\today}
+\maketitle
+
+\noindent{\bf Graph.} The isogeny graphs of type $S$ are given by
+eight isogenous elliptic curves:
+
+%\[ \begin{tikzcd}
+%  & E_1 \ar[dash,swap,d,"2"] \ar[dash,rrr,"3"] & & & E_3 \ar[dash,d,"2"] & \\
+%  & E_2 \ar[dash,,swap,dl,"2"] \ar[dash,drr,"2"] \ar[dash,rrr,"3"]  & & & E_6  \ar[dash,swap,dll,"2"] \ar[dash,dr,"2"]  & \\
+%    E_{21} \ar[dash,rr,"3"] & &  E_{12} & E_ 4 \ar[dash,rr,"3"]  &  & E_{31}  \\
+%\end{tikzcd}
+%\]
+\[ \begin{tikzcd}
+  & E_1 \ar[dash,swap,d,"2"] \ar[dash,r,"3"]   & E_3 \ar[dash,d,"2"] & \\
+  & E_2 \ar[dash,swap,dl,"2"] \ar[dash,swap,dr,"2"] \ar[dash,r,"3"]   & E_6  \ar[dash,swap,dl,"2"] \ar[dash,dr,"2"]  & \\
+    E_{21} \ar[dash,r,"3"] &   E_{12} & E_ 4 \ar[dash,r,"3"]    & E_{31}  \\
+\end{tikzcd}
+\]
+\noindent{\bf Hauptmodul.} A hauptmodul for $X_0(12)$ is  
+$$
+t = 
+\displaystyle{
+  3 + 2^2 3 \frac{\eta(2\tau)^2 \eta(3\tau) \eta(12\tau)^3}{\eta(\tau)^3 \eta(4\tau) \eta(6\tau)^2}}\,.
+$$
+
+\newpage
+
+\noindent{\bf $j$-invariants.} One has
+$$
+\begin{tblr}{l@{\,=\,}l}
+j(E_1)=j(\tau) & t^{-4} \cdot (t - 1)^{-3} \cdot (t + 1)^{-3} \cdot (t - 3)^{-1} \cdot (t + 3)^{-1} \cdot (t^{2} - 3)^{3} \cdot (t^{6} - 9 t^{4} + 3 t^{2} - 3)^{3}  \\[5pt] 
+j(E_3)=j(3\tau) & t^{-12} \cdot (t - 3)^{-3} \cdot (t + 3)^{-3} \cdot (t - 1)^{-1} \cdot (t + 1)^{-1} \cdot (t^{2} - 3)^{3} \cdot (t^{6} - 9 t^{4} + 243 t^{2} - 243)^{3}  \\[5pt] 
+j(E_2)=j(2\tau) & (t - 1)^{-6} \cdot (t + 1)^{-6} \cdot (t - 3)^{-2} \cdot t^{-2} \cdot (t + 3)^{-2} \cdot (t^{2} + 3)^{3} \cdot (t^{6} - 15 t^{4} + 75 t^{2} + 3)^{3}  \\[5pt] 
+j(E_6)=j(6\tau) & (t - 3)^{-6} \cdot t^{-6} \cdot (t + 3)^{-6} \cdot (t - 1)^{-2} \cdot (t + 1)^{-2} \cdot (t^{2} + 3)^{3} \cdot (t^{6} + 225 t^{4} - 405 t^{2} + 243)^{3}  \\[5pt] 
+j(E_{21})=j(\tau+1/2) & \left(-1\right) \cdot (t - 1)^{-12} \cdot (t + 3)^{-4} \cdot (t + 1)^{-3} \cdot (t - 3)^{-1} \cdot t^{-1} \cdot (t^{2} - 6 t - 3)^{3} \cdot (t^{6} + 6 t^{5} + 27 t^{4} - 60 t^{3} - 249 t^{2} - 234 t - 3)^{3}  \\[5pt] 
+j(E_{12})=j(12\tau) & (t - 3)^{-12} \cdot (t + 1)^{-4} \cdot t^{-3} \cdot (t + 3)^{-3} \cdot (t - 1)^{-1} \cdot (t^{2} + 6 t - 3)^{3} \cdot (t^{6} + 234 t^{5} + 747 t^{4} + 540 t^{3} - 729 t^{2} - 486 t - 243)^{3}  \\[5pt] 
+j(E_4)=j(4\tau) & (t + 1)^{-12} \cdot (t - 3)^{-4} \cdot (t - 1)^{-3} \cdot t^{-1} \cdot (t + 3)^{-1} \cdot (t^{2} + 6 t - 3)^{3} \cdot (t^{6} - 6 t^{5} + 27 t^{4} + 60 t^{3} - 249 t^{2} + 234 t - 3)^{3}  \\[5pt] 
+j(E_{31})=j(3\tau+1/2) & \left(-1\right) \cdot (t + 3)^{-12} \cdot (t - 1)^{-4} \cdot (t - 3)^{-3} \cdot t^{-3} \cdot (t + 1)^{-1} \cdot (t^{2} - 6 t - 3)^{3} \cdot (t^{6} - 234 t^{5} + 747 t^{4} - 540 t^{3} - 729 t^{2} + 486 t - 243)^{3}  \,.
+\end{tblr}
+$$
+
+\vskip 0.3truecm
+
+\noindent{\bf Automorphisms.}
+The subgroup of $\operatorname{Aut} X_0(12)$ that fixes the set of vertices of the graph is
+isomorphic to the dihedral group of order $12$  with elements:
+
+$$
+t \mapsto
+\pm t\,, 
+\pm 3/t\,, 
+\pm (t+3)/(t-1)\,, 
+\pm (t-3)/(t+1)\,,
+\pm 3(t+1)/(t-1)\,,
+\pm 3(t-1)/(t+3)\,.
+$$
+
+\newpage
+
+\noindent{\bf Signatures.}
+We can (and do) choose Weierstrass equations for the elliptic curves so that their signatures are:
+
+\[
+\begin{tblr}{|c|l|}
+\hline \SetCell[c=2]{c} S \text{ signatures}\\ \hline
+c_4(E_1) & (t^{2} - 3) \cdot (t^{6} - 9 t^{4} + 3 t^{2} - 3)  \\ 
+c_6(E_1) & (t^{4} - 6 t^{2} - 3) \cdot (t^{8} - 12 t^{6} + 30 t^{4} - 36 t^{2} + 9)  \\ 
+\Delta(E_1) & (t - 3) \cdot (t + 3) \cdot (t - 1)^{3} \cdot (t + 1)^{3} \cdot t^{4}  \\  \hline
+%-----------------------------
+c_4(E_3) & (t^{2} - 3) \cdot (t^{6} - 9 t^{4} + 243 t^{2} - 243)  \\ 
+c_6(E_3) & (t^{4} + 18 t^{2} - 27) \cdot (t^{8} - 36 t^{6} + 270 t^{4} - 972 t^{2} + 729)  \\ 
+\Delta(E_3) & (t - 1) \cdot (t + 1) \cdot (t - 3)^{3} \cdot (t + 3)^{3} \cdot t^{12}  \\  \hline
+%-----------------------------
+c_4(E_2) & (t^{2} + 3) \cdot (t^{6} - 15 t^{4} + 75 t^{2} + 3)  \\ 
+c_6(E_2) & (t^{4} - 6 t^{2} - 24 t - 3) \cdot (t^{4} - 6 t^{2} - 3) \cdot (t^{4} - 6 t^{2} + 24 t - 3)  \\ 
+\Delta(E_2) & (t - 3)^{2} \cdot t^{2} \cdot (t + 3)^{2} \cdot (t - 1)^{6} \cdot (t + 1)^{6}  \\  \hline
+%-----------------------------
+c_4(E_6) & (t^{2} + 3) \cdot (t^{6} + 225 t^{4} - 405 t^{2} + 243)  \\ 
+c_6(E_6) & (t^{4} - 24 t^{3} + 18 t^{2} - 27) \cdot (t^{4} + 18 t^{2} - 27) \cdot (t^{4} + 24 t^{3} + 18 t^{2} - 27)  \\ 
+\Delta(E_6) & (t - 1)^{2} \cdot (t + 1)^{2} \cdot (t - 3)^{6} \cdot t^{6} \cdot (t + 3)^{6}  \\  \hline
+%-----------------------------
+c_4(E_{21}) & (t^{2} - 6 t - 3) \cdot (t^{6} + 6 t^{5} + 27 t^{4} - 60 t^{3} - 249 t^{2} - 234 t - 3)  \\ 
+c_6(E_{21}) & (t^{4} - 6 t^{2} - 24 t - 3) \cdot (t^{8} - 12 t^{6} + 528 t^{5} + 30 t^{4} - 3168 t^{3} - 3996 t^{2} - 1584 t + 9)  \\ 
+\Delta(E_{21}) & \left(-1\right) \cdot (t - 3) \cdot t \cdot (t + 1)^{3} \cdot (t + 3)^{4} \cdot (t - 1)^{12}  \\  \hline
+%-----------------------------
+c_4(E_{12}) & (t^{2} + 6 t - 3) \cdot (t^{6} + 234 t^{5} + 747 t^{4} + 540 t^{3} - 729 t^{2} - 486 t - 243)  \\ 
+c_6(E_{12}) & (t^{4} + 24 t^{3} + 18 t^{2} - 27) \cdot (t^{8} - 528 t^{7} - 3996 t^{6} - 9504 t^{5} + 270 t^{4} + 14256 t^{3} - 972 t^{2} + 729)  \\ 
+\Delta(E_{12}) & (t - 1) \cdot t^{3} \cdot (t + 3)^{3} \cdot (t + 1)^{4} \cdot (t - 3)^{12}  \\  \hline
+%-----------------------------
+c_4(E_4) & (t^{2} + 6 t - 3) \cdot (t^{6} - 6 t^{5} + 27 t^{4} + 60 t^{3} - 249 t^{2} + 234 t - 3)  \\ 
+c_6(E_4) & (t^{4} - 6 t^{2} + 24 t - 3) \cdot (t^{8} - 12 t^{6} - 528 t^{5} + 30 t^{4} + 3168 t^{3} - 3996 t^{2} + 1584 t + 9)  \\ 
+\Delta(E_4) & t \cdot (t + 3) \cdot (t - 1)^{3} \cdot (t - 3)^{4} \cdot (t + 1)^{12}  \\  \hline
+%-----------------------------
+c_4(E_{31}) & (t^{2} - 6 t - 3) \cdot (t^{6} - 234 t^{5} + 747 t^{4} - 540 t^{3} - 729 t^{2} + 486 t - 243)  \\ 
+c_6(E_{31}) & (t^{4} - 24 t^{3} + 18 t^{2} - 27) \cdot (t^{8} + 528 t^{7} - 3996 t^{6} + 9504 t^{5} + 270 t^{4} - 14256 t^{3} - 972 t^{2} + 729)  \\ 
+\Delta(E_{31}) & \left(-1\right) \cdot (t + 1) \cdot (t - 3)^{3} \cdot t^{3} \cdot (t - 1)^{4} \cdot (t + 3)^{12}  \\  \hline
+\end{tblr}
+\]
+
+\newpage
+
+\noindent{\bf Action of Aut on the graph.}
+
+$$
+\begin{tblr}{l@{\,=\,}lcc}
+ \hline
+ \SetCell[c=2]{l} \text{automorphism }  & &
+ \SetCell[c=1]{c} \text{permutation}  &  \text{order}  \\
+ \hline
+   \operatorname{id}(t) & t  &  (\,) & 1 \\
+    \sigma(t) & 3 (t - 1)/(t + 3) & (j_1,j_{31},j_{4},j_{3},j_{21},j_{12})(j_2,j_6) & 6 \\
+   \sigma^2(t) & (t-3)/(t+1) & (j_1, j_{4},j_{21})(j_{3},j_{12},j_{31}) & 3 \\
+    \sigma^3(t) & -3/t &   (j_1,j_3) (j_2,j_6) (j_{21},j_{31}) (j_{12},j_{4})   & 2 \\
+    \sigma^4(t) & -(t+3)/(t-1) &   (j_1,j_{21},j_4) (j_{3},j_{31},j_{12})    & 3 \\
+    \sigma^5(t) & -3(t+1)/(t-3) &  
+    (j_1,j_{12},j_{21},j_{3},j_{4},j_{31})(j_2,j_6) &  6 \\
+    \tau(t)  & -t  &  (j_{21},j_{4})
+    (j_{12},j_{31}) & 2 \\
+    \sigma \tau(t) & 3(t+1)/(t-3) & 
+    (j_1,j_{31}) (j_3,j_{21})(j_2,j_6)(j_{12},j_4) & 2 \\
+    \sigma^2 \tau(t)  & (t+3)/(t-1) &
+    (j_1,j_{21},j_4) (j_3,j_{31}) & 6 \\
+    \sigma^3 \tau(t) & 3/t & 
+    (j_1,j_{3})(j_2,j_{6})(j_{21},j_{12}) (j_{4},j_{31})  & 2 \\ 
+    \sigma^4 \tau(t) & -(t-3)/(t+1) & (j_{1},j_{21})(j_{3},j_{31})   & 2 \\ 
+    \sigma^5 \tau(t) & -3(t-1)/(t+3) & 
+    (j_{1},j_{12})(j_{3},j_{4})
+    (j_{2},j_{6})(j_{21},j_{31}) & 2 \\ 
+ \hline
+\end{tblr}
+$$
+
+\vskip 0.5truecm
+
+$$
+\begin{tblr}{|l|c|}
+ \hline
+ \SetCell[c=2]{c} \text{Automorphism action on the graph}  &   \\
+ \hline
+\operatorname{id} & (\,) \\
+\sigma & (E_1,E_{31},E_{4},E_{3},E_{21},E_{12})^{\otimes {-3}}(E_2,E_6)^{\otimes {-3}} (E_4)^{\otimes {-3}} (E_{41})^{\otimes {-3}} \\
+\sigma^2 & (E_1, E_{4},E_{21})(E_{3},E_{12},E_{31})  \\
+ \sigma^3 & 
+ (E_1,E_3)^{\otimes {-3}} (E_2,E_6)^{\otimes {-3}} (E_{21},E_{31})^{\otimes {-3}} (E_{12},E_{4})^{\otimes {-3}} \\
+\sigma^4 &  
+ (E_1,E_{21},E_4)(E_{3},E_{31},E_{12}) \\
+ \sigma^5 &   
+(E_1,E_{12},E_{21},E_{3},E_{4},E_{31})^{\otimes {-3}}(E_2,E_6)^{\otimes {-3}}  \\
+ \tau & (E_{21},E_{4})
+    (E_{12},E_{31}) 
+    \\
+\sigma \tau & 
+(E_1,E_{31})^{\otimes {-3}} (E_3,E_{21})^{\otimes {-3}}(E_2,E_6)^{\otimes {-3}}(E_{12},E_4)^{\otimes {-3}}  \\
+ \sigma^2\tau & (E_1,E_{21},E_4) (E_3,E_{31})   \\
+ \sigma^3 \tau & 
+     (E_1,E_{3})^{\otimes {-3}}(E_2,E_{6})^{\otimes {-3}}(E_{21},E_{12})^{\otimes {-3}} (E_{4},E_{31})^{\otimes {-3}} 
+     \\
+ \sigma^4 \tau & 
+  (E_{1},E_{21})(E_{3},E_{31}) \\
+ \sigma^5 \tau & 
+  (E_{1},E_{12})^{\otimes {-3}}(E_{3},E_{4})^{\otimes {-3}}
+    (E_{2},E_{6})^{\otimes {-3}}(E_{21},E_{31})^{\otimes {-3}}
+    \\
+\hline
+\end{tblr}
+$$
+
+\newpage
+
+\noindent{\bf Kodaira symbols.}
+
+\begin{longtblr}
+[caption = {$S$ data for $p\neq 2,3$}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-5}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cclclcc}
+%--------------------------------------
+\SetCell[c=1]{c} S &\SetCell[c=6]{c} p\neq 2,3  & & & & & \\ t & E & 
+\SetCell[c=1]{c} \operatorname{sig}_p(E) & u & \Kd_p(E) & \SetCell[c=2]{c} u_p(d)   \\
+%--------------------------------------
+\SetCell[r=8]{c}
+   m= v_p(t)>0 
+& E_1    & ( 0 , 0 , 4m ) & 1  &   \kI_{4m}  & 1 & 1 \\
+& E_3    & ( 0 , 0 , 12m ) & 1  &   \kI_{12m}   & 1 & 1 \\
+& E_2    & ( 0 , 0 , 2m ) & 1  &   \kI_{2m}   & 1 & 1 \\
+& E_6    & ( 0 , 0 , 6m ) & 1  &   \kI_{6m}   & 1 & 1 \\
+& E_{21} & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1 \\
+& E_{12} & ( 0 , 0 , 3m ) & 1  &   \kI_{3m}   & 1 & 1 \\
+& E_4    & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1 \\
+& E_{31} & ( 0 , 0 , 3m ) & 1  &  \kI_{3m}   & 1 & 1 \\
+%--------------------------------------
+\SetCell[r=8]{c}
+\begin{array}{c}
+       v_p(t)=0   \\[3pt]
+       m = v_p(t+1)>0
+\end{array}
+& E_{1} & ( 0 , 0 , 3m ) & 1  &  \kI_{3m}   & 1 & 1 \\
+& E_{3} & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1 \\
+& E_2    & ( 0 , 0 , 6m ) & 1  &   \kI_{6m}   & 1 & 1 \\
+& E_6    & ( 0 , 0 , 2m ) & 1  &   \kI_{2m}   & 1 & 1 \\
+& E_{21}    & ( 0 , 0 , 12m ) & 1  &   \kI_{12m}   & 1 & 1 \\
+& E_{12}    & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1 \\
+& E_{4} & ( 0 , 0 , 3m ) & 1  &   \kI_{3m}   & 1 & 1 \\
+& E_{31}    & ( 0 , 0 , 4m ) & 1  &   \kI_{4m}  & 1 & 1 \\
+%--------------------------------------
+\SetCell[r=8]{c}
+\begin{array}{c}
+       v_p(t)=0   \\[3pt]
+       m = v_p(t-1)>0
+\end{array}
+& E_{1} & ( 0 , 0 , 3m ) & 1  &   \kI_{3m}   & 1 & 1 \\
+& E_{3}    & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1 \\
+& E_2    & ( 0 , 0 , 6m ) & 1  &   \kI_{6m}   & 1 & 1 \\
+& E_6    & ( 0 , 0 , 2m ) & 1  &   \kI_{2m}   & 1 & 1 \\
+& E_{21}    & ( 0 , 0 , 12m ) & 1  &   \kI_{12m}   & 1 & 1 \\
+& E_{12} & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1 \\
+& E_{4} & ( 0 , 0 , 3m ) & 1  &  \kI_{3m}   & 1 & 1 \\
+& E_{31}    & ( 0 , 0 , 4m ) & 1  &   \kI_{4m}  & 1 & 1 \\
+%--------------------------------------
+\SetCell[r=8]{c}
+\begin{array}{c}
+       v_p(t)=0   \\[3pt]
+       m = v_p(t+3)>0
+\end{array} 
+& E_{1}    & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1 \\
+& E_{3} & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1 \\
+& E_2    & ( 0 , 0 , 2m ) & 1  &   \kI_{2m}   & 1 & 1 \\
+& E_6    & ( 0 , 0 , 6m ) & 1  &   \kI_{6m}   & 1 & 1 \\
+& E_{21}    & ( 0 , 0 , 4m ) & 1  &   \kI_{4m}  & 1 & 1 \\
+& E_{12} & ( 0 , 0 , 3m ) & 1  &  \kI_{3m}   & 1 & 1 \\
+& E_{4} & ( 0 , 0 , 3m ) & 1  &   \kI_{3m}   & 1 & 1 \\
+& E_{31}    & ( 0 , 0 , 12m ) & 1  &   \kI_{12m}   & 1 & 1 \\
+%--------------------------------------
+\SetCell[r=8]{c}
+\begin{array}{c}
+       v_p(t)=0   \\[3pt]
+       m = v_p(t-3)>0
+\end{array} 
+& E_{4}    & ( 0 , 0 , 4m ) & 1  &   \kI_{4m}  & 1 & 1 \\
+& E_{12}    & ( 0 , 0 , 12m ) & 1  &   \kI_{12m}   & 1 & 1 \\
+& E_2    & ( 0 , 0 , 2m ) & 1  &   \kI_{2m}   & 1 & 1 \\
+& E_6    & ( 0 , 0 , 6m ) & 1  &   \kI_{6m}   & 1 & 1 \\
+& E_{1} & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1 \\
+& E_{31} & ( 0 , 0 , 3m ) & 1  &   \kI_{3m}   & 1 & 1 \\
+& E_{21}    & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1 \\
+& E_{3} & ( 0 , 0 , 3m ) & 1  &  \kI_{3m}   & 1 & 1 \\
+%--------------------------------------
+\SetCell[r=8]{c}
+   -m= v_p(t)<0 
+& E_1    & ( 0 , 0 , 12m ) & p^{-2m}  &   \kI_{12m}   & 1 & 1 \\
+& E_3    & ( 0 , 0 , 4m ) & p^{-2m}  &   \kI_{4m}  & 1 & 1 \\
+& E_2    & ( 0 , 0 , 6m ) & p^{-2m}  &   \kI_{6m}   & 1 & 1 \\
+& E_6    & ( 0 , 0 , 2m ) & p^{-2m}  &   \kI_{2m}   & 1 & 1 \\
+& E_{21} & ( 0 , 0 , 3m ) & p^{-2m}  &  \kI_{3m}   & 1 & 1 \\
+& E_{12}    & ( 0 , 0 , m ) & p^{-2m}  &   \kI_{m}   & 1 & 1 \\
+& E_{4} & ( 0 , 0 , 3m ) & p^{-2m}  &   \kI_{3m}   & 1 & 1 \\
+& E_{31} & ( 0 , 0 , m ) & p^{-2m}  &   \kI_{m}   & 1 & 1 \\
+%--------------------------------------
+\SetCell[c=5,r=2]{c} & & & & & d\equiv 0  & d\not\equiv 0 \\
+                      & & & & & \SetCell[c=2]{c} d \Mod p & \\
+\end{longtblr}
+
+
+\newpage
+
+
+\begin{longtblr}
+[caption = {$S$ data for $p=3$}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-5}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cclclcc}
+%--------------------------------------
+\SetCell[c=1]{c} S &\SetCell[c=6]{c} p=3  & & & & & \\ t & E & 
+\SetCell[c=1]{c} \operatorname{sig}_p(E) & u & \Kd_3(E) & \SetCell[c=2]{c} u_3(d)   \\
+%--------------------------------------
+
+\SetCell[r=8]{c}
+     m = v_3(t)>1  
+& E_{1}    & ( 2 , 3 , 4m+2 ) & 1  &   \kI_{4m-4}^*   & 3 & 1  \\
+& E_{3}    & ( 2 , 3 , 12m-6 ) & 3  &   \kI_{12m-12}^*   & 3 & 1  \\
+& E_{2}    & ( 2 , 3 , 2m+4 ) & 1  &   \kI_{2m-2}^*   & 3 & 1  \\
+& E_{6}    & ( 2 , 3 , 6m ) & 3  &   \kI_{6m-6}^*   & 3 & 1  \\
+& E_{21} & ( 2 , 3 , m+5 ) & 1  &   \kI_{m-1}^*   & 3 & 1  \\
+& E_{12} & ( 2 , 3 , 3m+3 ) & 3  &   \kI_{3m-3}^*   & 3 & 1  \\
+& E_{4}    & ( 2 , 3 , m+5 ) & 1  &   \kI_{m-1}^*   & 3 & 1  \\
+& E_{31} & ( 2 , 3 , 3m+3 ) & 3  &   \kI_{3m-3}^*   & 3 & 1 \\
+%--------------------------------------
+\SetCell[r=8]{c}
+\begin{array}{c}
+       v_3(t)=1   \\[3pt]
+       m = v_3(t-3) \\[3pt]
+       n = v_3(t+3) \\[3pt]
+\end{array} 
+& E_{1}    & ( 2 , 3 , m+n+4 ) & 1  &   \kI_{m+n-2}^*   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , 3m+3n ) & 3  &   \kI_{3m+3n-6}^*    & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , 2m+2n+2) & 1  &   \kI_{2m+2n-4}^*    & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 6m+6n-6 ) & 3  &   \kI_{6m+6n-6}^*    & 1 & 1  \\
+& E_{21} & ( 0 , 0 , m+4n+1 ) & 1  &   \kI_{m+4n-5}^*    & 1 & 1  \\
+& E_{12} & ( 0 , 0 , 12m+3n-9 ) & 3  &   \kI_{12m+3n-15}^*    & 1 & 1  \\
+& E_{4}    & ( 0 , 0 , 4m+n+1 ) & 1  &   \kI_{4m+n-5}^*    & 1 & 1  \\
+& E_{31} & ( 0 , 0 , 3m+12n-9 ) & 3  &   \kI_{3m+12n-15}^*    & 1 & 1 \\
+%--------------------------------------
+\SetCell[r=8]{c}
+\begin{array}{c}
+       v_3(t)=0   \\[3pt]
+       m = v_3(t-1) \\[3pt]
+       n = v_3(t+1) \\[3pt]
+\end{array} 
+& E_{1}    & ( 0 , 0 , 3m+3n ) & 1  &   \kI_{3m+3n}   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , m+n ) & 1  &   \kI_{m+n}   & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , 6m+6n ) & 1  &   \kI_{6m+6n}   & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 2m+2n ) & 1  &   \kI_{2m+2n}   & 1 & 1  \\
+& E_{21} & ( 0 , 0 , 12m+3n ) & 1  &   \kI_{12m+3n}   & 1 & 1  \\
+& E_{12} & ( 0 , 0 , m+4n ) & 1  &   \kI_{m+4n}   & 1 & 1  \\
+& E_{4}    & ( 0 , 0 , 3m+12n ) & 1  &   \kI_{3m+12n}   & 1 & 1  \\
+& E_{31} & ( 0 , 0 , 4m+n ) & 1  &   \kI_{4m+n}   & 1 & 1 \\
+%--------------------------------------
+\SetCell[r=8]{c}
+     -m = v_3(t)<0  
+& E_{1}    & ( 0 , 0 , 12m ) & p^{-2m}  &   \kI_{12m}   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , 4m ) & p^{-2m}  &   \kI_{4m}   & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , 6m ) & p^{-2m}  &   \kI_{6m}   & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 2m ) & p^{-2m}  &   \kI_{2m}   & 1 & 1  \\
+& E_{21} & ( 0 , 0 , 3m) & p^{-2m}  &   \kI_{3m}   & 1 & 1  \\
+& E_{12} & ( 0 , 0 , m ) & p^{-2m}  &   \kI_{m}   & 1 & 1  \\
+& E_{4}    & ( 0 , 0 , 3m ) & p^{-2m}  &   \kI_{3m}   & 1 & 1  \\
+& E_{31} & ( 0 , 0 , m ) & p^{-2m}  &   \kI_{m}   & 1 & 1 \\
+%--------------------------------------
+\SetCell[c=5,r=2]{c} & & & & & d\equiv 0  & d\not\equiv 0 \\
+                      & & & & & \SetCell[c=2]{c} d \Mod 3 & \\
+\end{longtblr}
+
+
+
+\newpage
+
+
+\begin{longtblr}
+[caption = {$S$ data for $p$=2}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-5}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cclclccc}
+%--------------------------------------
+\SetCell[c=1]{c} S &\SetCell[c=7]{c} p=2  & & & &  & & \\
+\SetCell[c=1]{c} t & E & 
+\SetCell[c=1]{c}\operatorname{sig}_2(E) & u & \Kd_2(E) & \SetCell[c=3]{c} u_2(d) & & \\
+%--------------------------------------
+%--------------------------------------
+\SetCell[r=8]{c}
+     m = v_2(t)>0  
+& E_{1}    & ( 4 , 6 , 4m+12 ) & 2^{-1}  &   \kI_{4m+4}^*   & 1 & 1 & 2  \\
+& E_{3}    & ( 4 , 6 , 12m+12 ) & 2^{-1}  &  \kI_{12m+4}^*    & 1 & 1 & 2  \\
+& E_{2}    & ( 4 , 6 , 2m+12 ) & 2^{-1}  &  \kI_{2m+4}^*    & 1 & 1 & 2  \\
+& E_{6}    & ( 4 , 6 , 6m+12 ) & 2^{-1}  &  \kI_{6m+4}^*    & 1 & 1 & 2  \\
+& E_{21} & ( 4 , 6 , m+12 ) & 2^{-1}  &   \kI_{m+4}^*      & 1 & 1 & 2  \\
+& E_{12} & ( 4 , 6 , 3m+12 ) & 2^{-1}  &   \kI_{3m+4}^*      & 1 & 1 & 2  \\
+& E_{4}    & ( 4 , 6 , m+12 ) & 2^{-1}  &  \kI_{m+4}^*    & 1 & 1 & 2  \\
+& E_{31} & ( 4 , 6 , 3m+12 ) & 2^{-1}  &  \kI_{3m+4}^*     & 1 & 1 & 2  \\
+%--------------------------------------
+\SetCell[r=8]{c}
+\begin{array}{cc}
+    v_2(t)=0   \\[3pt]
+    m = v_2(t-3)  \\[3pt]
+    n = v_2(t+3)  \\[3pt]
+    p = v_2(t-1)  \\[3pt]
+    q = v_2(t+1)  \\[3pt]
+    t\equiv 3 \, (4)
+\end{array}
+& E_{1}    & ( 4 , 6 , m+n+3p+3q  ) & 1  &   \kI_{m+n+3p+3q-8}^*   & 1 & 1 & 2  \\
+& E_{3}    & ( 4 , 6 , 3m+3n+p+q ) & 1  &  \kI_{3m+3n+p+q-8}^*    & 1 & 1 & 2  \\
+& E_{2}    & ( 4 , 6 , 2m+2n+6p+6q-12 ) & 2  &  \kI_{2m+2n+6p+6q-20}^*    & 1 & 1 & 2  \\
+& E_{6}    & ( 4 , 6 , 6m+6n+2p+2q-12  ) & 2  &  \kI_{6m+6n+2p+2q-20}^*    & 1 & 1 & 2  \\
+& E_{21} & ( 4 , 6 , m+4n+12p+3q-12  ) & 2  &   \kI_{m+4n+12p+3q-20}^*      & 1 & 1 & 2  \\
+& E_{12} & ( 4 , 6 , 12m+3n+p+4q-16 ) & 4 &   \kI_{12m+3n+p+4q-32}^*      & 1 & 1 & 2  \\
+& E_{4}    & ( 4 , 6 , 4m+n+3p+12q-24 ) & 4  &  \kI_{4m+n+3p+12q-16}^*    & 1 & 1 & 2  \\
+& E_{31} & ( 4 , 6 , 3m+12n+4p+q-12 ) &  2 &  \kI_{3m+12n+4p+q-20}^*     & 1 & 1 & 2  \\
+%--------------------------------------
+%--------------------------------------
+\SetCell[r=8]{c}
+\begin{array}{cc}
+    v_2(t)=0   \\[3pt]
+    m = v_2(t-3)  \\[3pt]
+    n = v_2(t+3)  \\[3pt]
+    p = v_2(t-1)  \\[3pt]
+    q = v_2(t+1)  \\[3pt]
+    t\equiv 1 \, (4)
+\end{array}
+& E_{1}    & ( 4 , 6 , m+n+3p+3q  ) & 1  &   \kI_{m+n+3p+3q-8}^*   & 1 & 1 & 2  \\
+& E_{3}    & ( 4 , 6 , 3m+3n+p+q ) & 1  &  \kI_{3m+3n+p+q-8}^*    & 1 & 1 & 2  \\
+& E_{2}    & ( 4 , 6 , 2m+2n+6p+6q-12 ) & 2  &  \kI_{2m+2n+6p+6q-20}^*    & 1 & 1 & 2  \\
+& E_{6}    & ( 4 , 6 ,6m+6n+2p+2q-12  ) & 2  &  \kI_{6m+6n+2p+2q-20}^*    & 1 & 1 & 2  \\
+& E_{21} & ( 4 , 6 , m+4n+12p+3q-16 ) & 4  &   \kI_{m+4n+12p+3q-24}^*      & 1 & 1 & 2  \\
+& E_{12} & ( 4 , 6 , 12m+3n+p+4q-12 ) & 2 &   \kI_{12m+3n+p+4q-20}^*      & 1 & 1 & 2  \\
+& E_{4}    & ( 4 , 6 , 4m+n+3p+12q-12 ) & 2  &  \kI_{4m+n+3p+12q-36}^*    & 1 & 1 & 2  \\
+& E_{31} & ( 4 , 6 , 3m+12n+4p+q-16 ) & 4  &  \kI_{3m+12n+4p+q-24}^*     & 1 & 1 & 2  \\
+%--------------------------------------
+\SetCell[r=8]{c}
+     -m = v_2(t)<0  
+& E_{1}    & ( 4 , 6 , 12m+12 ) & 2^{-(2m+1)}  &   \kI_{12m+4}^*   & 1 & 1 & 2  \\
+& E_{3}    & ( 4 , 6 , 4m+12 ) & 2^{-(2m+1)}  &  \kI_{4m+4}^*    & 1 & 1 & 2  \\
+& E_{2}    & ( 4 , 6 , 6m+12 ) & 2^{-(2m+1)}  &  \kI_{6m+4}^*    & 1 & 1 & 2  \\
+& E_{6}    & ( 4 , 6 , 2m+12 ) & 2^{-(2m+1)}  &  \kI_{2m+4}^*    & 1 & 1 & 2  \\
+& E_{21} & ( 4 , 6 , 3m+12 ) & 2^{-(2m+1)}  &   \kI_{3m+4}^*      & 1 & 1 & 2  \\
+& E_{12} & ( 4 , 6 , m+12 ) & 2^{-(2m+1)}  &   \kI_{m+4}^*      & 1 & 1 & 2  \\
+& E_{4}    & ( 4 , 6 , 3m+12 ) & 2^{-(2m+1)}  &  \kI_{3m+4}^*    & 1 & 1 & 2  \\
+& E_{31} & ( 4 , 6 , m+12 ) & 2^{-(2m+1)}  &  \kI_{m+4}^*     & 1 & 1 & 2  \\
+%--------------------------------------
+ \SetCell[c=5,r=2]{c} & & & & &  d\equiv 1 &  d\equiv 2  & d\equiv 3 \\
+                      & & & & & \SetCell[c=3]{c} d \Mod{4} & \\
+\end{longtblr}
+
+
+
+\newpage
+\section{Conclusion}
+
+\begin{prop}
+Let 
+\[ \begin{tikzcd}
+  & E_1 \ar[dash,swap,d,"2"] \ar[dash,r,"3"]   & E_3 \ar[dash,d,"2"] & \\
+  & E_2 \ar[dash,swap,dl,"2"] \ar[dash,swap,dr,"2"] \ar[dash,r,"3"]   & E_6  \ar[dash,swap,dl,"2"] \ar[dash,dr,"2"]  & \\
+    E_{21} \ar[dash,r,"3"] &   E_{12} & E_ 4 \ar[dash,r,"3"]    & E_{31}  \\
+\end{tikzcd}
+\]
+be a $\mathbf{Q}$-isogeny graph of type $S$ corresponding to a given $t$ in $\mathbf{Q}$, $t\ne 1,\pm 3$. For every square-free integer $d$, 
+the probability of a vertex
+to be the Faltings curve (circled)
+in the twisted isogeny graph 
+\[ \begin{tikzcd}
+  & E_1^d \ar[dash,swap,d,"2"] \ar[dash,r,"3"]   & E_3^d \ar[dash,d,"2"] & \\
+  & E_2^d \ar[dash,swap,dl,"2"] \ar[dash,swap,dr,"2"] \ar[dash,r,"3"]   & E_6^d  \ar[dash,swap,dl,"2"] \ar[dash,dr,"2"]  & \\
+    E_{21}^d \ar[dash,r,"3"] &   E_{12}^d & E_ 4^d \ar[dash,r,"3"]    & E_{31}^d  \\
+\end{tikzcd}
+\]
+is given by:
+
+\newpage
+
+\begin{longtblr}
+[caption = ]
+{cells = {mode=imath},hlines,vlines,measure=vbox,colspec=cccc}
+%--------------------------------------
+ \SetCell[c=2]{c} S & \text{twisted isogeny graph} & \text{Prob} \\
+%--------------------------------------
+v_3(t)>0 & v_2(t)\ne 0 &
+\scalebox{.6}{
+        \begin{tikzcd}[ampersand replacement=\&]  \& E_1 \ar[d] \ar[r]   \& \circled[0.8]{$E_3$} \ar[d] \& \\
+  \& E_2 \ar[dl] \ar[dr] \ar[r]   \& E_6  \ar[dl] \ar[dr]  \& \\
+    E_{21} \ar[r] \&   E_{12} \& E_ 4 \ar[r]    \& E_{31}  \\
+\end{tikzcd}
+} & 1 \\
+%--------------------------------------
+v_3(t)>0 & 
+\begin{array}{c}
+v_2(t)=0\\
+t\equiv 3\,(4)
+\end{array} 
+&
+\scalebox{.6}{
+        \begin{tikzcd}[ampersand replacement=\&]  \& E_1 \ar[d] \ar[r]   \& E_3 \ar[d] \& \\
+  \& E_2 \ar[dl] \ar[dr] \ar[r]   \& E_6  \ar[dl] \ar[dr]  \& \\
+    E_{21} \ar[r] \&   \circled[0.8]{$E_{12}$} \& E_ 4 \ar[r]    \& E_{31}  \\
+\end{tikzcd}
+} & 1 \\
+%--------------------------------------
+v_3(t)>0 & \begin{array}{c}
+v_2(t)=0\\
+t\equiv 1\,(4)
+\end{array} 
+ &
+\scalebox{.6}{
+        \begin{tikzcd}[ampersand replacement=\&]  \& E_1 \ar[d] \ar[r]   \& E_3 \ar[d] \& \\
+  \& E_2 \ar[dl] \ar[dr] \ar[r]   \& E_6  \ar[dl] \ar[dr]  \& \\
+    E_{21} \ar[r] \&   E_{12} \& E_ 4 \ar[r]    \& \circled[0.8]{$E_{31}$}  \\
+\end{tikzcd}
+} & 1 \\
+%--------------------------------------
+v_3(t)\le 0 & v_2(t)\ne 0 &
+\scalebox{.6}{
+        \begin{tikzcd}[ampersand replacement=\&]  \& \circled[0.8]{$E_1$} \ar[d] \ar[r]   \& E_3 \ar[d] \& \\
+  \& E_2 \ar[dl] \ar[dr] \ar[r]   \& E_6  \ar[dl] \ar[dr]  \& \\
+    E_{21} \ar[r] \&   E_{12} \& E_ 4 \ar[r]    \& E_{31}  \\
+\end{tikzcd}
+} & 1 \\
+%--------------------------------------
+v_3(t)\le 0 & 
+\begin{array}{c}
+v_2(t)=0\\
+t\equiv 3\,(4)
+\end{array} 
+&
+\scalebox{.6}{
+        \begin{tikzcd}[ampersand replacement=\&]  \& E_1 \ar[d] \ar[r]   \& E_3 \ar[d] \& \\
+  \& E_2 \ar[dl] \ar[dr] \ar[r]   \& E_6  \ar[dl] \ar[dr]  \& \\
+    E_{21} \ar[r] \&   E_{12} \& \circled[0.8]{$E_ 4$} \ar[r]    \& E_{31}  \\
+\end{tikzcd}
+} & 1 \\
+%--------------------------------------
+v_3(t)\le 0 & \begin{array}{c}
+v_2(t)=0\\
+t\equiv 1\,(4)
+\end{array} 
+ &
+\scalebox{.6}{
+        \begin{tikzcd}[ampersand replacement=\&]  \& E_1 \ar[d] \ar[r]   \& E_3 \ar[d] \& \\
+  \& E_2 \ar[dl] \ar[dr] \ar[r]   \& E_6  \ar[dl] \ar[dr]  \& \\
+    \circled[0.8]{$E_{21}$} \ar[r] \&   E_{12} \& E_ 4 \ar[r]    \& E_{31}  \\
+\end{tikzcd}
+} & 1 \\
+%--------------------------------------
+\end{longtblr}
+\end{prop}
+
+
+
+\vskip 0.35truecm
+
+\newpage 
+
+\noindent{\it Proof.} From the previous tables one gets:
+
+\vskip 0.5truecm
+
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%-------------------------------------------------
+\SetCell[c=1]{c} t &\SetCell[c=1]{c} [u(E)]  & \SetCell[c=1]{c} [u(E)(d)] \\
+%-------------------------------------------------
+\SetCell[r=1]{c} v_2(t)\ne 0& \SetCell[r=1]{c} (1:1:1:1:1:1:1:1) & (1:1:1:1:1:1:1:1) \\
+%-------------------------------------------------
+\SetCell[r=1]{c} \begin{array}{c}
+v_2(t)=0\\
+t/2\equiv 3\,(4)
+\end{array}  & \SetCell[r=1]{c} (1:1:2:2:2:2^2:2^2:2) & (1:1:1:1:1:1:1:1) \\
+%-------------------------------------------------
+\SetCell[r=1]{c} \begin{array}{c}
+v_2(t)=0\\
+t/2\equiv 1\,(4)
+\end{array}  & \SetCell[r=1]{c} (1:1:2:2:2^2:2:2:2^2)  & (1:1:1:1:1:1:1:1) \\%-------------------------------------------------
+\end{tblr}
+
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%-------------------------------------------------
+\SetCell[c=1]{c} t &\SetCell[c=1]{c} [u(E)]  & \SetCell[c=1]{c} [u(E)(d)] \\
+%-------------------------------------------------
+\SetCell[r=1]{c} v_3(t)>0& \SetCell[r=1]{c} (1:3:1:3:1:3:1:3) & (1:1:1:1:1:1:1:1) \\
+%-------------------------------------------------
+\SetCell[r=1]{c} v_3(t)\le 0& \SetCell[r=1]{c} (1:1:1:1:1:1:1:1) & (1:1:1:1:1:1:1:1) \\
+%-------------------------------------------------
+\end{tblr}
+
+\vskip 1.8truecm
+
+
+
+
+
+\end{document}

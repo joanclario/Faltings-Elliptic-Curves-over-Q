@@ -1,0 +1,297 @@
+\documentclass[11pt]{article}
+%--------------------------------------------------------------------------
+\usepackage{amsfonts,amssymb,amsmath,amsthm,latexsym,graphics,epsfig,amsfonts}
+\usepackage{verbatim,enumerate,array,booktabs,color,bigstrut,prettyref,tikz-cd}
+\usepackage{multirow}
+\usepackage[all]{xy}
+\usepackage[backref]{hyperref}
+\usepackage[OT2,T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{tabularray}
+\UseTblrLibrary{amsmath,varwidth}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{arydshln}
+%--------------------------------------------------------------------------
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\mathdash}{\relbar\mkern-8mu\relbar}
+\newcommand*\circled[2][1.6]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height={\f@size*#1},] (char) {\vphantom{WAH1g}#2};}}
+\makeatother
+%\addtolength{\textwidth}{4cm} 
+\addtolength{\textheight}{3.5cm} 
+\addtolength{\topmargin}{-2cm}
+%\addtolength{\marginparwidth}{-2cm} 
+\newcommand\myiso{\stackrel{\mathclap{\normalfont\mbox{\small $p$}}}{-}}
+\newcommand\myisot{\stackrel{\mathclap{\normalfont\mbox{\small $3$}}}{-}}
+\newcommand{\pref}[1]{\prettyref{#1}}
+%------------------------------------
+\newcommand{\Kd}{\operatorname{K}}
+\newcommand{\kI}{\operatorname{I}}
+\newcommand{\kII}{\operatorname{II}}
+\newcommand{\kIII}{\operatorname{III}}
+\newcommand{\kIV}{\operatorname{IV}}
+%-------------------------------------
+\newrefformat{eq}{\textup{(\ref{#1})}}
+\newrefformat{prty}{\textup{(\ref{#1})}}
+
+\definecolor{mylinkcolor}{rgb}{0.8,0,0}
+\definecolor{myurlcolor}{rgb}{0,0,0.8}
+\definecolor{mycitecolor}{rgb}{0,0,0.8}
+\hypersetup{colorlinks=true,urlcolor=myurlcolor,citecolor=mycitecolor,linkcolor=mylinkcolor,linktoc=page,breaklinks=true}
+%\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+%\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}
+\addtolength{\textwidth}{4cm} \addtolength{\hoffset}{-2cm}
+\addtolength{\marginparwidth}{-2cm}
+%\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{definition}[defn]{Definition}
+\newtheorem{claim}[defn]{Claim}
+%\theoremstyle{plain}
+\newtheorem{thmA}{Theorem A}
+\newtheorem{thmB}{Theorem B}
+\newtheorem{thm2}{Theorem}
+\newtheorem{prop2}{Proposition}
+\newtheorem{note}{Note}
+\newtheorem{corollary}[defn]{Corollary}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{property}[defn]{Property}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{theorem}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{proposition}[defn]{Proposition}
+\newtheorem{thmnn}{Theorem}
+\newtheorem{conj}[defn]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{remarks}{Remarks}
+\newtheorem{ack}{Acknowledgements}
+\newtheorem{remark}[defn]{Remark}
+\newtheorem{question}[defn]{Question}
+\newtheorem{example}[defn]{Example}
+%-------------------------------------
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Qbar}{\overline{\Q}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\modQ}{\,\text{mod}\,(\Q^)^2}
+%-------------------------------------
+\newcommand{\mysquare}[1]{\tikz{\path[draw] (0,0) rectangle node{\tiny #1} (8pt,8pt) ;}}
+\newcommand{\mycircle}[1]{\tikz{\path[draw] (0,0) circle (4pt) node{\tiny #1};}}
+%-------------------------------------
+\begin{document}
+\title{Type $R_4(15)$}
+\date{\today}
+\maketitle
+%-------------------------------------
+\section{Setting}
+The isogeny graphs of type $R_4(15)$ are given by four isogenous elliptic curves:
+
+
+\[ \begin{tikzcd}
+E_1 \arrow[dash]{r}{5} 
+    \arrow[dash]{d}{3} & 
+    E_5  \arrow[dash]{d}{3} \\
+ E_3 \arrow[dash]{r}{5} & E_{15}   \,.
+\end{tikzcd}
+\]
+
+
+%\noindent The modular curve $X_0(15)$ is isomorphic to the elliptic curve \textt{15a.6} given by the Weierstrass equation $y^2+xy+y=x^3+4x-6$. It has rank $0$ over $\Q$; in fact, $X_0(15)(\Q)$ is isomorphic to $\Z/6\Z$.  The forgetful $j$-map is given by:
+%$$
+%j \colon X_0(15) \longrightarrow \mathbf{P}^1 \,,
+%(x,y) \mapsto x 
+%$$
+
+The modular curve $X_0(15)$ is elliptic of rank $0$. Its rational points are: four rational cusps and four rational non-cuspidal non-CM points $\tau,\tau'\in\mathbb H$.XXX Their corresponding $j$-invariants are:
+$$
+j(\tau)=\frac{-5^{2}}{2},\qquad 
+j(\tau')=\frac{-5^{2}\cdot 241^{3}}{2^{3}},\quad
+j(\tau'')=\frac{-5\cdot 29^{3}}{2^{5}},\quad 
+j(\tau''')=\frac{5\cdot 211^{3}}{2^{15}}
+$$
+We have XXX $j(15\tau)=j(\tau')$.XXX
+
+We can (and do) choose Weierstrass equations 
+\vskip 0.5truecm
+\begin{tblr}
+{cells={mode=imath},hlines,vlines,measure=vbox,
+colspec=clll}
+E & \text{Minimal Weierstrass model} & j(E) &\text{label}\\
+\hline
+E_1 &  y^2 = x^3 - x^2 - 8x + 112  & \frac{-5^{2}}{2}  & \texttt{400c1}\\
+E_3 & y^2 = x^3 - x^2 - 2008x + 35312   & \frac{-5^{2}\cdot 241^{3}}{2^{3}}  & \texttt{400c2}\\
+E_5 & y^2 = x^3 - x^2 - 1208x - 19088  & \frac{-5\cdot 29^{3}}{2^{5}}  & \texttt{400c3}\\
+E_{15} & y^2 = x^3 - x^2 + 8792 x + 140912   &  \frac{5\cdot 211^{3}}{2^{15}} & \texttt{400c4}\\
+\end{tblr}
+\vskip 0.5truecm
+
+so that one has:
+\vskip 0.5truecm
+\begin{tblr}{
+vline{1,2,3}={1-4,6-9,11-15,16-19}{solid},
+cells={mode=imath},colspec=cll|l|l|}
+\hline 
+ E  & E_1 & E_3 & E_7 & E_{15}\\
+ \hline 
+c_4(E) & 2^{4}\cdot 5^{2} & 2^{4}\cdot 5^{2}\cdot 241 & 2^{4}\cdot 5^{3}\cdot 29 & -2^{4}\cdot 5^{3}\cdot 211
+\\
+c_6(E) & -2^{6}\cdot 5^{2}\cdot 59 & -2^{6}\cdot 5^{2}\cdot 13\cdot 1439 & 2^{6}\cdot 5^{4}\cdot 421 & -2^{6}\cdot 5^{4}\cdot 13\cdot 239
+\\
+\Delta(E) & -2^{13}\cdot 5^{4} & -2^{15}\cdot 5^{4} & -2^{17}\cdot 5^{8} & -2^{27}\cdot 5^{8}
+\\
+\hline
+\end{tblr}
+
+
+
+
+
+\vskip 0.5truecm
+\noindent and, with this choice, the isogeny graph is normalized. 
+
+%\newpage 
+
+We have that the Faltings curve (circled) in the graph is
+%\vskip 0.5truecm
+$$
+\makecell{%
+        \begin{tikzcd}[ampersand replacement=\&]
+\circled[0.8]{$E_1$} \ar[r] 
+   \ar[d]  \& 
+    E_5  \ar[d]  \\
+ E_3 \ar[r]  \&    \, E_{15}
+        \end{tikzcd}}  
+$$
+\vskip 0.5truecm
+
+Then any $\mathbb Q$-isogeny class of type $R_4(15)$ is isomorphic to 
+
+\[ \begin{tikzcd}
+E_1 \arrow[dash]{r} 
+    \arrow[dash]{d} & 
+    E_5  \arrow[dash]{d} \\
+ E_3 \arrow[dash]{r} & E_{15}   \,.
+\end{tikzcd}
+\]
+
+
+
+\section{Signatures, minimal models, Kodaira symbols, and Pal values}
+
+
+$$
+\begin{tblr}
+%[caption = {$R_4(15)$ data for $p$=2}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-3}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = clclccc}
+%----------------------------------------------
+\SetCell[c=6]{c} p=2 & & &   & & \\ 
+ E & \SetCell[c=1]{c}  \operatorname{sig}_2(E)  & \SetCell[c=1]{c} \Kd_2(E) & \SetCell[c=3]{c} u_2(d)  \\
+%----------------------------------------------
+ E_1 & (4,6,13)  & \kI_{5}^* & 1 & 1 & 2 \\
+ E_3 & (4,6,15)  & \kI_{7}^* & 1 & 1 & 2 \\
+ E_5 & (4,6,17) & \kI_{9}^* & 1 & 1 & 2 \\
+ E_{15} &(4,6,27)   & \kI_{19}^* & 1 & 1 & 2\\
+%----------------------------------------------
+ \SetCell[c=3,r=2]{c}   & & &  d\equiv 1 &  d\equiv 2  & d\equiv 3 \\
+                        & & & \SetCell[c=3]{c} d \Mod{4}   \\
+\end{tblr}
+$$
+
+\vskip 0.75truecm
+
+
+$$
+\begin{tblr}
+%[caption = {$R_4(15)$ data for $p$=7}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-3}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = clclcc}
+%----------------------------------------------
+\SetCell[c=5]{c} p=5  &  & &  \\ 
+ E & \SetCell[c=1]{c} \operatorname{sig}_{3}(E)  & \SetCell[c=1]{c} \Kd_{3}(E) & \SetCell[c=2]{c} u_{3}(d)  \\
+%----------------------------------------------
+ E_1 & (2,2,4)  & \kIV & 1 & 1  \\
+ E_3 & (2,2,4) & \kIV & 1 & 1  \\
+ E_5 & (3,4,8)  & \kIV^*& 5 & 1\\
+ E_{15} & (3,4,8)  & \kIV^* & 5 & 1  \\
+%----------------------------------------------
+ \SetCell[c=3,r=2]{c}  &  & &  d\equiv 0 &  d\not\equiv 0  \\
+                       &  & & \SetCell[c=2]{c} d \Mod{5}   \\
+\end{tblr}
+$$
+
+
+
+\vskip 0.75truecm
+
+\newpage
+\section{Conclusion}
+\begin{prop}
+For every square-free integer $d$, 
+the probability of a vertex
+to be the Faltings curve (circled)
+in the twisted isogeny graph 
+$$  \begin{tikzcd}
+E^d_1 \arrow[dash]{r}{5} 
+    \arrow[dash]{d}{3} & 
+    E^d_5  \arrow[dash]{d}{3} \\
+ E^d_3 \arrow[dash]{r}{5} & E^d_{15}   \,.
+\end{tikzcd}
+$$
+is given by:
+\vskip 0.75truecm
+
+\begin{tblr}{|c|c|c|}
+\hline
+ \SetCell[c=1]{c}\text{twisted isogeny graph} & \SetCell[c=1]{c}\text{condition} \SetCell[c=1]{c}\text{prob} \\
+ \hline
+\makecell{%
+        \begin{tikzcd}[ampersand replacement=\&]
+\circled[0.8]{$E_1^d$} \ar[r] 
+   \ar[d]  \& 
+    E_5^d  \ar[d]  \\
+ E_3^d \ar[r]  \&    \, E_{15}^d
+        \end{tikzcd}} 
+        & d\not\equiv 0\,(5)& 5/6\\ 
+\hline
+   \makecell{%
+        \begin{tikzcd}[ampersand replacement=\&]
+E_1^d \ar[d] 
+    \& 
+    \circled[0.8]{$E_5^d$} \ar[l]   \ar[d]  \\
+E_3^d  \&    \, E_{15}^d  \ar[l] 
+        \end{tikzcd}} 
+&  d\equiv 0\,(5) & 1/6 \\
+\hline
+\end{tblr}
+
+
+
+\end{prop}
+
+\vskip 0.35truecm
+
+\noindnet{\it Proof.} From the previous tables one gets:
+
+\vskip 0.5truecm
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%-------------------------------------------------
+ \SetCell[c=1]{c} [u(E)(d)] & \SetCell[c=1]{c} d & \SetCell[c=1]{c}\text{Prob}\\
+%-------------------------------------------------
+ \SetCell[r=1]{c} \left(1:\frac{1}{3}:\frac{1}{5}:\frac{1}{15}\right) & d\not\equiv 0\,(5)&\SetCell[r=2]{c} \left(\frac{5}{6},0,\frac{1}{6},0\right) \\
+  \SetCell[r=1]{c} \left(1:\frac{1}{3}:5:\frac{5}{3}\right) & d\equiv 0\,(5)& \\
+%-------------------------------------------------
+\end{tblr}
+
+\end{document}
+
+

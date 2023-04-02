@@ -1,0 +1,234 @@
+\documentclass[11pt]{article}
+%--------------------------------------------------------------------------
+\usepackage{amsfonts,amssymb,amsmath,amsthm,latexsym,graphics,epsfig,amsfonts}
+\usepackage{verbatim,enumerate,array,booktabs,color,bigstrut,prettyref,tikz-cd}
+\usepackage{multirow}
+\usepackage[all]{xy}
+\usepackage[backref]{hyperref}
+\usepackage[OT2,T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{tabularray}
+\UseTblrLibrary{amsmath,varwidth}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{arydshln}
+%--------------------------------------------------------------------------
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\mathdash}{\relbar\mkern-8mu\relbar}
+\newcommand*\circled[2][1.6]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height={\f@size*#1},] (char) {\vphantom{WAH1g}#2};}}
+\makeatother
+%\addtolength{\textwidth}{4cm} 
+\addtolength{\textheight}{3.5cm} 
+\addtolength{\topmargin}{-2cm}
+%\addtolength{\marginparwidth}{-2cm} 
+\newcommand\myiso{\stackrel{\mathclap{\normalfont\mbox{\small $p$}}}{-}}
+\newcommand\myisot{\stackrel{\mathclap{\normalfont\mbox{\small $3$}}}{-}}
+\newcommand{\pref}[1]{\prettyref{#1}}
+%------------------------------------
+\newcommand{\Kd}{\operatorname{K}}
+\newcommand{\kI}{\operatorname{I}}
+\newcommand{\kII}{\operatorname{II}}
+\newcommand{\kIII}{\operatorname{III}}
+\newcommand{\kIV}{\operatorname{IV}}
+%-------------------------------------
+\newrefformat{eq}{\textup{(\ref{#1})}}
+\newrefformat{prty}{\textup{(\ref{#1})}}
+
+\definecolor{mylinkcolor}{rgb}{0.8,0,0}
+\definecolor{myurlcolor}{rgb}{0,0,0.8}
+\definecolor{mycitecolor}{rgb}{0,0,0.8}
+\hypersetup{colorlinks=true,urlcolor=myurlcolor,citecolor=mycitecolor,linkcolor=mylinkcolor,linktoc=page,breaklinks=true}
+%\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+%\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}
+\addtolength{\textwidth}{4cm} \addtolength{\hoffset}{-2cm}
+\addtolength{\marginparwidth}{-2cm}
+%\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{definition}[defn]{Definition}
+\newtheorem{claim}[defn]{Claim}
+%\theoremstyle{plain}
+\newtheorem{thmA}{Theorem A}
+\newtheorem{thmB}{Theorem B}
+\newtheorem{thm2}{Theorem}
+\newtheorem{prop2}{Proposition}
+\newtheorem{note}{Note}
+\newtheorem{corollary}[defn]{Corollary}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{property}[defn]{Property}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{theorem}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{proposition}[defn]{Proposition}
+\newtheorem{thmnn}{Theorem}
+\newtheorem{conj}[defn]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{remarks}{Remarks}
+\newtheorem{ack}{Acknowledgements}
+\newtheorem{remark}[defn]{Remark}
+\newtheorem{question}[defn]{Question}
+\newtheorem{example}[defn]{Example}
+%-------------------------------------
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Qbar}{\overline{\Q}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\modQ}{\,\text{mod}\,(\Q^)^2}
+%-------------------------------------
+\newcommand{\mysquare}[1]{\tikz{\path[draw] (0,0) rectangle node{\tiny #1} (8pt,8pt) ;}}
+\newcommand{\mycircle}[1]{\tikz{\path[draw] (0,0) circle (4pt) node{\tiny #1};}}
+%-------------------------------------
+\begin{document}
+\title{Type $L_4$}
+\date{\today}
+\maketitle
+%-------------------------------------
+\section{Setting}
+The isogeny graphs of type $L_4$ are given by four isogenous elliptic curves:
+
+\[ 
+\begin{tikzcd}
+E_1 \arrow[dash]{r}{3} & E_{3}\arrow[dash]{r}{3} & E_{9}\arrow[dash]{r}{3} & E_{27}\,.
+\end{tikzcd}
+\]
+
+
+The modular curve $X_0(27)$ is elliptic of rank $0$. Its rational points are: two rational cusps and one rational CM points $\tau\in\mathbb H$. Its corresponding $j$-invariant is:
+$$
+j(\tau)=-2^{15}\cdot 3\cdot 5^{3}.
+$$
+We can (and do) choose Weierstrass equations 
+\vskip 0.5truecm
+\begin{tblr}
+{cells={mode=imath},hlines,vlines,measure=vbox,
+colspec=clll}
+E & \text{Minimal Weierstrass model} & j(E) &\text{label}\\
+E_{1} & y^2 + y = x^3 - 30x + 63  & -2^{15}\cdot 3\cdot 5^{3}  & \texttt{27a4}\\
+E_{3} & y^2 + y = x^3 & 0 & \texttt{27a3}\\
+E_{9} & y^2 + y = x^3 - 7 & 0 & \texttt{27a1}\\
+E_{27} & y^2 + y = x^3 - 270x - 1708 & -2^{15}\cdot 3\cdot 5^{3} & \texttt{27a2}\\
+\end{tblr}
+\vskip 0.5truecm
+
+\noindent so that one has:
+\vskip 0.5truecm
+\begin{tblr}{
+vline{1,2,3}={1-4,6-9,11-14,16-19}{solid},
+cells={mode=imath},colspec=cll|l|l|}
+\hline 
+ E  & E_1 & E_3 & E_9 & E_{27}\\
+ \hline 
+c_4(E) & 2^{5}\cdot 3^{2}\cdot 5 & 0 & 0 & 2^{5}\cdot 3^{4}\cdot 5
+\\
+c_6(E) &-2^{3}\cdot 3^{3}\cdot 11\cdot 23 & -2^{3}\cdot 3^{3} & 2^{3}\cdot 3^{6} & 2^{3}\cdot 3^{6}\cdot 11\cdot 23
+\\  
+\Delta(E)  & -3^{5} & -3^{3} & -3^{9} & -3^{11}
+\\
+\hline
+\end{tblr}
+
+
+
+\vskip 0.5truecm
+\noindent and, with this choice, the isogeny graph is normalized. 
+
+%\newpage 
+
+We have that the Faltings curve (circled) in the graph is
+%\vskip 0.5truecm
+$$
+E_1 \longleftarrow \circled[0.8]{$E_3$} \longrightarrow E_9\longrightarrow E_{27}\,.
+$$
+
+Then any $\mathbb Q$-isogeny class of type $L_4$ is isomorphic to 
+
+\[ 
+\begin{tikzcd}
+E_1 \arrow[dash]{r}{3} & E_{3}\arrow[dash]{r}{3} & E_{9}\arrow[dash]{r}{3} & E_{27}\,.
+\end{tikzcd}
+\]
+
+Note that $E_1, E_3, E_9$ and $E_{27}$ have complex multiplication by an order of the ring of integers of $\Q(\sqrt{-3})$, and $E_{9}=E_3^{-3}$ and $E_{27}=E_1^{-3}$. 
+
+
+\section{Signatures, minimal models, Kodaira symbols, and Pal values}
+
+\vskip 0.3truecm
+
+$$
+\begin{tblr}
+%[caption = {$R_4(14)$ data for $p$=7}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-3}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = clccc}
+%----------------------------------------------
+\SetCell[c=5]{c} p=3  & & &  \\ 
+ E & \SetCell[c=1]{c} \operatorname{sig}_{3}(E)  & \SetCell[c=1]{c} \Kd_{3}(E) & \SetCell[c=2]{c} u_{3}(d)  \\
+%----------------------------------------------
+ E_1 & (2,3,5)  & \kIV & 1 & 1  \\
+ E_{3} &(0,3,3)   & \kII & 1 & 1 \\
+ E_9 & (0,6,9)   & \kIV^*& 3 & 1\\
+ E_{27} & (4,6,11)   & \kII^* & 3 & 1  \\
+%----------------------------------------------
+ \SetCell[c=3,r=2]{c}  &  & &  d\equiv 0 &  d\not\equiv 0  \\
+                       &  & & \SetCell[c=2]{c} d \Mod{3}   \\
+\end{tblr}
+$$
+
+\vskip 0.75truecm
+
+\section{Conclusion}
+\begin{prop}
+For every square-free integer $d$, 
+the probability of a vertex
+to be the Faltings curve (circled)
+in the twisted isogeny graph 
+\[ 
+\begin{tikzcd}
+E_1^d \arrow[dash]{r}{3} & E_{3}^d\arrow[dash]{r}{3} & E_{9}^d\arrow[dash]{r}{3} & E_{27}^d
+\end{tikzcd}
+\]
+is given by:
+\vskip 0.75truecm
+
+\begin{tblr}{|c|c|c|}
+\hline
+ \SetCell[c=1]{c}\text{twisted isogeny graph} & \SetCell[c=1]{c}\text{condition} & \SetCell[c=1]{c}\text{prob} \\
+ \hline
+
+E_1 \longleftarrow \circled[0.8]{$E_3$} \longrightarrow E_9\longrightarrow E_{27}
+ 
+        & d\not\equiv 0\,(3)& 3/4\\ 
+\hline
+E_1 \longleftarrow E_3 \longleftarrow \circled[0.8]{$E_9$}  \longrightarrow E_{27}
+&  d\equiv 0\,(3) & 1/4 \\
+\hline
+\end{tblr}
+
+
+
+\end{prop}
+
+\vskip 0.35truecm
+
+\noindnet{\it Proof.} From the previous tables one gets:
+
+\vskip 0.5truecm
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%-------------------------------------------------
+\SetCell[c=1]{c} [u(E)(d)] & \SetCell[c=1]{c} d & \SetCell[c=1]{c}\text{Prob}\\
+%-------------------------------------------------
+ \SetCell[r=1]{c} \left(\frac{1}{3}:1:\frac{1}{3}:\frac{1}{9}\right) & d\not\equiv 0\,(3)&\SetCell[r=2]{c} \left(0,\frac{3}{4},\frac{1}{4},0\right) \\
+  \SetCell[r=1]{c} \left(\frac{1}{3}:1:3:1\right) & d\equiv 0\,(3)& \\
+%-------------------------------------------------
+\end{tblr}
+
+\end{document}
+
+

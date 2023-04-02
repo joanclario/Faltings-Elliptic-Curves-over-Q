@@ -1,0 +1,533 @@
+
+
+
+
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,latexsym,graphics,epsfig,amsfonts}
+\usepackage{verbatim,enumerate,array,booktabs,color,bigstrut,prettyref,tikz-cd}
+\usepackage{multirow}
+\usepackage[all]{xy}
+\usepackage[backref]{hyperref}
+\usepackage[OT2,T1]{fontenc}
+%\usepackage{ctable}
+\usepackage{mathtools}
+
+\usepackage{longtable}
+
+
+\usepackage{mathtools}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\mathdash}{\relbar\mkern-8mu\relbar}
+\newcommand*\circled[2][1.6]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height={\f@size*#1},] (char) {\vphantom{WAH1g}#2};}}
+\makeatother
+
+
+
+\usepackage{tabularray}
+\UseTblrLibrary{amsmath,varwidth}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{arydshln}
+
+
+\newcommand\myiso{\stackrel{\mathclap{\normalfont\mbox{\small $p$}}}{-}}
+\newcommand\myisot{\stackrel{\mathclap{\normalfont\mbox{\small $3$}}}{-}}
+
+\newcommand{\pref}[1]{\prettyref{#1}}
+\newrefformat{eq}{\textup{(\ref{#1})}}
+\newrefformat{prty}{\textup{(\ref{#1})}}
+
+\definecolor{mylinkcolor}{rgb}{0.8,0,0}
+\definecolor{myurlcolor}{rgb}{0,0,0.8}
+\definecolor{mycitecolor}{rgb}{0,0,0.8}
+\hypersetup{colorlinks=true,urlcolor=myurlcolor,citecolor=mycitecolor,linkcolor=mylinkcolor,linktoc=page,breaklinks=true}
+
+%\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+%\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}
+
+\addtolength{\textwidth}{4cm} \addtolength{\hoffset}{-2cm}
+\addtolength{\marginparwidth}{-2cm}
+
+%\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{definition}[defn]{Definition}
+\newtheorem{claim}[defn]{Claim}
+
+%\theoremstyle{plain}
+\newtheorem{thmA}{Theorem A}
+\newtheorem{thmB}{Theorem B}
+\newtheorem{thm2}{Theorem}
+\newtheorem{prop2}{Proposition}
+\newtheorem{note}{Note}
+
+\newtheorem{corollary}[defn]{Corollary}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{property}[defn]{Property}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{theorem}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{proposition}[defn]{Proposition}
+\newtheorem{thmnn}{Theorem}
+\newtheorem{conj}[defn]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{remarks}{Remarks}
+\newtheorem{ack}{Acknowledgements}
+\newtheorem{remark}[defn]{Remark}
+\newtheorem{question}[defn]{Question}
+\newtheorem{example}[defn]{Example}
+
+
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Qbar}{\overline{\Q}}
+\newcommand{\Z}{\mathbb Z}
+
+\newcommand{\modQ}{\,\text{mod}\,(\Q^)^2}
+
+\newcommand{\mysquare}[1]{\tikz{\path[draw] (0,0) rectangle node{\tiny #1} (8pt,8pt) ;}}
+\newcommand{\mycircle}[1]{\tikz{\path[draw] (0,0) circle (4pt) node{\tiny #1};}}
+
+
+%------------------------------------
+\newcommand{\Kd}{\operatorname{K}}
+\newcommand{\kI}{\operatorname{I}}
+\newcommand{\kII}{\operatorname{II}}
+\newcommand{\kIII}{\operatorname{III}}
+\newcommand{\kIV}{\operatorname{IV}}
+%-------------------------------------
+
+
+
+\begin{document}
+\title{Type $L_2(7)$}
+\date{\today}
+\maketitle
+
+\section{Setting}
+
+The isogeny graphs of type $L_2(7)$ are given by
+two isogenous elliptic curves:
+
+\[ 
+\begin{tikzcd}
+E_1 \arrow[dash]{r}{7} & E_7   \,.
+\end{tikzcd}
+\]
+
+
+\noindent A hauptmodule of $X_0(7)$ is  
+$$t(\tau)= 7^{2} \left( \frac{\eta(7\tau)}{\eta(\tau)}\right)^{4}\,.$$ 
+Letting $t=t(\tau)$, one can write
+$$
+\begin{tblr}{l@{\,=\,}l}
+j(E_1) = j(\tau) & 
+\displaystyle{\frac{\left(t^2+5\, t+1\right)^3 \left(t^2+13\, t+49\right)}{t}}\\[6pt]
+j(E_7) = j(7\tau) & 
+\displaystyle
+{\frac{\left(t^2+13\, t+49\right) \left(t^2+245\, t+2401\right)^3}{t^7}}\,,\\[6pt]
+\end{tblr}
+$$
+and the Fricke involution of $X_0(7)$ is given by $W_7(t)=7^2/t $.
+
+We can (and do) choose Weierstrass equations for $(E_1,E_7)$ with signatures:
+$$
+ \begin{tblr}{|c|l|}
+\hline \SetCell[c=2]{c} L_2(7) \\ \hline
+ c_4(E_1) & (t^2 + 5\, t + 1)(t^2 + 13\, t + 49)\\
+ c_6(E_1) & (t^2 + 13\, t + 49)(t^4 + 14\, t^3 + 63\, t^2 + 70\, t - 7)\\
+ \Delta(E_1) & t(t^2 + 13\, t + 49)^{2}\\ \hline
+ c_4(E_7) & (t^2 + 13\, t + 49)(t^2 + 245\, t + 2401)\\
+ c_6(E_7) & (t^2 + 13\, t + 49)(t^4 - 490\, t^3 - 21609\, t^2 - 235298\, t - 823543)\\
+ \Delta(E_7) & t^{7}(t^2 + 13\, t + 49)^{2}\\ \hline
+\end{tblr}
+$$
+With regard to the action of the Fricke involution 
+on the isogeny graph, 
+it can be displayed as follows:
+\[ 
+\begin{tikzcd}
+W_7\,(
+E_1 \arrow[dash]{r}{7} & E_7
+) = \,\, E_7^{-7} \arrow[dash]{r}{7} & E_1^{-7}   \,.
+\end{tikzcd}
+\]
+
+
+\newpage
+
+\section{Kodaira symbols \& Pal coefficients}
+
+
+\begin{longtblr}
+[caption= {$L_2(7)$ data for $p\ne 2,3,7$}]
+{cells={mode=imath},hlines,vlines,measure=vbox,
+hline{Z}={1-X}{0pt},
+vline{1}={Y-Z}{0pt},
+colspec=cclclcc}
+\SetCell[c=1]{c} L_2(7) &\SetCell[c=6]{c} p\ne 2,3,7 &    & \\
+\SetCell[c=1]{c} t & E & 
+\SetCell[c=1]{c} \operatorname{sig}_p(E) & u & \Kd_p(E) & \SetCell[c=2]{c} u_p(d)\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+     m= v_p(t)>0   
+& E_1 & (0,0,m) & 1 & \kI_{m} & 1& 1\\
+& E_7 & (0,0,7m) & 1 &  \kI_{7m} & 1& 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_{p}(t)=0  \\[3pt]
+    v_{p}(t^2 + 13t + 49)=6m>0 
+\end{array}
+& E_1 & (2m,0,0) & p^m &  \kI_0  & 1 & 1\\
+& E_7 & (2m,0,0) & p^m &  \kI_0 & 1 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_{p}(t)=0  \\[3pt]
+    v_{p}(t^2 + 13\,t + 49)=6m+1>0 
+\end{array}
+& E_1 & (2m+1,1,2) & p^m  &  \kII  & 1 & 1\\
+& E_7 & (2m+1,1,2) & p^m  &  \kII & 1 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_{p}(t)=0  \\[3pt]
+    v_{p}(t^2 + 13\,t + 49)=6m+2>0 
+\end{array}
+& E_1 & (2m+2,2,4) & p^m  &  \kIV  & 1 & 1\\
+& E_7 & (2m+2,2,4) &p^m   &  \kIV & 1 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_{p}(t)=0  \\[3pt]
+    v_{p}(t^2 + 13\,t + 49)=6m+3>0 
+\end{array}
+& E_1 & (2m+3,3,6) & p^m  &  \kI_0^*  & p & 1\\
+& E_7 & (2m+3,3,6) & p^m  &  \kI_0^* & p & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_{p}(t)=0  \\[3pt]
+    v_{p}(t^2 + 13\,t + 49)=6m+4>0 
+\end{array}
+& E_1 & (2m+4,4,8) & p^m  &  \kIV^*  & p & 1\\
+& E_7 & (2m+4,4,8) & p^m  &  \kIV^* & p & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_{p}(t)=0  \\[3pt]
+    v_{p}(t^2 + 13\,t + 49)=6m+5>0 
+\end{array}
+& E_1 & (2m+5,5,10) & p^m  &  \kII^*  & p & 1\\
+& E_7 & (2m+5,5,10) & p^m  &  \kII^* & p & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+     -m= v_p(t)<0   
+& E_1 & (0,0,7m) & p^{-m} & \kI_{7m} & 1& 1\\
+& E_7 & (0,0,m) & p^{-m} &  \kI_{m} & 1& 1\\
+%----------------------------------------------
+ \SetCell[c=5,r=2]{c} & & & & & d\equiv 0  & d\not\equiv 0 \\
+                      & & & & & \SetCell[c=2]{c} d \Mod p & \\
+\end{longtblr}
+
+\newpage
+
+\begin{longtblr}
+[caption= {$L_2(7)$ data for $p=3$}]
+{cells={mode=imath},hlines,vlines,measure=vbox,
+hline{Z}={1-X}{0pt},
+vline{1}={Y-Z}{0pt},
+colspec=cclclcc}
+\SetCell[c=1]{c} L_2(7) &\SetCell[c=6]{c} p=3 &    & \\
+\SetCell[c=1]{c} t & E & 
+\SetCell[c=1]{c} \operatorname{sig}_3(E) & u & \Kd_3(E) & \SetCell[c=2]{c} u_3(d)\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+     m= v_3(t)>0   
+& E_1 & (0,0,m) & 1 & \kI_{m} & 1& 1\\
+& E_7 & (0,0,7m) & 1 &  \kI_{7m} & 1& 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_3(t)=0  \\[3pt]
+    t\equiv 1,4\,  (9) 
+\end{array}
+& E_1 & (2,3,4) & 1 &  \kII  & 1 & 1\\
+& E_7 & (2,3,4) & 1 &  \kII & 1 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_3(t)=0  \\[3pt]
+    t\equiv 16,25 \, (27) 
+\end{array}
+& E_1 & (3,5,6) & 1 &  \kIV  & 1 & 1\\
+& E_7 & (3,5,6) & 1 &  \kIV & 1 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_3(t)=0  \\[3pt]
+        t\equiv 7\, (27) 
+\end{array}
+& E_1 & (3,\ge 6,6) & 1 &  \kI_0^*  & 3  & 1\\
+& E_7 & (3,\ge 6,6) & 1 &  \kI_0^* & 3 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+     -m= v_3(t)<0   
+& E_1 & (0,0,7m) & 3^{-m} & \kI_{7m} & 1& 1\\
+& E_7 & (0,0,m) & 3^{-m} &  \kI_{m} & 1& 1\\
+%----------------------------------------------
+ \SetCell[c=5,r=2]{c} & & & & & d\equiv 0  & d\not\equiv 0 \\
+                      & & & & & \SetCell[c=2]{c} d \Mod 3 & \\
+\end{longtblr}
+
+\newpage
+
+\begin{longtblr}
+[caption= {$L_2(7)$ data for $p=7$}]
+{cells={mode=imath},hlines,vlines,measure=vbox,
+hline{Z}={1-X}{0pt},
+vline{1}={Y-Z}{0pt},
+colspec=cclclcc}
+\SetCell[c=1]{c} L_2(7) &\SetCell[c=6]{c} p=7 &    & \\
+\SetCell[c=1]{c} t & E & 
+\SetCell[c=1]{c} \operatorname{sig}_7(E) & u & \Kd_7(E) & \SetCell[c=2]{c} u_7(d)\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+     m= v_7(t)\ge 3 
+& E_1 & (2,3,m+4) & 1 & \kI_{m-2}^* & 7& 1\\
+& E_7 & (2,3,7m-8) & 7 &  \kI_{7m-14}^* & 7& 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=2  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m\ge 2
+\end{array}
+& E_1 & (\ge 1,1,2) & 7^m &  \kII  & 1 & 1\\
+& E_7 & (\ge 1,1,2) & 7^{m+1} &  \kII & 1 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=2  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m+1\ge 2 
+\end{array}
+& E_1 & (\ge 3,2,4) & 7^m  &  \kIV  & 1 & 1\\
+& E_7 & (\ge 3,2,4) & 7^{m+1} &  \kIV & 1 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=2  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m+2
+\end{array}
+& E_1 & (\ge 2,3,6) & 7^m &  \kI_0^*  & 7 & 1\\
+& E_7 & (\ge 2,3,6) & 7^{m+1} &  \kI_0^* & 7 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=2  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m+3
+\end{array}
+& E_1 & (\ge 3,4,8) & 7^m &  \kIV^*  & 7 & 1\\
+& E_7 & (\ge 3,4,8) & 7^{m+1} &  \kIV^* & 7 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=2  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m+4
+\end{array}
+& E_1 & (\ge 4,5,10) & 7^m &  \kII^*& 7 & 1\\
+& E_7 & (\ge 4,5,10) & 7^{m+1} &  \kII^* & 7 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=2  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m+5 
+\end{array}
+& E_1 & (\ge 1,0,0) & 7^{m+1} &  \kI_0  & 1 & 1\\
+& E_7 & (\ge 1,0,0) & 7^{m+2} &  \kI_0 & 1 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+     v_7(t)=1 
+& E_1 & (1,2,3) & 1 & \kIII & 1 & 1\\
+& E_7 & (3,5,9) & 1 &  \kIII^* & 7& 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=0  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m>0
+\end{array}
+& E_1 & (\ge 2,0,0) & 7^m &  \kI_0  & 1 & 1\\
+& E_7 & (\ge 2,0,0) & 7^m &  \kI_0 &1  & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=0  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m+1
+\end{array}
+& E_1 & (\ge 2,1,2) & 7^m &  \kII  & 1 & 1\\
+& E_7 & (\ge 2,1,2) & 7^m &  \kII & 1 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=0  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m+2
+\end{array}
+& E_1 & (\ge 3,2,4) & 7^m &  \kIV  &1  & 1\\
+& E_7 & (\ge 3,2,4) & 7^m &  \kIV & 1 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=0  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m+3
+\end{array}
+& E_1 & (\ge 3,3,6) & 7^m &  \kI_0^*  & 7 & 1\\
+& E_7 & (\ge 3,3,6) & 7^m &  \kI_0^* & 7 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=0  \\[3pt]
+    v_7(t^2 + 13t + 49)=6m+4
+\end{array}
+& E_1 & (\ge 4,4,8) & 7^m &  \kIV^*  & 7 & 1\\
+& E_7 & (\ge 4,4,8) & 7^m &  \kIV^* & 7 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+     v_7(t)=0  \\[3pt]
+   v_7(t^2 + 13t + 49)=6m+5
+\end{array}
+& E_1 & (\ge 5,5,10) & 7^m &  \kII^*  & 7 & 1\\
+& E_7 & (\ge 5,5,10) & 7^m &  \kII^* & 7 & 1\\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+     -m= v_7(t)<0   
+& E_1 & (0,0,7m) & 7^{-m} & \kI_{7m} & 1& 1\\
+& E_7 & (0,0,m) & 7^{-m} &  \kI_{m} & 1& 1\\
+%----------------------------------------------
+ \SetCell[c=5,r=2]{c} & & & & & d\equiv 0  & d\not\equiv 0 \\
+                      & & & & & \SetCell[c=2]{c} d \Mod 7 & \\
+\end{longtblr}
+
+\newpage
+
+
+
+
+\newpage
+
+\begin{longtblr}
+[caption = {$L_2(7)$ data for $p$=2}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-5}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cclclccc}
+%----------------------------------------------
+L_2(7) & \SetCell[c=7]{c} p=2  & & & & & \\ 
+t & E & \SetCell[c=1]{c} \operatorname{sig}_2(E) & u & \SetCell[c=1]{c} \Kd_2(E) & \SetCell[c=3]{c} u_2(d)  \\
+%----------------------------------------------
+\SetCell[r=2]{c} m=v_2(t)\ge 2 
+& E_1 & (4,6,m+12) & 2^{-1} & I_{m+4}^* & 1 & 1 & 2 \\
+& E_7 & (4,6,7m+12) & 2^{-1} & I_{7m+4}^* & 1 & 1 & 2 \\
+%----------------------------------------------
+\SetCell[r=2]{c} v_2(t)=1 
+& E_1 & (0,0,1) & 1 & I_{1} & 1 & 2^{-1} & 2^{-1} \\
+& E_7 & (0,0,7) & 1 & I_7 & 1 & 2^{-1} & 2^{-1} \\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+v_2(t)=0 \\[3pt]
+t\equiv 1\, (4)
+\end{array}
+& E_1 & (0,0,0) & 1 & I_0 & 1 & 2^{-1} & 2^{-1} \\
+& E_7 & (0,0,0) & 1 & I_0 & 1 & 2^{-1} & 2^{-1} \\
+%----------------------------------------------
+\SetCell[r=2]{c} 
+\begin{array}{c}
+v_2(t)=0 \\[3pt]
+t\equiv 3\, (4)
+\end{array}
+& E_1 & (4,6,12) & 2^{-1} & I_{4}^* & 1 & 1 & 2 \\
+& E_7 & (4,6,12) & 2^{-1} & I_{4}^* & 1 & 1 & 2 \\
+%----------------------------------------------
+\SetCell[r=2]{c} v_2(t)=-1 
+& E_1 & (0,0,7) & 2^{-1} & I_{7} & 1 & 2^{-1} & 2^{-1}  \\
+& E_7 & (0,0,1) & 2^{-1} & I_{1} & 1 & 2^{-1} & 2^{-1} \\
+%----------------------------------------------
+\SetCell[r=2]{c} -m=v_2(t)\le -2 
+& E_1 & (4,6,7m+12) & 2^{-(m+1)} & I_{7m+4}^* & 1 & 1 & 2\\
+& E_7 & (4,6,m+12) & 2^{-(m+1)} & I_{m+4}^* & 1 & 1  & 2 \\
+%----------------------------------------------
+ \SetCell[c=5,r=2]{c} & & & & &  d\equiv 1 &  d\equiv 2  & d\equiv 3 \\
+                      & & & & & \SetCell[c=3]{c} d \Mod{4} & \\
+\end{longtblr}
+
+
+
+
+
+\newpage
+\section{Conclusion}
+
+\begin{prop}
+Let 
+$ 
+\begin{tikzcd}
+E_1 \arrow[dash]{r}{7}  & E_7 
+\end{tikzcd}
+$
+be a $\mathbf{Q}$-isogeny graph of type $L_2(7)$ corresponding to a given $t$ in $\mathbf{Q}^*$. For every square-free integer $d$, 
+the probability of a vertex
+to be the Faltings curve (circled)
+in the twisted isogeny graph 
+$
+\begin{tikzcd} 
+E_1^d \arrow[dash]{r}{7}  & E_7^d 
+\end{tikzcd}
+$ 
+is given by:
+
+\[
+\begin{tblr}{|c|c|c|c|c|}
+\hline
+ L_2(7) & \text{twisted isogeny graph} & d & \text{Prob} \\
+\hline
+ \SetCell[r=1]{c} v_7(t)\ge 2 &  E_1^d \longleftarrow \circled[0.8]{$E_7^d$} & & 1 \\
+\hline
+\SetCell[r=2]{c} v_7(t)=1   
+& \circled[0.8]{$E_1^d$} \longrightarrow E_7^d  & d\not\equiv 0\,(7) & 7/8\\ 
+&   E_1^d \longleftarrow \circled[0.8]{$E_7^d$} &d\equiv 0\,(7) &  1/8 \\
+\hline
+ \SetCell[r=1]{c} v_7(t)\le 0 & \circled[0.8]{$E_1^d$} \longrightarrow E_7^d & & 1 \\
+\hline
+\end{tblr}
+\]
+
+
+
+\end{prop}
+
+\vskip 0.35truecm
+
+\noindnet{\it Proof.} From the previous tables one gets:
+
+\vskip 0.5truecm
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%-------------------------------------------------
+\SetCell[c=1]{c} t &\SetCell[c=1]{c} [u(E)]  & \SetCell[c=1]{c} [u(E)(d)] & \SetCell[c=1]{c} d & \SetCell[c=1]{c}\text{Prob}\\
+
+%-------------------------------------------------
+\SetCell[r=1]{c} v_7(t)\ge 2 & \SetCell[r=1]{c} (1:7) & \SetCell[r=1]{c} (1:1) &  & \SetCell[r=1]{c} (0,1)\\
+%-------------------------------------------------
+\SetCell[r=2]{c}  v_7(t)=1 & \SetCell[r=2]{c} (1:1) & \SetCell[r=1]{c} (1:1) & d\not\equiv 0\,(7)&\SetCell[r=2]{c} \left(\frac{7}{8},\frac{1}{8}\right) \\
+& & \SetCell[r=1]{c} (1:7) & d\equiv 0\,(7)& \\
+%-------------------------------------------------
+\SetCell[r=1]{c} v_7(t)\le 0 & \SetCell[r=1]{c} (1:1) & \SetCell[r=1]{c}  (1:1) &  & \SetCell[r=1]{c} (1,0)\\
+%-------------------------------------------------
+\end{tblr}
+
+\end{document}
+

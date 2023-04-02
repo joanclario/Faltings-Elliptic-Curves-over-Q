@@ -1,0 +1,804 @@
+\documentclass[
+  journal=small,
+  manuscript=article-type,  % Use a - if you need a space e.g. "research-article"
+  year=2020,
+  volume=37,
+]{cup-journal}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[nopatch]{microtype}
+\usepackage{booktabs}
+\usepackage{amscd}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+
+\newtheorem{prop}{Proposition}
+
+\title{Faltings height on isogeny classes of twisted elliptic curves over the rationals (or Distribution of Manin-Stevens elliptic curves in twisted isogeny classes over)}
+
+\author{E. González-Jiménez}
+\affiliation{UAM}
+\email{enrique.gonzalez.jimenez@uam.es}
+
+\author{J.C. Lario}
+\affiliation{UPC}
+\email{joan.carles.lario@upc.edu}
+
+\addbibresource{example.bib}
+
+\keywords{keyword entry 1, keyword entry 2, keyword entry 3} 
+
+\begin{document}
+
+\begin{abstract}
+Let $E$ be an elliptic curve over $\mathbf{Q}$, and let $\mathcal{G}$ be the graph associated to the $\mathbf{Q}$-isogeny class of $E$.  
+For every square-free integer $d$, denote by $\mathcal{E}^d$ the $\mathbf{Q}$-isogeny class of the quadratic twist $E^d$.
+We say that a vertex of $\mathcal{G}$ is a Faltings vertex for $\mathcal{E}^d$ if the corresponding elliptic curve in  $\mathcal{E}^d$ has minimum Faltings height among the elliptic curves in 
+$\mathcal{E}^d$. There are a finite number of possibles underlying abstract such graphs $\mathcal{G}$. For every graph $\mathcal{G}=\mathcal{G}(E)$ and every vertex $v\in \mathcal{G}(E)$, we compute the probability of $v$ being a Faltings vertex:
+$$
+\delta(\mathcal{G}(E),v) = \lim_{\substack{
+|d|\to \infty \\ d \text{ square-free} }}
+\frac{
+\# \, \{ d'\colon 
+v \text{ is  Faltings for } \mathcal{E}^{d'} 
+\text{ with }
+|d'|
+\leq  |d| \} }{|d|} 
+$$
+The result can be interpreted as kind of Dirichlet-Cebotarev theorem on isogeny classes of twisted elliptic curves.  
+\end{abstract}
+
+%\noindent Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+
+\section{Introduction} 
+Let $N$ be a prime number such that the classical modular curve $X_0(N)$ has genus zero. In that case, we can choose a Hauptmodul $t=t(\tau)$  so that the function field of $X_0(N)$ satisfies $\mathbf{Q}(X_0(N))=\mathbf{Q}(j,j_N)=\mathbf{Q}(t)$. Here, $j=j(\tau)$ denotes the Klein $j$-function and $j_N=j(N\tau)$.
+A rational point of $X_0(N)$ is given by $P=(E,C)$, where $E$ ia an elliptic curve defined over $\mathbf{Q}$ and $C$ is a (cyclic) subgroup of order $N$ stable under the action of the absolute Galois group of $\mathbf{Q}$. Such a point  gives a rational isogeny $\varphi\colon E \longrightarrow E/C$ of degree $N$, with $j(E)=j(\tau)$ and $j(E/C)=j(N\tau)$ for some $\tau$ in the upper-half plane.
+
+The map $j\colon X_0(N)\longrightarrow X_0(1)$  
+that sends a point $P=(E,C)$ to $j(E,C)=j(E)$ induces an immersion of $\mathbf{Q}(j)$ into $\mathbf{Q}(t)$, so that $j$ can be expressed as a rational function on~$t$. We refer to ... for a list of these rational functions $j(t)$ for the different values of $N$ under our assumptions. 
+
+We also need to recall the definition of the Faltings height of an elliptic curve $E$ defined over $\mathbf{Q}$. First on should consider $E$ to be given by its the Néron model over~$\mathbf{Z}$; that is, a global minimal model of $E$. If the (minimal) discriminant of $E$ is $\Delta_E>0$, then one can write the period lattice of $E$ as 
+$$
+\Lambda = \frac{\Omega_E}{2} \langle 1, \tau \rangle \qquad
+\text{ with $\tau= \frac{2y}{ \Omega_E} \, i$}
+$$
+where $\Omega_E$ is the real period of $E$ and $y$ is a positive real number. In the case $\Delta_E<0$, the period lattice of $E$ can be given as
+$$
+\Lambda = \Omega_E \langle 1, \tau \rangle \qquad
+\text{ with $\tau= \frac{1}{2} + \frac{y}{ \Omega_E} \, i$}
+$$
+where $\Omega_E$ is the real period of $E$ and $y$ is a positive real number. Then
+$$
+\operatorname{vol}(\Lambda)  =
+\begin{cases}
+\displaystyle{\frac{\Omega_E}{2}} y & \text{if $\Delta_E>0 $};\\[6pt]
+\Omega_E y & \text{if $\Delta_E<0 $}.
+\end{cases}
+$$
+The Faltings height of $E$ is given by
+$$
+h(E) = -\frac{1}{2} \log ( \operatorname{vol}(\Lambda) ).
+$$
+Stevens \cite{STEVENS} shows that in the $\mathbf{Q}$-isogeny class of any elliptic curve defined over~$\mathbf{Q}$ there is a unique curve with minimal Faltings height. We shall call such elliptic curve the Faltings curve in the isogeny class. Moreover, Stevens conjectures that this curve has the property to be optimal as quotient of the Jacobian of the modular curve $X_1(M)$, where $M$ denotes the conductor (of any curve in the isogeny class) of $E$. In other words, if $E$ is a Faltings curve then there should exist a morphism $J_1(M) \longrightarrow E$ with connected kernel.
+
+In Section 2, we analyze the behavior of the Faltings height 
+of the elliptic curves over $\mathbf{Q}$ under quadratic twists. In section 3,  we analyze the distribution of Faltings curves
+among the infinitely many rational points 
+parameterized by a Hauptmodul $t$ of $X_0(N)$.
+
+\section{Faltings height under twists and the Pal function}
+
+As before, let $E$ denote an elliptic curve over $\mathbf{Q}$. Let $\Lambda=\omega \langle 1, \tau \rangle$ be the Néron lattice of $E$; that is, the period 
+lattice attached to a global minimal model of $E$. The Faltings height of $E$ is defined by
+$$
+h(E) = -\frac{1}{2} \log ( \operatorname{vol}(\Lambda) )=
+-\frac{1}{2} \log ( |\omega|^2 \operatorname{Im}(\tau) ).
+$$
+For every square-free integer $d$,
+let $E^d$ denote the twist of $E$ by the quadratic character of $\mathbf{Q}(\sqrt{d})$. Following [\cite{PAL}], the Néron lattice of $E^d$ is given by
+$$
+\Lambda^d = 
+\displaystyle{\frac{u_d(E)}{\sqrt{d}}} \Lambda
+$$
+where $u_d(E)$ is given as follows. Let $\Delta=\Delta(E)$, 
+$c_4=c_4(E)$, and $c_6=c_6(E)$ denote the discriminant and the $c$-invariants of a minimal model of $E$. Define
+$$\lambda_p=\lambda_p(E)=\operatorname{min}(3v_p(c_4),2v_p(c_6),v_p(\Delta))
+\,,$$ and the $p$-adic signature of the elliptic curve $E$ is
+the triple 
+$$
+\operatorname{sig}_p=\operatorname{sig}_p(E)=(v_p(c_4), v_p(c_6), v_p(\Delta)).
+$$
+Then, the Pal function 
+$u_d(E)=\prod_p u_p$ is the rational number obtained as product over each prime~$p$ by the following recipe: 
+
+
+\begin{enumerate}
+\item If $p$ is an odd prime not dividing $d$, then $u_p=1$.
+\item If $p$ is an odd prime divisor of $d$, then:
+	\begin{enumerate}
+	\item If $\lambda_{p} <6$ or if $p=3$ and $v_p(c_6) =5$, then $u_p = 1$.
+	\item Otherwise $u_p = p$.
+	\end{enumerate}
+\item If $p=2$, then: 
+\begin{enumerate} 
+		\item If $d \equiv 1 \pmod 4$, then $u_2 = 1$.
+		\item If $d \equiv 3 \pmod 4$, then: 
+	\begin{enumerate}	
+			\item[$\bullet$] $u_2 = 1/2$, if\\ $\operatorname{sig}_2=(0,0,c)$ with $c\geq 0$ or\\
+			$\operatorname{sig}_2=(a,3,0)$ with $a \geq 4$.
+			\item[$\bullet$] $u_2 = 2$, if\\ $\operatorname{sig}_2=(4,6,c)$ with $c\geq 12$ or\\ $\operatorname{sig}_2=(a,9,12)$ with $a \geq 8$.
+			\item[$\bullet$] $u_2 = 1$ otherwise.
+	\end{enumerate}
+		\item If $d \equiv 2 \pmod 4$, let $w=d/2$. Then:  
+	\begin{enumerate}		
+			\item[$\bullet$] $u_2 = 1/2$ if\\ $\operatorname{sig}_2 =(0,0,c)$ with $c\geq 0$.
+			\item[$\bullet$] $u_2 = 4$ if\\ $\operatorname{sig}_2 =(6,9,c)$ with $c \geq 18¡$ and $2^{-9} c_6 w \equiv -1 \pmod 4$.
+			\item[$\bullet$] $u_2 = 1$ if\\ $v_2(c_4)=4,5$ or \\
+			$v_2(c_6)=3,5,7$ or\\ $\operatorname{sig}_2= (a,6,6)$ with $a \geq 6$ and $2^{-6} c_6 w \equiv -1 \pmod 4$.
+			\item[$\bullet$] $u_2 = 2$ otherwise.
+	\end{enumerate}
+\end{enumerate}
+
+\end{enumerate}
+%Let $\tilde{u}=\prod_p{ u_p}$. 
+
+
+
+\begin{prop}
+Let $E$ be an elliptic curve over $\mathbf{Q}$.
+For every square-free integer $d$, the Faltings height of the quadratic twist $E^d$ satisfies:
+$\displaystyle{h(E^d) = h(E) -\frac{1}{2}\log(
+\frac{u_d^2(E)}{|d|}})$.
+\end{prop}
+
+\noindent {\it Proof.} Since the corresponding lattices $\Lambda$ and $\Lambda^d$ are homothetic with $\operatorname{vol}(\Lambda^d)=u_d^2(E)/|d| \operatorname{vol}(\Lambda)$, the result follows.
+
+
+\section{The case $L_3(9)$}
+
+In this case the graphs are given by triples
+$$
+E_1 \longrightarrow E_3 \longrightarrow E_9
+$$
+where the elliptic curves  $E_i$ are linked by prime isogenies of degree $3$.
+The resulting composition $E_1\longrightarrow E_9$ is a rational isogeny of degree $9$ and corresponds to a rational point of the modular curve 
+$X_0(9)$.
+With regard to the related modular function fields, it holds:
+$$
+\begin{tikzcd}[left]
+    \mathbf{C}(X_0(9)) = \mathbf{C}(j(\tau),j(9\tau)) = \mathbf{C}(t(\tau))
+    \arrow[d,-] \\
+    \mathbf{C}(X_0(3))= \mathbf{C}(j(\tau),j(3\tau)) = \mathbf{C}(s(\tau))
+    \arrow[d,-] \\
+    \mathbf{C}(X_0(1))=\mathbf{C}(j(\tau))
+\end{tikzcd}
+$$
+with
+$$t(\tau)= 3+27 \left( \frac{\eta(9\tau)}{\eta(\tau)}\right)^3\,,$$ 
+$$s(\tau) = 3^6 \left( \frac{\eta(3\tau)}{\eta(\tau)}\right)^{12}= t(\tau)^3-27\,,$$ and
+the Dedekind eta function given as usual by $\eta(\tau)=q^{1/24}\prod_{n=1}^\infty 
+(1-q^n)$ where $q=\exp(2\pi i \tau)$.
+One easily checks that the $j$-invariants of the elliptic curves satisfy:
+$$
+\begin{array}{l}
+j(E_1)=j(\tau)= \displaystyle{\frac{t^3 (t^3 - 24)^3}{t^3 - 27} }\,,\\[6mm]
+j(E_3)=j(3\tau)= \displaystyle{\frac{t^3 (t+6 )^3 (t^2-6t+36)^3}{(t^3 - 27)^3}} \,,\\[6mm]
+j(E_9)=j(9\tau)= \displaystyle{\frac{(t + 6)^3 (t^3 + 234 t^2 + 756 t + 2160)^3}{(t - 3)^8 (t^3 - 27)}} \,.
+\end{array}
+$$
+Once for all, we fix Weierstrass equations for the elliptic curves as follows:
+$$
+%\begin{array}{l@{\,:\,}l}
+\begin{array}{rcl}
+    E_1 & : & y^2=x^3-3t(t^3 - 24)x+2(t^6 - 36t^3 + 216) \\[3mm]
+    E_3 & : & y^2=x^3-3t(t + 6)(t^2 - 6t + 36)x+2(t^2 - 6t - 18)(t^4 + 6t^3 + 54t^2 - 108t + 324) \\[3mm]
+    E_9 & : & y^2=x^3-3(t + 6)(t^3 + 234t^2 + 756t + 2160)x\\
+    & & \qquad +2(t^6 - 504t^5 - 16632t^4 - 123012t^3 - 517104t^2 - 1143072t - 1475496) \,,
+\end{array}
+$$
+in such a way that the corresponding $3$-isogenies are defined over $\mathbf{Q}(t)$. The Fricke involution $W_9$ on $X_0(9)$ corresponds to 
+the automorphism that sends $t$ to 
+$3 (t+6)/(t-3)$. It 
+interchanges $E_1$ by $E_9^{-3}$ and $E_3$ by $E_3^{-3}$. The isogenies $E_1\to E_3\to E_9$ are changed by the dual isogenies of twisted curves
+$E_9^{-3}\to E_3^{-3}\to E_1^{-3}$. 
+
+\begin{thm}
+Keep the above notations. For every rational 
+value of $t$ with $t\neq 3$, 
+the Néron lattices of the elliptic curves $E_1$, $E_3$, and $E_9$ are given respectively by:
+$$
+\Lambda_1 = \omega_1 \langle 1,\tau\rangle
+\,,\qquad
+\Lambda_3 = \lambda 
+\omega_1 \langle 1,3\tau\rangle
+\,,\qquad
+\Lambda_9 = \mu \lambda 
+\omega_1 \langle 1,9\tau\rangle\,,
+$$
+for some $\omega_1$ and $\tau$ on $\mathbf{C}$, and with $\lambda\,,\mu \in \{1,1/3\}$. Moreover, only one of the following holds:
+\begin{itemize}
+\item[(i)]
+$(\lambda,\mu)=(1/3,1/3)$ if and only if 
+$E_i$ have additive potentially good or semi-stable reduction at $3$.
+\item[(ii)]
+$(\lambda,\mu)=(1,1/3)$ if and only if the
+$3$-Kodaira types of $(E_1,E_3,E_9)$ are $(IV*,II,IV)$.
+\item[(iii)]
+$(\lambda,\mu)=(1,1)$ if and only if 
+$E_i$ have good or semistable reduction at $3$ or the 
+$3$-Kodaira types of $(E_1,E_3,E_9)$ are $(II*,IV*,II)$.  
+\end{itemize}
+\end{thm}
+
+\noindent {\it Proof.}
+Using the above description of the modular function fields,
+one checks that
+the lattices of $E_i$ should be of the form
+like $\Lambda_i$.
+By using Theorem 8.2 in [\cite{DD}], one checks that $\lambda\,,\mu \in \{1,1/3\}$.
+Due to [\cite{STEVENS}], we know that only one curve in the isogeny class can have minimal Faltings height. This eliminates the option $(\lambda,\mu)=(1/3,1)$. 
+Finally, it remains to write $t= 3^a u$ with $a\in\mathbf{Z}$ and $u$ is a $3$-adic unit, and then apply Tate's algorithm to $E_i$ over $\mathbf{Q}_3$. Also we can apply the remark on Tate's algorithm and Kodaira types in DD-bis.
+\hfill $\square$
+
+
+
+
+
+
+With regard to the quadratic twists $E_i^d$ by $\mathbf{Q}(\sqrt{d})$ for every $d$ square-free integer, we have an isogeny diagram 
+$$
+E_1^d \longrightarrow E_3^d \longrightarrow E_9^d\,.
+$$
+%The Weierstrass equations for the twists are given by:
+%$$
+%\begin{array}{c@{\,:\,}c}
+%    E_1^d &  FALTIIIIIII \\
+%    E_2^d & FALTIIIIIII \\
+%    E_3^d & FALTIIIIIII \,.
+%\end{array}
+%$$
+The corresponding Néron lattices are respectively
+%$${\color{blue}
+%\Lambda_1^d = 
+%\frac{\sqrt{d}}{u_1(d)}
+%\omega_1 \langle 1,\tau\rangle
+%\,,\qquad
+%\Lambda_2^d = 
+%\frac{\sqrt{d}}{u_2(d)}
+%\lambda 
+%\omega_1 \langle 1,3\tau\rangle
+%\,,\qquad
+%\Lambda_3^d = 
+%\frac{\sqrt{d}}{u_3(d)} \mu \lambda 
+%\omega_1 \langle 1,9\tau\rangle\,,
+%$$
+
+$$
+\Lambda_1^d = 
+\frac{u_1(d)}{\sqrt{d}}
+\omega_1 \langle 1,\tau\rangle
+\,,\qquad
+\Lambda_3^d = 
+\frac{u_3(d)}{\sqrt{d}}
+\lambda\, 
+\omega_1 \langle 1,3\tau\rangle
+\,,\qquad
+\Lambda_9^d = 
+\frac{u_9(d)}{\sqrt{d}} \mu \, \lambda \,
+\omega_1 \langle 1,9\tau\rangle\,,
+$$
+where  $u_i(d)=u_d(E_i)$ are given by the Pal function as above. In accordance, the volumes of the Néron lattices of $E_i^d$ are 
+$$
+\frac{u_1(d)^2}{|d|} v_1 \,,\qquad
+\frac{u_2(d)^2}{|d|} 3 \lambda^2 v_1 \,,\qquad
+\frac{u_3(d)^2}{|d|} 9 \mu^2 \lambda^2 v_1\,,
+$$
+respectively, where
+$v_1=\operatorname{vol}(\Lambda_1)$.
+
+\vskip 1truecm
+\hline
+\vskip 1truecm
+
+Let $\mathcal{E}=\{E_1 \longrightarrow E_2 \longrightarrow E_3\,\}$ be an isogeny graph of type $L_3(9)$. Let us denote:
+$$
+\begin{array}{l}
+\mathcal{U}_d(\mathcal E):=\left[u_1(d) \,:\, u_2(d)  \,:\, u_3(d) \right]\in\mathbb P^2(\mathbb Q)\\[2mm]
+\mathcal{V}_d(\mathcal E):=\left[u_1(d)^2} \,:\, 3 u_2(d)^2\lambda^2 } \,:\, 9 u_3(d)^2\lambda^2 \mu^2 \right]\in\mathbb P^2(\mathbb Q)\\\end{array}
+$$
+Then we have 
+$$
+\begin{array}{lcl}
+(\lambda,\mu)=(1,1/3) &\longrightarrow& \mathcal{V}_1(\mathcal E)=[1:3:1]\\
+(\lambda,\mu)=(1/3,1/3) &\longrightarrow& \mathcal{V}_1(\mathcal E)=[1:1/3:1/9]=[9:3:1]\\
+(\lambda,\mu)=(1,1) &\longrightarrow &\mathcal{V}_1(\mathcal E)=[1:3:9]
+\end{array}
+$$
+}
+
+{\color{red}
+
+\begin{thm} Let $\mathcal{E}=\{E_1 \longrightarrow E_2 \longrightarrow E_3\,\}$ be an isogeny graph of type $L_3(9)$,
+and keep the above notations. Then, 
+
+\begin{itemize}
+    \item[(i)] Case $\lambda=1$ and $\mu=1/3$:
+$$    
+\mathcal{U}_d(\mathcal E)=
+\left\{
+\begin{array}{lcl}
+[3:1:1], & & \text{if}\,\, 3\mid d,\\[1mm]
+[1:1:1], & & \text{if}\,\, 3\nmid d.
+\end{array}
+\right.
+$$
+
+    \item[(ii)] Case $\lambda=\mu=1/3$. 
+ $$    
+\mathcal{U}_d(\mathcal E)=[1:1:1].
+$$
+
+ \item[(iii)] Case $\lambda=\mu=1$. 
+ 
+ \begin{itemize}
+    \item[$\bullet$] If $E_i$ have good reduction at $3$:
+    $$
+    \mathcal{U}_d(\mathcal E)=[1:1:1]. 
+    $$
+    \item[$\bullet$] If $E_i$ have additive reduction at $3$:
+    $$    
+\mathcal{U}_d(\mathcal E)=
+\left\{
+\begin{array}{lcl}
+[3:3:1], & & \text{if}\,\, 3\mid d,\\[1mm]
+[1:1:1], & & \text{if}\,\, 3\nmid d.  
+\end{array}
+\right.
+$$
+\end{itemize}
+
+
+
+ 
+\end{itemize}
+\end{thm}
+}
+{\color{red}
+\begin{cor}
+With the above notations, let
+$$
+E_1^d \longrightarrow E_2^d \longrightarrow E_3^d
+$$
+be an isogeny graph of type $L_3(9)$. One has:
+
+\begin{itemize}
+     \item[(i)] Case $\lambda=1$, $\mu=1/3$. The Faltings elliptic curve in the graph is 
+     \begin{itemize}
+         \item[$\bullet$] $E_1^d$ if $3\mid d$.
+         \item[$\bullet$] $E_2^d$ if $3\nmid d$, 
+     \end{itemize}
+ \item[(ii)] Case $\lambda=\mu=1/3$.     The Faltings elliptic curve in the graph is $E_1^d$, independent of $d$.
+ \item[(i)] Case $\lambda=\mu=1$.
+    \begin{itemize}
+    \item[$\bullet$] If $E_i$ have good reduction at $3$, then the Faltings elliptic curve in the graph is $E_3^d$, independent of $d$.
+    \item[$\bullet$] If $E_i$ have additive reduction at $3$, the Faltings elliptic curve in the graph is
+     \begin{itemize}
+         \item[$\bullet$] $E_2^d$ if $3\mid d$.
+         \item[$\bullet$] $E_3^d$ if $3\nmid d$, 
+     \end{itemize}
+     \end{itemize}
+\end{itemize}
+\end{cor}
+}
+
+\begin{thm} Let
+$
+E_1^d \longrightarrow E_2^d \longrightarrow E_3^d
+$
+be an isogeny graph of type $L_3(9)$,
+and keep the above notations. Then, 
+
+\begin{itemize}
+    \item[(i)] Case étale: $(\lambda,\mu)=(1,1)$. 
+One has:
+    $u_1(d)=u_2(d)=u_3(d)=
+   \begin{cases}
+       |d| & \text{ if $d\equiv 1\pmod4$} \\
+       |2d| & \text{otherwise} \,.
+   \end{cases} $
+    
+    \item[(ii)] Case semi-étale:  $(\lambda,\mu)=(1,1/3)$. 
+    
+    
+    For $3\nmid d$, one has:
+    $u_1(d)=u_2(d)=u_3(d)=
+   \begin{cases}
+       |d| & \text{ if $d\equiv 1\pmod4$} \\
+       |2d| & \text{otherwise} \,.
+   \end{cases} $
+
+
+       For $3\mid d$, one has:
+    $u_1(d)=u_2(d)=3\, u_3(d)=
+   \begin{cases}
+       |d| & \text{ if $d\equiv 1\pmod4$} \\
+       |2d| & \text{otherwise} \,.
+   \end{cases} $
+
+
+ \item[(iii)] Case anti-étale:  $(\lambda,\mu)=(1/3,1/3)$.  
+
+ 
+    For $3\nmid d$, one has:
+    $u_1(d)=u_2(d)=u_3(d)=
+   \begin{cases}
+       |d| & \text{ if $d\equiv 1\pmod4$} \\
+       |2d| & \text{ if $d\equiv 2\pmod4$} \\
+       |d/2| & \text{ if $d\equiv 3\pmod4$} \,.
+    \end{cases} $
+
+       For $3\mid d$, one has:
+    $u_1(d)=u_2(d)=u_3(d)=
+   \begin{cases}
+       |d/3| & \text{ if $d\equiv 1\pmod4$} \\
+       |2d/3| & \text{ if $d\equiv 2\pmod4$} \\
+       |d/6| & \text{ if $d\equiv 3\pmod4$} \,.
+    \end{cases} $
+ 
+\end{itemize}
+\end{thm}
+
+{
+\begin{cor}
+With the above notations, let
+$$
+E_1^d \longrightarrow E_2^d \longrightarrow E_3^d
+$$
+be an isogeny graph of type $L_3(9)$. One has:
+
+\begin{itemize}
+    \item[(i)] Case $\lambda=\mu=1$. There are two possibilities:
+    \begin{itemize}
+    \item[$\bullet$] The Faltings elliptic curve in the graph is $E_3^d$, independent of $d$.
+    \item[$\bullet$] For $3\nmid d$, 
+    the Faltings elliptic curve in the graph is $E_3^d$.
+    For $3\mid d$ the Faltings elliptic curve in the graph is $E_2^d$.
+     \end{itemize}
+     \item[(ii)] Case $\lambda=1$, $\mu=1/3$.    
+    For $3\nmid d$, 
+    the Faltings elliptic curve in the graph is $E_2^d$.
+    For $3\mid d$ and 
+    % $d\neq -3$, 
+       the Faltings elliptic curve in the graph is $E_1^d$.
+       %For $d=-3$, the Faltings elliptic curve in the graph is ....
+
+ \item[(iii)] Case $\lambda=\mu=1/3$.     The Faltings elliptic curve in the graph is $E_1^d$, independent of $d$.
+\end{itemize}
+\end{cor}
+}
+
+
+\newpage
+\section{Faltings height in isogeny on points of $X_0(N)$}
+
+\section{Remarks}
+Let $E$ be an elliptic curve over $\mathbf{Q}$ (given by global minimal model or not).
+
+If the discriminant $\Delta_E>0$, then the period lattice of $E$ admits a basis $\Lambda_E=\langle \Omega_E, \Omega_E^- \, i \rangle$, with both omegas being positive real numbers.
+
+If the discriminant  $\Delta_E<0$, then the period lattice of $E$ admits a basis $\Lambda_E=\langle \Omega_E, \Omega_E/2+\Omega_E^-/2\, i \rangle$, with both omegas being positive real numbers.
+
+
+\section{Experiments for non-primes $N$ }
+
+
+
+\section{Nothing}
+
+
+Let $G$ be the abstract directed graph attached to the $\mathbf Q$-isogeny class of an elliptic curve defined over $\mathbf Q$. The vertices are the elliptic curves and the edges the
+corresponding isogenies. It is well known that there is only a finite number of possible such digraphs. More precisely, $G$ has to be one of the following:
+
+(insert of drawings and reference)
+
+For some of the above graphs $G$, one can perform the computations to describe all the elliptic curves involved being parameterized over $\mathbf{Q}(t)$. That is, for every vertex in a specific graph, one can exhibit the elliptic curves
+$$
+E\colon Y^2 = X^3 + A X + B\,,
+$$
+where $A$ and $B$ are in $\mathbf{Q}(t)$, that correspond to the vertex. Moreover, one can also give the rational maps giving rise to the isogeny represented by the edge of the graph, as well as the defining equations for the dual isogenies.
+
+Our aim here is it to discuss the rules that make one the vertices in $G$ to be the strong Weil curve among all the elliptic curves in its $\mathbf Q$-isogeny class.
+
+\section{A basic commutative diagram}
+
+Let $E\colon y^2 = x^3+A x+B$ and $E'\colon Y^2 = X^3+A' X+B'$ be isogenous elliptic curves over $\mathbf{Q}(t)$ of prime degree $N$.
+Consider the following commutative diagram
+\begin{equation}
+\begin{CD}
+E
+ @>\varphi>>
+ E'\\
+@V{\eta}VV
+ @VV{\nu}V\\
+{\mathcal E}
+ @>\varPhi>> 
+ {\mathcal E}'
+\end{CD}
+\end{equation}
+where the morphisms $\varphi$ and $\varPhi$ are isogenies of degree $N$. Here
+${\mathcal E} \colon y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6$ and 
+${\mathcal E}\colon  Y^2+a'_1XY+a'_3Y=X^3+a'_2X^2+a'_4 X+a'_6$ are their N\'eron models over ${\mathbf Z}[t]$
+and $\eta$, $\nu$ denote the corresponding isomorphisms. 
+Let $W=dx/y$ and $W'=dX/Y$ dentote the regular differentials on $E$ and $E'$, respectively, and let 
+$\omega=dx/(2y+a_1x+a_3)$, $\omega'=dX/(2Y+a_1X+a_3)$ be the N\'eron differentials on $\mathcal E$ and $\mathcal E'$, respectively. 
+One has:
+$$
+\lambda \omega = \varPhi^*(\omega')= ({\eta^{-1}}^*\varphi^*\nu^*)(\omega') = 
+c' ({\eta^{-1}}^*\varphi^*)(W') = 
+c' \mu ({\eta^{-1}}^*)(W) = 
+c' \mu c^{-1} (\omega) 
+$$
+where $\lambda \in \{\pm 1,\pm N\}$, and $c$, $c'$, $\mu$ in ${\mathbf Q}(t)$. 
+
+For example take $N=2$. Then the elliptic curve
+$$
+%E:y^2 = x^3 + (-3t^2 - 240t - 3072)x + (2t^3 + 240t^2 + 6144t - 65536) 
+E:y^2 = x^3 -3(t-48)t x+ 2(t-72)t^2
+$$
+has discriminant $\Delta(E)=2^{12}3^6t^3(t-64)$, and we have
+
+$$
+E({\mathbf Q}(t))[2]=\{\mathcal O, (t,0)\} \,.
+$$
+The isogenous curve
+$$
+%E'=E/\langle(t+64,0) \rangle: y^2 = x^3 + (-3t^2 - 960t - 49152)x + (2t^3 - 768t^2 - 122880t - 4194304)
+E'=E/\langle(t,0) \rangle: Y^2 = X^3 -3t(t+192)X+2(t-576)t^2
+$$
+has discriminant 
+$\Delta(E')=(t-64) \Delta(E)$, and the isogeny is given by
+
+$$\varphi:E\stackrel{2}{\longrightarrow} E'\,,$$
+
+$$
+%\varphi(x,y)=\left(\frac{t x-144 t-x^2+64 x-9216}{t-x+64},\frac{y \left(t^2-2 t x-16 t+x^2-128 x-5120\right)}{(t-x+64)^2}\right)
+\varphi(x,y)=\left(\frac{x^2-tx+144t}{x-t},\frac{y \left(x^2-2tx+t^2-144t\right)}{(x-t)^2}\right)
+$$
+On has
+$$
+\varphi^\ast (dX/Y) = dx/y
+$$
+so that, with the above terminology, it turns out that $\mu=1$.
+As for the dual isogeny $\hat\varphi:E' \longrightarrow E$, we have
+$$
+%\widehat{\varphi}(x,y)=\left(\frac{9 t^2+2 t x+576 t+x^2+128 x}{4 (2 t+x+128)},-\frac{y \left(5 t^2-4 t x+64 t-x^2-256 x-16384\right)}{8 (2 t+x+128)^2}\right).
+\widehat{\varphi}(X,Y)=\left(\frac{X^2+2tX+9t^2-576t}{4 (X+2 t)},\frac{Y \left(X^2+4tX-5t^2+576t\right)}{8 (X+2 t)^2}\right)
+$$
+with
+$$
+\hat\varphi^\ast (dx/y) = 2\,  dX/Y \,.
+$$
+With regard the N\'eron models one  has 
+$\lambda= c' c^{-1}$.
+\newpage
+\begin{verbatim}
+// MAGMA CODE
+function Lambda(E1,E2,phi)
+  L<x,y,z>:=RationalFunctionField(Kt,3);
+  F:=DefiningPolynomials(phi);
+  phix:=F[1]/F[3];
+  phiy:=F[2]/F[3];   
+  a1_E1:=aInvariants(E1)[1];
+  a3_E1:=aInvariants(E1)[3];
+  a1_E2:=aInvariants(E2)[1];
+  a3_E2:=aInvariants(E2)[3];
+  w2:=1/(2*y+a1_E2*x+a3_E2);
+  Y:=Evaluate(L!phiy,[x,y,1]);
+  X:=Evaluate(L!phix,[x,y,1]);
+  phiw1:=Derivative(X,1)/(2*Y+a1_E1*X+a3_E1);
+  return phiw1/w2;
+end function;
+
+Kt<t>:=RationalFunctionField(Rationals());
+EEL2:=[[-3*(-48 + t)*t, 2*(-72 + t)*t^2],
+[-3*t*(192 + t),2*(-576 + t)*t^2]];
+
+E1:=EllipticCurve(EEL2[1]);
+E2:=EllipticCurve(EEL2[2]);
+
+
+F2:=Factorization(DivisionPolynomial(E1,2));
+W2,mapE1_W2:=IsogenyFromKernel(E1,F2[1][1]);
+boo,iso2:=IsIsomorphic(W2,E2);
+phi12:=mapE1_W2*iso2;;
+phi21:=DualIsogeny(phi12);
+
+
+>Lambda(E1,E2,phi12);
+1
+>Lambda(E2,E1,phi21);
+2
+\end{verbatim}
+\section{Bla-bla}
+
+This demo file is intended to serve as a ``starter file''. It is for preparing manuscript submission only, not for preparing camera-ready versions of manuscripts. Manuscripts will be typeset for publication by the journal, after they have been accepted.
+
+By default, this template uses \texttt{biblatex} and adopts the Chicago referencing style. If you are using this template on Overleaf, Overleaf's build tool will automatically run \texttt{pdflatex} and \texttt{biber}. If you are compiling this template on your own local \LaTeX{} installation, please execute the following commands:
+\begin{enumerate}
+    \item \verb|pdflatex sample|
+    \item \verb|biber sample|
+    \item \verb|pdflatex sample|
+    \item \verb|pdflatex sample|
+\end{enumerate}
+
+Some journals e.g.~\texttt{journal=aog|jog|pasa} require Bib\TeX{}. For such journals, you will need to
+\begin{itemize}
+    \item delete the existing \verb|\addbibresource{example.bib}|;
+    \item change the existing \verb|\printbibliography| to be \verb|\bibliography{example}| instead.
+\end{itemize} 
+
+Overleaf will run \texttt{pdflatex} and \texttt{bibtex} automatically as needed. But if you had \emph{first} compiled using another \texttt{journal} option that adopts \texttt{biblatex}, and \emph{then} change the \texttt{journal} option to one that adopts Bib\TeX{}, you may get some compile error messages instead. In this case you will need to do a `Recompile from scratch'; see \url{https://www.overleaf.com/learn/how-to/Clearing_the_cache}.
+
+On a local \LaTeX{} installation, you would need to run these steps instead:
+\begin{enumerate}
+    \item Delete \texttt{sample.aux}, \texttt{sample.bbl} if these files from a previous compile using \texttt{biber} still exist.
+    \item \verb|pdflatex sample|
+    \item \verb|bibtex sample|
+    \item \verb|pdflatex sample|
+    \item \verb|pdflatex sample|
+\end{enumerate}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+
+\subsection{Insert B head here}
+Subsection text here. Lorem ipsum\autocite{Bayer_etal_2013} dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore\autocite{Adade_etal_2007} et dolore magna aliqua. 
+
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+\subsubsection{Insert C head here}
+Subsubsection text here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\endnote{A footnote/endnote} eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+\section{Equations}
+
+Sample equations. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur\endnote{Another footnote/endnote} adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+
+%%% Numbered equation
+\begin{equation}
+\begin{aligned}\label{eq:first}
+\frac{\partial u(t,x)}{\partial t} = Au(t,x) \left(1-\frac{u(t,x)}{K}\right)
+ -B\frac{u(t-\tau,x) w(t,x)}{1+Eu(t-\tau,x)},\\
+\frac{\partial w(t,x)}{\partial t} =\delta \frac{\partial^2w(t,x)}{\partial x^2}-Cw(t,x)
++D\frac{u(t-\tau,x)w(t,x)}{1+Eu(t-\tau,x)},
+\end{aligned}
+\end{equation}
+
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+\begin{align}\label{eq:another}
+\begin{split}
+\frac{dU}{dt} &=\alpha U(t)(\gamma -U(t))-\frac{U(t-\tau)W(t)}{1+U(t-\tau)},\\
+\frac{dW}{dt} &=-W(t)+\beta\frac{U(t-\tau)W(t)}{1+U(t-\tau)}.
+\end{split}
+\end{align}
+
+
+%%%% Unnumbered equation
+\begin{align*}
+&\frac{\partial(F_1,F_2)}{\partial(c,\omega)}_{(c_0,\omega_0)} = \left|
+\begin{array}{ll}
+\frac{\partial F_1}{\partial c} &\frac{\partial F_1}{\partial \omega} \\\noalign{\vskip3pt}
+\frac{\partial F_2}{\partial c}&\frac{\partial F_2}{\partial \omega}
+\end{array}\right|_{(c_0,\omega_0)}\\
+&\quad=-4c_0q\omega_0 -4c_0\omega_0p^2 =-4c_0\omega_0(q+p^2)>0.
+\end{align*}
+
+
+\section{Figures \& Tables}
+
+The output for a single-column figure is in Figure~\ref{fig_sim}.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+%See Figure~\ref{fig_wide} for a double-column figure; this is always at the top of a following page.
+
+
+\begin{figure}[hbt!]
+\centering
+\includegraphics[width=0.75\linewidth]{example-image-16x10.pdf}
+\caption{Insert figure caption here}
+\label{fig_sim}
+\end{figure}
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.8\linewidth]{example-image-16x10.pdf}
+\caption{Insert figure caption here}
+\label{fig_wide}
+\end{figure*}
+
+
+See example table in Table~\ref{table_example}.
+
+\begin{table}[hbt!]
+\begin{threeparttable}
+\caption{An Example of a Table}
+\label{table_example}
+\begin{tabular}{llll}
+\toprule
+\headrow Column head 1 & Column head 2  & Column head 3 & Column head 4\\
+\midrule
+One\tnote{a} & Two&three three &four\\ 
+\midrule
+Three & Four&three three\tnote{b} &four\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[hang]
+\item[]Table note
+\item[a]First note
+\item[b]Another table note
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+\section{Conclusion}
+The conclusion text goes here.
+
+
+\begin{acknowledgement}
+Insert the Acknowledgment text here.
+\end{acknowledgement}
+
+%\endnote in some journals will behave like \footnote; and \printendnotes will not output anything. 
+\printendnotes
+
+\printbibliography
+\end{document}
+\appendix
+
+\section{Hospital Anxiety and Depression Scale (Italian Version)}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+\end{document}
+
+
+
+
+After applying $W_9$, if necessary, we can 
+assume that
+$\lambda$ and $\mu$ are given by the values displayed on the following table:
+$$
+\begin{array}{|c||cccc|}
+\hline
+\lambda & 1 & 1 & 1/3 & 1/3 \\
+\hline
+\mu & 1 &  1/3 & 1 & 1/3 \\
+\hline
+\end{array}
+$$
+In addition, due to [\cite{STEVENS}], we know that only one curve in the isogeny class can have minimal Faltings height. This eliminates the option $(\lambda,\mu)=(1/3,1)$. Summarizing, we can assume that we are in one of the following cases:
+$$
+\begin{array}{|c||cc|}
+\hline
+\text{\bf cases}     & \lambda & \mu  \\
+\hline
+\text{étale} & 1 & 1  \\
+\hline
+\text{semi-étale} & 1 & 1/3  \\
+\hline
+\text{anti-étale} & 1/3 & 1/3  \\
+\hline
+\end{array}
+$$

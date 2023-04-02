@@ -1,0 +1,1258 @@
+\documentclass[11pt]{article}
+%--------------------------------------------------------------------------
+\usepackage{amsfonts,amssymb,amsmath,amsthm,latexsym,graphics,epsfig,amsfonts}
+\usepackage{verbatim,enumerate,array,booktabs,color,bigstrut,prettyref,tikz-cd}
+\usepackage{multirow}
+\usepackage[all]{xy}
+\usepackage[backref]{hyperref}
+\usepackage[OT2,T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{tabularray}
+\UseTblrLibrary{amsmath,varwidth}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{arydshln}
+%--------------------------------------------------------------------------
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\mathdash}{\relbar\mkern-8mu\relbar}
+\newcommand*\circled[2][1.6]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height={\f@size*#1},] (char) {\vphantom{WAH1g}#2};}}
+\makeatother
+%\addtolength{\textwidth}{4cm} 
+\addtolength{\textheight}{3.5cm} 
+\addtolength{\topmargin}{-2cm}
+%\addtolength{\marginparwidth}{-2cm} 
+\newcommand\myiso{\stackrel{\mathclap{\normalfont\mbox{\small $p$}}}{-}}
+\newcommand\myisot{\stackrel{\mathclap{\normalfont\mbox{\small $3$}}}{-}}
+\newcommand{\pref}[1]{\prettyref{#1}}
+%------------------------------------
+\newcommand{\Kd}{\operatorname{K}}
+\newcommand{\kI}{\operatorname{I}}
+\newcommand{\kII}{\operatorname{II}}
+\newcommand{\kIII}{\operatorname{III}}
+\newcommand{\kIV}{\operatorname{IV}}
+%-------------------------------------
+\newrefformat{eq}{\textup{(\ref{#1})}}
+\newrefformat{prty}{\textup{(\ref{#1})}}
+
+\definecolor{mylinkcolor}{rgb}{0.8,0,0}
+\definecolor{myurlcolor}{rgb}{0,0,0.8}
+\definecolor{mycitecolor}{rgb}{0,0,0.8}
+\hypersetup{colorlinks=true,urlcolor=myurlcolor,citecolor=mycitecolor,linkcolor=mylinkcolor,linktoc=page,breaklinks=true}
+%\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+%\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}
+\addtolength{\textwidth}{4cm} \addtolength{\hoffset}{-2cm}
+\addtolength{\marginparwidth}{-2cm}
+%\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{definition}[defn]{Definition}
+\newtheorem{claim}[defn]{Claim}
+%\theoremstyle{plain}
+\newtheorem{thmA}{Theorem A}
+\newtheorem{thmB}{Theorem B}
+\newtheorem{thm2}{Theorem}
+\newtheorem{prop2}{Proposition}
+\newtheorem{note}{Note}
+\newtheorem{corollary}[defn]{Corollary}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{property}[defn]{Property}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{theorem}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{proposition}[defn]{Proposition}
+\newtheorem{thmnn}{Theorem}
+\newtheorem{conj}[defn]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{remarks}{Remarks}
+\newtheorem{ack}{Acknowledgements}
+\newtheorem{remark}[defn]{Remark}
+\newtheorem{question}[defn]{Question}
+\newtheorem{example}[defn]{Example}
+%-------------------------------------
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Qbar}{\overline{\Q}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\modQ}{\,\text{mod}\,(\Q^)^2}
+%-------------------------------------
+\newcommand{\mysquare}[1]{\tikz{\path[draw] (0,0) rectangle node{\tiny #1} (8pt,8pt) ;}}
+\newcommand{\mycircle}[1]{\tikz{\path[draw] (0,0) circle (4pt) node{\tiny #1};}}
+%-------------------------------------
+\begin{document}
+\title{Type $L_3(25)$}
+\date{\today}
+\maketitle
+%-------------------------------------
+\section{Setting}
+%\noindent 
+The isogeny graphs of type $L_3(25)$ are given by
+three isogenous elliptic curves:
+
+\[ 
+\begin{tikzcd}
+E_1 \arrow[dash]{r}{5} & E_5  \arrow[dash]{r}{5} & E_{25}   \,.
+\end{tikzcd}
+\]
+
+\noindent A hauptmodule of $X_0(25)$ is  
+$$t(\tau)= 3^3 \left( \frac{\eta(9\tau)}{\eta(\tau)}\right)^3\,.$$ 
+Letting $t=t(\tau)$, one can write
+
+$$
+\begin{tblr}{l@{\,=\,}l}
+j(E_1) = j(\tau) & 
+\displaystyle{\frac{\left(t^{10}+10 t^9+55 t^8+200 t^7+525 t^6+1010 t^5+1425 t^4+1400 t^3+875 t^2+250 t+5\right)^3}{t \left(t^4+5 t^3+15 t^2+25 t+25\right)}}\\[6pt]
+j(E_5) = j(5\tau) & 
+\displaystyle{\frac{\left(t^2+5 t+5\right)^3 \left(t^4+5 t^2+25\right)^3 \left(t^4+5 t^3+20 t^2+25 t+25\right)^3}{t^5 \left(t^4+5 t^3+15 t^2+25 t+25\right)^5}}
+\\[6pt]
+j(E_{25}) = j(25\tau) & 
+\displaystyle{\frac{\left(t^{10}+250 t^9+4375 t^8+35000 t^7+178125 t^6+631250 t^5+1640625 t^4+3125000 t^3+4296875 t^2+3906250 t+1953125\right)^3}{t^{25} \left(t^4+5 t^3+15 t^2+25 t+25\right)}}\,,\\[6pt]
+\end{tblr}
+$$
+and the Fricke involution of $X_0(25)$ is given by $W_{25}(t)= 5/t$.
+We can (and do) choose Weierstrass equations for $(E_1,E_5,E_{25})$ with signatures:
+
+
+\[
+\begin{tblr}{|c|l|}
+\hline \SetCell[c=2]{c} L_3(25) \\ \hline
+c_4(E_1) & \left(t^2+2 t+5\right) \left(t^{10}+10 t^9+55 t^8+200 t^7+525 t^6+1010 t^5+1425 t^4+1400 t^3+875 t^2+250 t+5\right)\\
+c_6(E_1) & \left(t^2+2 t+5\right)^2 \left(t^4+4 t^3+9 t^2+10 t+5\right) \left(t^{10}+10 t^9+55 t^8+200 t^7+525 t^6+1004 t^5+1395 t^4+1310 t^3+725 t^2+100 t-1\right)\\  
+\Delta(E_1) & t \left(t^2+2 t+5\right)^3 \left(t^4+5 t^3+15 t^2+25 t+25\right)\\
+\hline
+c_4(E_5) & \left(t^2+2 t+5\right) \left(t^2+5 t+5\right) \left(t^4+5 t^2+25\right) \left(t^4+5 t^3+20 t^2+25 t+25\right)\\
+c_6(E_5) & \left(t^2-5\right) \left(t^2+2 t+5\right)^2 \left(t^4+15 t^2+25\right) \left(t^4+4 t^3+9 t^2+10 t+5\right) \left(t^4+10 t^3+45 t^2+100 t+125\right) \\  
+\Delta(E_5) & t^5 \left(t^2+2 t+5\right)^3 \left(t^4+5 t^3+15 t^2+25 t+25\right)^5 \\
+\hline
+c_4(E_{25}) & \left(t^2+2 t+5\right) \left(t^{10}+250 t^9+4375 t^8+35000 t^7+178125 t^6+631250 t^5+1640625 t^4+3125000 t^3+4296875 t^2+3906250 t+1953125\right)\\
+c_6(E_{25}) & \left(t^2+2 t+5\right)^2 \left(t^4+10 t^3+45 t^2+100 t+125\right) \left(t^{10}-500 t^9-18125 t^8-163750 t^7-871875 t^6-3137500 t^5-8203125 t^4-15625000 t^3-21484375 t^2-19531250 t-9765625\right) \\  
+\Delta(E_{25}) & t^{25} \left(t^2+2 t+5\right)^3 \left(t^4+5 t^3+15 t^2+25 t+25\right)\\
+\hline
+\end{tblr}
+\]
+
+\vskip 0.5truecm
+
+\noindent and, with this choice, the isogeny graph is normalized. The involution $W_5$ acts on the
+isogeny graphs of type $L_3(25)$ as:
+
+\[ 
+\begin{tikzcd}
+E_{25}^{-5} \arrow[dash]{r}{5} & E_5^{-5}  \arrow[dash]{r}{5} & E_1^{-5}  \,.
+\end{tikzcd}
+\]
+
+\newpage 
+\section{Kodaira symbols \& Pal coefficients}
+
+\begin{longtblr}
+[caption= {$L_3(25)$ data for $p\ne 2,3,5$}]
+{cells={mode=imath},hlines,vlines,measure=vbox,
+hline{Z}={1-X}{0pt},
+vline{1}={Y-Z}{0pt},
+colspec=cclclcc}
+\SetCell[c=1]{c} L_3(25) &\SetCell[c=6]{c} p\ne 2,3,5  &    & \\
+\SetCell[c=1]{c} t & E & 
+\SetCell[c=1]{c} \operatorname{sig}_p(E) & u & \Kd_p(E) & \SetCell[c=2]{c} u_p(d)\\%-------------------------------------------------
+\SetCell[r=3]{c} m=v_p(t)> 0 
+& E_1 & (0,0,m) & 1 & \kI_m & 1 & 1\\
+& E_5 & (0,0,5m) & 1 & \kI_{5m}& 1 & 1\\
+& E_{25} & (0,0,25m) & 1 & \kI_{25m} & 1 &1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_p(t)=0  \\[6pt]
+v_p(t^2+2 t+5)=4k 
+\end{array}
+& E_{1} & (0,2k,0) & p^k & \kI_{0} & 1 & 1\\
+& E_{5} & (0,2k,0) & p^k & \kI_{0} & 1 & 1\\
+& E_{25} & (0,2k,0) & p^k & \kI_{0} & 1 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_p(t)=0  \\[6pt]
+v_p(t^2+2 t+5)=4k +1
+\end{array}
+& E_{1} & (1,2+2k,3) & p^k & \kIII & 1 & 1\\
+& E_{5} & (1,2+2k,3) & p^k & \kIII & 1 & 1\\
+& E_{25} & (1,2+2k,3) & p^k & \kIII & 1 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_p(t)=0  \\[6pt]
+v_p(t^2+2 t+5)=4k +2
+\end{array}
+& E_{1} & (2,4+2k,6) & p^k & \kI_{0}^* & p & 1\\
+& E_{5} & (2,4+2k,6) & p^k & \kI_{0}^* & p & 1\\
+& E_{25} & (2,4+2k,6) & p^k & \kI_{0}^* & p & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_p(t)=0  \\[6pt]
+v_p(t^2+2 t+5)=4k +3
+\end{array}
+& E_{1} & (3,6+2k,9) & p^k & \kIII^* & p & 1\\
+& E_{5} & (3,6+2k,9) & p^k & \kIII^* & p & 1\\
+& E_{25} & (3,6+2k,9) & p^k & \kIII^* & p & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_p(t)=0  \\[6pt]
+m=v_p(t^4+5 t^3+15 t^2+25 t+25) \geq 0 
+\end{array}
+& E_1 & (0,0,m) & 1 & \kI_{m} & 1& 1 \\
+& E_5 & (0,0,5m) & 1 & \kI_{5m} & 1 & 1\\
+& E_{25} & (0,0,m) & 1 & \kI_{m} & 1 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} -m=v_p(t) < 0 
+& E_1 & (0,0,25m) & p^{-3m} & \kI_{25m} & 1& 1  \\
+& E_5 & (0,0,5m) & p^{-3m} & \kI_{5m} & 1 & 1\\
+& E_{25} & (0,0,m) & p^{-3m} & \kI_{m} & 1 & 1\\
+ \SetCell[c=5,r=2]{c} & & & & & d\equiv 0  & d\not\equiv 0 \\
+                      & & & & & \SetCell[c=2]{c} d \Mod p & \\
+\end{longtblr}
+
+
+\newpage 
+
+\vskip 0.3truecm
+\begin{longtblr}
+[caption= {$L_3(25)$ data for $p=3$}]
+{cells={mode=imath},hlines,vlines,measure=vbox,
+hline{Z}={1-X}{0pt},
+vline{1}={Y-Z}{0pt},
+colspec=cclclcc}
+\SetCell[c=1]{c} L_3(25) &\SetCell[c=6]{c} p=3  &    & \\
+\SetCell[c=1]{c} t & E & 
+\SetCell[c=1]{c} \operatorname{sig}_3(E) & u & \Kd_3(E) & \SetCell[c=2]{c} u_3(d)\\%-------------------------------------------------
+\SetCell[r=3]{c} m=v_3(t)> 0 
+& E_1 & (0,0,m) & 1 & \kI_m & 1 & 1\\
+& E_5 & (0,0,5m) & 1 & \kI_{5m}& 1 & 1\\
+& E_{25} & (0,0,25m) & 1 & \kI_{25m} & 1 &1\\
+%-------------------------------------------------
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+v_p(t)=0 
+& E_1 & (0,0,0) & 1 & \kI_{0} & 1& 1 \\
+& E_5 & (0,0,0) & 1 & \kI_{0} & 1 & 1\\
+& E_{25} & (0,0,0) & 1 & \kI_{0} & 1 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} -m=v_3(t) < 0 
+& E_1 & (0,0,25m) & 3^{-3m} & \kI_{25m} & 1& 1  \\
+& E_5 & (0,0,5m) & 3^{-3m} & \kI_{5m} & 1 & 1\\
+& E_{25} & (0,0,m) & 3^{-3m} & \kI_{m} & 1 & 1\\
+ \SetCell[c=5,r=2]{c} & & & & & d\equiv 0  & d\not\equiv 0 \\
+                      & & & & & \SetCell[c=2]{c} d \Mod 3 & \\
+\end{longtblr}
+\newpage
+
+\begin{longtblr}
+[caption= {$L_3(25)$ data for $p=5$}]
+{cells={mode=imath},hlines,vlines,measure=vbox,
+hline{Z}={1-X}{0pt},
+vline{1}={Y-Z}{0pt},
+colspec=cclclcc}
+\SetCell[c=1]{c} L_3(25) &\SetCell[c=6]{c} p=5  &    & \\
+\SetCell[c=1]{c} t & E & 
+\SetCell[c=1]{c} \operatorname{sig}_5(E) & u & \Kd_5(E) & \SetCell[c=2]{c} u_5(d)\\%-------------------------------------------------
+\SetCell[r=3]{c} m=v_5(t)> 1 
+& E_1 & (2,3,m+5) & 1 & \kI^*_{m-1} & 5 & 1\\
+& E_1 & (2,3,5m+1) & 5 & \kI^*_{5(m-1)} & 5 & 1\\
+& E_1 & (2,3,25m-19) & 5^2 & \kI^*_{25(m-1)} & 5 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_5(t)=1  \\[6pt]
+v_p(t^2+2 t+5)=4k
+\end{array}
+& E_{1} & (1,1+2k,3) & 5^k & \kIII & 1 & 1\\
+& E_{5} & (1,\ge 1+2k,3) & 5^{k+1} & \kIII & 1 & 1\\
+& E_{25} & (1,\ge 1+2k,3) & 5^{k+2} & \kIII & 1 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_5(t)=1  \\[6pt]
+v_p(t^2+2 t+5)=4k +1
+\end{array}
+& E_{1} & (2,3+2k,6) & 5^k & \kI_{0}^* & 5 & 1\\
+& E_{5} & (2,\ge 3+2k,6) & 5^{k+1} & \kI_{0}^* & 5 & 1\\
+& E_{25} & (2,\ge 3+2k,6) & 5^{k+2} & \kI_{0}^* & 5 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_5(t)=1  \\[6pt]
+v_p(t^2+2 t+5)=4k +2
+\end{array}
+& E_{1} & (3,5+2k,9) & 5^k & \kIII^* & 5 & 1\\
+& E_{5} & (3,\ge 5+2k,9) & 5^{k+1} & \kIII^* & 5 & 1\\
+& E_{25} & (3,\ge 5+2k,9) & 5^{k+2} & \kIII^* & 5 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_5(t)=1  \\[6pt]
+m=v_5(t^2+2 t+5)=4k+3
+\end{array}
+& E_{1} & (0,1+2k,0) & 5^{k+1} & \kI_{0} & 1 & 1\\
+& E_{5} & (0,\ge 1+2k,0) & 5^{k+2} & \kI_{0} & 1 & 1\\
+& E_{25} & (0,\ge 1+2k,0) & 5^{k+3} & \kI_{0} & 1 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_p(t)=0  \\[6pt]
+v_p(t^2+2 t+5)=4k 
+\end{array}
+& E_{1} & (0,\ge 1,0) & p^k & \kI_{0} & 1 & 1\\
+& E_{5} & (0,\ge 1,0) & p^k & \kI_{0} & 1 & 1\\
+& E_{25} & (0,\ge 1,0) & p^k & \kI_{0} & 1 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_p(t)=0  \\[6pt]
+v_p(t^2+2 t+5)=4k +1
+\end{array}
+& E_{1} & (1,\ge 2,3) & p^k & \kIII & 1 & 1\\
+& E_{5} & (1,\ge 2,3) & p^k & \kIII & 1 & 1\\
+& E_{25} & (1,\ge 2,3) & p^k & \kIII & 1 & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_p(t)=0  \\[6pt]
+v_p(t^2+2 t+5)=4k +2
+\end{array}
+& E_{1} & (2,\ge 4,6) & p^k & \kI_{0}^* & p & 1\\
+& E_{5} & (2,\ge 4,6) & p^k & \kI_{0}^* & p & 1\\
+& E_{25} & (2,\ge 4,6) & p^k & \kI_{0}^* & p & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_p(t)=0  \\[6pt]
+v_p(t^2+2 t+5)=4k +3
+\end{array}
+& E_{1} & (3,\ge 6,9) & p^k & \kIII^* & p & 1\\
+& E_{5} & (3,\ge 6,9) & p^k & \kIII^* & p & 1\\
+& E_{25} & (3,\ge 6,9) & p^k & \kIII^* & p & 1\\
+%-------------------------------------------------
+\SetCell[r=3]{c} -m=v_5(t) < 0 
+& E_1 & (0,0,25m) & 5^{-3m} & \kI_{25m} & 1& 1  \\
+& E_5 & (0,0,5m) & 5^{-3m} & \kI_{5m} & 1 & 1\\
+& E_{25} & (0,0,m) & 5^{-3m} & \kI_{m} & 1 & 1\\
+ \SetCell[c=5,r=2]{c} & & & & & d\equiv 0  & d\not\equiv 0 \\
+                      & & & & & \SetCell[c=2]{c} d \Mod 5 & \\
+\end{longtblr}
+
+
+\newpage 
+
+\begin{longtblr}
+[caption = {$L_3(25)$ data for $p$=2}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-5}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cclclccc}
+%----------------------------------------------
+L_3(25) & \SetCell[c=7]{c} p=2  & & & & & \\ 
+t & E & \SetCell[c=1]{c} \operatorname{sig}_2(E) & u & \SetCell[c=1]{c} \Kd_2(E) & \SetCell[c=3]{c} u_2(d)  \\
+%----------------------------------------------
+\SetCell[r=3]{c} m=v_2(t)>0 
+& E_1 & (0,0,m) & 1 & \kI_{m} & 1 & 2^{-1} & 2^{-1}  \\
+& E_5 & (0,0,5m) & 1 & \kI_{5m} & 1 & 2^{-1}  & 2^{-1}  \\
+& E_{25} & (0,0,25m) & 1 & \kI_{25m} & 1 & 2^{-1}  & 2^{-1}  \\
+%----------------------------------------------
+\SetCell[r=3]{c}
+\begin{array}{c}
+v_2(t)=0 \\
+t\equiv 1\,(4)
+\end{array}
+& E_1 & (5,8,9) & 1 & \kIII & 1 & 1 & 1 \\
+& E_5 & (5,8,9) & 1 & \kIII & 1 & 1 &  1\\
+& E_{25} & (5,8,9) & 1 & \kIII & 1 & 1 &1  \\
+%----------------------------------------------
+\SetCell[r=3]{c}
+\begin{array}{c}
+v_2(t)=0 \\
+t\equiv 3\,(4)
+\end{array}
+& E_1 & (6,6,6) & 1 &  \kIII & 1 &\text{$1^*$ or $2^*$}  & 1 \\
+& E_5 & (6,6,6) & 1 &  \kIII & 1 & \text{$1^*$ or $2^*$} &  1\\
+& E_{25} & (6,6,6) & 1 &  \kIII & 1 & \text{$1^*$ or $2^*$} & 1 \\
+%----------------------------------------------
+\SetCell[r=3]{c} -m=v_2(t)<0 
+& E_1 & (4,6,25m+12) & 2^{-3m-1} & \kI_{25m+4}^* & 1 & 1 & 2\\
+& E_5 & (4,6,5m+12) & 2^{-3m-1}  & \kI_{5m+4}^*& 1 & 1 & 2\\
+& E_{25} & (4,6,m+12) & 2^{-3m-1}  & \kI_{m+4}^*& 1 &  1& 2 \\
+%----------------------------------------------
+ \SetCell[c=5,r=2]{c} & & & & &  d\equiv 1 &  d\equiv 2  & d\equiv 3 \\
+                      & & & & & \SetCell[c=3]{c} d \Mod{4} & \\
+\end{longtblr}
+
+
+
+\newpage
+
+\section{Conclusion}
+
+\begin{prop}
+Let 
+$ 
+\begin{tikzcd}
+E_1 \arrow[dash]{r}{5}  & E_5 \arrow[dash]{r}{5} & E_{25} 
+\end{tikzcd}
+$
+be a $\mathbf{Q}$-isogeny graph of type $L_3(25)$ corresponding to a given $t$ in $\mathbf{Q}^*$. For every square-free integer $d$, 
+the probability of a vertex
+to be the Faltings curve (circled)
+in the twisted isogeny graph 
+$
+\begin{tikzcd} 
+E_1^d \arrow[dash]{r}{5}  & E_5^d\arrow[dash]{r}{5} & E_{25}^d 
+\end{tikzcd}
+$ 
+is given by:
+
+\[
+\begin{tblr}[mode=imath]{|c|c|c|c|}
+\hline
+ L_3(25) & \text{twisted isogeny graph}  & \text{Prob} \\
+\hline
+ \SetCell[r=1]{c} v_3(t)\ge 3   &  E_1^d \longleftarrow  E_5^d\longleftarrow  \circled[0.8]{$E_{25}^d$} & 1 \\
+\hline
+%-------------------------------------------------
+ \SetCell[r=1]{c} v_3(t)\leq 0 & \circled[0.8]{$E_1^d$} \longrightarrow E_5^d\longrightarrow E_{25}^d  &  1 \\
+\hline
+\end{tblr}
+\]
+
+
+
+\end{prop}
+
+\vskip 0.35truecm
+
+\noindnet{\it Proof.} From the previous tables one gets:
+
+\vskip 0.5truecm
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%-------------------------------------------------
+\SetCell[c=1]{c} t &\SetCell[c=1]{c} [u(E)]  & \SetCell[c=1]{c} [u(E)(d)] &  \SetCell[c=1]{c}\text{Prob}\\
+%-------------------------------------------------
+v_5(t)\ge 1 & (1:5:5^{2}) & (1:1:1) &  (0,0,1) \\
+%-------------------------------------------------
+v_5(t)\le 0 & (1:1:1) & (1:1:1) &  (1,0,0) \\
+%-------------------------------------------------
+\end{tblr}
+
+\end{document}
+
+
+\vskip 1truecm
+
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%\hline
+\SetCell[c=1]{c} t &\SetCell[c=1]{c} u(E_1,E_5,E_{25})  & \SetCell[c=1]{c} u_p(E_1,E_5,E_{25})(d) &  & \text{Probability}\\
+\hline
+\SetCell[r=2]{c} v_2(t)>0 & \SetCell[r=2]{c} (2^{-1},2^{-1},2^{-1}) & (1,1,1) & d\equiv 1,2\,(4) & \SetCell[r=6]{c} \\
+&  & (2,2,2) & d\equiv 3\,(4) & \\
+\SetCell[r=2]{c} v_2(t)=0 & \SetCell[r=2]{c} (2^{-1},2^{-1},2^{-1}) & (1,1,1) & d\equiv 1\,(4) & \\
+&  & (2,2,2) & d\equiv 2,3\,(4) & \\
+\SetCell[r=2]{c} v_2(t)=-m<0 & \SetCell[r=2]{c} (2^{-m-1},2^{-m-1},2^{-m-1}) & (1,1,1) & d\equiv 1,2\,(4) & \\
+&  & (2,2,2) & d\equiv 3\,(4) & \\
+\hline
+\SetCell[r=2]{c} v_3(t)\ge 3 & \SetCell[r=2]{bg=teal2,fg=white,c} (1,3,3^{2}) & (1,1,1) & d\not\equiv 0\,(3)& \SetCell[r=2]{c} \left(0,0,1\right) \\
+& & (3,3,3) & d\equiv 0\,(3)& \\
+\SetCell[r=2]{c}  v_3(t)=2 & \SetCell[r=2]{bg=teal2,fg=white,c} (1,3,3) & (1,1,1) & d\not\equiv 0\,(3)&\SetCell[r=2]{c} \left(0,\frac{5}{4},\frac{1}{4}\right) \\
+& & \SetCell[r=1]{bg=teal2,fg=white,c} (1,1,3) & d\equiv 0\,(3)& \\
+\SetCell[r=2]{c} v_3(t)=1 & \SetCell[r=2]{c} (1,1,1) & (1,1,1) & d\not\equiv 0\,(3)&\SetCell[r=2]{c} \left(\frac{5}{4},\frac{1}{4},0\right) \\
+& & \SetCell[r=1]{bg=teal2,fg=white,c} (1,3,3) & d\equiv 0\,(3)& \\
+\SetCell[r=1]{c} v_3(t)=-m\le 0 & \SetCell[r=1]{c} (3^{-m},3^{-m},3^{-m}) & (1,1,1) &  & \SetCell[r=1]{c} (1,0,0)\\
+\hline
+\SetCell[r=1]{c} v_p(t)\ge 0 &  \SetCell[c=1]{c} (1,1,1) & \SetCell[r=2]{c} (1,1,1) & \SetCell[r=2]{c}  & \SetCell[r=2]{c}\\
+\SetCell[r=1]{c} v_p(t)=-m<0 & \SetCell[r=1]{c} (p^{-m},p^{-m},p^{-m}) & &  & \\
+\end{tblr}
+
+
+
+\newpage
+\section{OLD VERSION}
+{\bf Notation:} 
+Let be $E:y^2=x^3+Ax+B$ an elliptic curve:
+$$
+\begin{array}{l}
+p\operatorname{-sig}(E)=(\nu_p(c_4(E)),\nu_p(c_6(E)),\nu_p(\Delta(E)))\\[2mm]
+P_2(E)=\left(\frac{c_6(E)}{3^3}\right)^2+2-3 \frac{c_4(E)}{3^2}\\[2mm]
+P_5(E)=\left(\frac{c_6(E)}{3^6}\right)^2+2-3 \frac{c_4(E)}{3^4}\\[2mm]
+c_4(E)=-2^4 3 A,\\
+c_6(E)=-2^5 3^3B,\\
+\Delta(E)=2^6 3^3(c_4^3-c_6^2).\\
+W_9(t)=\frac{3 (t+6)}{t-3}.
+\end{array}
+$$
+
+The isogeny graphs of type $L_3(25)$ are given by
+three isogenous elliptic curves:
+
+\[ \begin{tikzcd}
+E_1 \arrow[dash]{r}{5} & E_5  \arrow[dash]{r}{5} & E_{25}   \,.
+\end{tikzcd}
+\]
+For $i=1,3,9$:
+$$
+E_i:y^2+A_i x+B_i,\
+$$
+
+
+$$
+\begin{tblr}[mode=dmath]{|c|l|}
+ \hline 
+	A_1 & 	-3 t \left(t^3-24\right)\\
+	B_1 & 2 \left(t^6-36 t^3+216\right)\\
+\hline
+\hline
+    A_3 &  - 3 t (t+6) \left(t^2-6 t+36\right)\\
+	B_3 &   2 \left(t^2-6 t-18\right) \left(t^4+6 t^3+54 t^2-108 t+324\right)\\
+\hline
+\hline
+	A_9 & -3 (t+6) \left(t^3+234 t^2+756 t+2160\right) \\[1mm]
+	B_9 & 2 \left(t^6-504 t^5-16632 t^4-123012 t^3-517104 t^2-1143072 t-1475496\right)   \\
+	\hline
+\end{tblr}
+$$
+
+$$
+\begin{tblr}[mode=dmath]{|c|l|}
+ \hline 
+	c_4(E_1) & 	2^{4}3^2 t \left(t^3-24\right)\\
+	c_6(E_1) & -2^{6}3^3 \left(t^6-36 t^3+216\right)\\
+	\Delta(E_1) & 2^{12}3^6 (t-3) \left(t^2+3 t+9\right)\\
+\hline
+\hline
+    c_4(E_5) &	   2^4 3^2 t (t+6) \left(t^2-6 t+36\right)\\
+	c_6(E_5) &   -2^6 3^3 \left(t^2-6 t-18\right) \left(t^4+6 t^3+54 t^2-108 t+324\right)\\
+	\Delta(E_5) &  2^{12} 3^6 (t-3)^3 \left(t^2+3 t+9\right)^3  \\
+\hline
+\hline
+	c_4(E_{25}) & 2^4 3^2 (t+6) \left(t^3+234 t^2+756 t+2160\right) \\[1mm]
+	c_6(E_{25}) & -2^6 3^3 \left(t^6-504 t^5-16632 t^4-123012 t^3-517104 t^2-1143072 t-1475496\right)   \\
+	\Delta(E_{25}) &  2^{12} 3^6 (t-3)^9 \left(t^2+3 t+9\right)  \\
+	\hline
+\end{tblr}
+$$
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%\hline
+\SetCell[c=5]{c} p=3 & & & & \\
+\hline
+\SetCell[c=1]{c} t & E & 3\operatorname{-sig}(E) & u & 3\operatorname{-Kod}(E) \\
+\hline
+\SetCell[r=3]{c} m=v_3(t)> 1 
+& E_1 & (m+3,6,9) & 1 & IV^* \\
+& E_5 & (m+1,3,3) & 3^{-1} & II \\
+& E_{25} & (2,3,5) & 3^{-1} & IV \\
+\hline
+\SetCell[r=3]{c} -m=v_3(t) \le 0 
+& E_1 & (2,3,6+9m) & 3^{m} & I_{9m}^* \\
+& E_5 & (2,3,6+3m) & 3^{m} & I_{3m}^* \\
+& E_{25} & (2,3,6+m) & 3^{m} & I_{3m}^* \\
+\hline
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_3(t)= 1 \\[3pt] 
+v_3(t/3-1)= 1
+\end{array}
+& E_1 & (4,6,11) & 1 & II^* \\
+& E_5 & (\ge 4,6,9) & 3^{-1}& IV^* \\
+& E_{25} & (\ge 2,3,3) & 3^{-2} & II \\
+\hline
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_3(t)= 1 \\[3pt] 
+v_3(t/3-1)\ge 1\\[3pt] 
+m=-v_3(W_9(t))
+\end{array}
+& E_1 & (0,0,m) & 3^{-1}& I_m \\
+& E_5 & (0,0,3m) & 3^{-2} & I_{3m} \\
+& E_{25} & (0,0,9m) & 3^{-3} & I_{9m} \\
+\hline
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_3(t)= 1 \\[3pt] 
+v_3(t/3-2)\ge 1
+\end{array}
+& E_1 & (4,6,9) & 1 & IV^*  \\
+& E_5 & (\ge 2,3,3) &3^{-1} & II \\
+& E_{25} & (2,3,5) &3^{-1} & IV \\
+%\hline
+\end{tblr}
+
+
+\
+
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%\hline
+\SetCell[c=5]{c} p\ne 2,3 & & & & \\
+\hline
+\SetCell[c=1]{c} t & E & p\operatorname{-sig}(E) & u & p\operatorname{-Kod}(E) \\
+\hline
+\SetCell[r=3]{c} m=v_p(t)\ge 0 
+& E_1 & (m,0,0) & 1 & I_0 \\
+& E_5 & (m,0,0) & 1 & I_0 \\
+& E_{25} & (m,0,0) & 1 & I_0 \\
+\hline
+\SetCell[r=3]{c} -m=v_3(t) < 0 
+& E_1 & (0,0,9m) & p^{m} & I_{9m} \\
+& E_5 & (0,0,m) & p^{m} & I_{3m} \\
+& E_{25} & (0,0,m) & p^{m} & I_{m} \\
+%\hline
+\end{tblr}
+
+\
+
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%\hline
+\SetCell[c=5]{c} p=2 & & & & \\
+\hline
+\SetCell[c=1]{c} t & E & 2\operatorname{-sig}(E) & u & 2\operatorname{-Kod}(E) \\
+\hline
+\SetCell[r=3]{c} m=v_2(t)>0 
+& E_1 & (m+7,9,12) & 1 & II^* \\
+& E_5 & (m+7,9,12) & 1 & II^* \\
+& E_{25} & (\ge 9,9,12) & 1 & II^* \\
+\hline
+\SetCell[r=3]{c} v_2(t) = 0 \quad s?
+& E_1 & (4,6,12+s) & 1 & I^*_{4+s} \\
+& E_5 & (4,6,12+s) & 1 & I^*_{4+s} \\
+& E_{25} & (4,6,12+s) & 1 & I^*_{4+s} \\
+\hline
+\SetCell[r=3]{c} -m=v_2(t) < 0 
+& E_1 & (4,6,12+9 m) & 2^{m} & I^*_{4+9m} \\
+& E_5 & (4,6,12+3 m) & 2^{m} & I^*_{4+3m} \\
+& E_{25} & (4,6,12+ m) & 2^{m} & I^*_{4+m} \\
+%\hline
+\end{tblr}
+
+\newpage
+
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%\hline
+L_3(25) &\SetCell[c=4]{c} p=3  & & & & \SetCell[c=2]{c} u_3(d)  & \\
+\hline
+\SetCell[c=1]{c} t & E & 3\operatorname{-sig}(E) & u & 3\operatorname{-Kod}(E) & d\equiv 0\pmod 3 & d\not\equiv 0\pmod 3  \\
+\hline
+\SetCell[r=3]{c} m=v_3(t)> 1 
+& E_1 & (m+3,6,9) & 1 & IV^* & 3 & 1 \\
+& E_5 & (m+1,3,3) & 3^{-1} & II  & 1 & 1\\
+& E_{25} & (2,3,5) & 3^{-1} & IV & 1 & 1\\
+\hline
+\SetCell[r=3]{c} -m=v_3(t) \le 0 
+& E_1 & (2,3,6+9m) & 3^{m} & I_{9m}^*  & 3 & 1\\
+& E_5 & (2,3,6+3m) & 3^{m} & I_{3m}^*  & 3 & 1\\
+& E_{25} & (2,3,6+m) & 3^{m} & I_{3m}^*  & 3 & 1\\
+\hline
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_3(t)= 1 \\[3pt] 
+v_3(t/3-1)= 1
+\end{array}
+& E_1 & (4,6,11) & 1 & II^*  & 3 & 1\\
+& E_5 & (\ge 4,6,9) & 3^{-1}& IV^*  & 3 & 1\\
+& E_{25} & (\ge 2,3,3) & 3^{-2} & II & 1 & 1\\
+\hline
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_3(t)= 1 \\[3pt] 
+v_3(t/3-1)\ge 1\\[3pt] 
+m=-v_3(W_9(t))
+\end{array}
+& E_1 & (0,0,m) & 3^{-1}& I_m & 1 & 1\\
+& E_5 & (0,0,3m) & 3^{-2} & I_{3m} & 1 & 1\\
+& E_{25} & (0,0,9m) & 3^{-3} & I_{9m} & 1 & 1\\
+\hline
+\SetCell[r=3]{c} 
+\begin{array}{c}
+v_3(t)= 1 \\[3pt] 
+v_3(t/3-2)\ge 1
+\end{array}
+& E_1 & (4,6,9) & 1 & IV^*   & 3 & 1\\
+& E_5 & (\ge 2,3,3) &3^{-1} & II & 1 & 1\\
+& E_{25} & (2,3,5) &3^{-1} & IV & 1 & 1 \\
+%\hline
+\end{tblr}
+
+\
+
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%\hline
+L_3(25) & \SetCell[c=4]{c} p\ne 2,3 & & & & u_p(d)\\
+\hline
+\SetCell[c=1]{c} t & E & p\operatorname{-sig}(E) & u & p\operatorname{-Kod}(E) & d \\
+\hline
+\SetCell[r=3]{c} m=v_p(t)\ge 0 
+& E_1 & (m,0,0) & 1 & I_0 & 1\\
+& E_5 & (m,0,0) & 1 & I_0 & 1\\
+& E_{25} & (m,0,0) & 1 & I_0& 1 \\
+\hline
+\SetCell[r=3]{c} -m=v_3(t) < 0 
+& E_1 & (0,0,9m) & p^{m} & I_{9m} & 1\\
+& E_5 & (0,0,m) & p^{m} & I_{3m} & 1\\
+& E_{25} & (0,0,m) & p^{m} & I_{m}& 1 \\
+%\hline
+\end{tblr}
+
+\
+
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%\hline
+L_3(25) &\SetCell[c=4]{c} p=2  & & & & \SetCell[c=3]{c} u_2(d)  & \\
+\hline
+\SetCell[c=1]{c} t & E & 3\operatorname{-sig}(E) & u & 3\operatorname{-Kod}(E) & d\equiv 1\pmod 4 & d\equiv 2\pmod 4 & d\equiv 3\pmod 4  \\
+\hline
+\SetCell[r=3]{c} m=v_2(t)>0 
+& E_1 & (m+7,9,12) & 1 & II^* & 1 & 2 & 2\\
+& E_5 & (m+7,9,12) & 1 & II^*  & 1 & 2 & 2\\
+& E_{25} & (\ge 9,9,12) & 1 & II^* & 1 & 2 & 2 \\
+\hline
+\SetCell[r=3]{c} v_2(t) = 0 \quad s?
+& E_1 & (4,6,12+s) & 1 & I^*_{4+s} & 1 & 1 & 2  \\
+& E_5 & (4,6,12+s) & 1 & I^*_{4+s}& 1 & 1 & 2 \\
+& E_{25} & (4,6,12+s) & 1 & I^*_{4+s}& 1 & 1 & 2 \\
+\hline
+\SetCell[r=3]{c} -m=v_2(t) < 0 
+& E_1 & (4,6,12+9 m) & 2^{m} & I^*_{4+9m} & 1 & 1 & 2\\
+& E_5 & (4,6,12+3 m) & 2^{m} & I^*_{4+3m}& 1 & 1 & 2 \\
+& E_{25} & (4,6,12+ m) & 2^{m} & I^*_{4+m}& 1 & 1 & 2 \\
+%\hline
+\end{tblr}
+
+\newpage
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%\hline
+\nu_3(t) & \nu_2(t) & (u_d(E_1),u_d(E_5),u_d(E_{25})) & d\pmod{12} \\
+\hline 
+\SetCell[r=8]{c} \nu_3(t) \le 0 &  \SetCell[r=4]{c} \nu_2(t)> 0 & (1,1,1) & 1,5\\
+ & & (2,2,2) & 2,7,10,11 \\
+ & & (3,3,3) & 9\\
+ & &  (6,6,6) & 3,6\\
+  & \SetCell[r=4]{c} \nu_2(t) \le 0 & (1,1,1) & 1,2,5,10\\
+  & & (2,2,2) & 7,11\\
+ & &  (3,3,3) & 6,9\\
+ & &  (6,6,6) & 3\\
+ \hline
+\SetCell[r=8]{c} \nu_3(t)  > 1 &  \SetCell[r=4]{c} \nu_2(t)  > 0 & (1,1,1) & 1,5\\
+ & & (2,2,2) & 2,7,10,11 \\
+ & & (3,1,1) & 9\\
+ & &  (6,2,2) & 3,6\\
+  & \SetCell[r=4]{c} \nu_2(t) \le 0 & (1,1,1) & 1,2,5,10\\
+  & & (2,2,2) & 7,11\\
+ & &  (3,1,1) & 6,9\\
+ & &  (6,2,2) & 3\\
+  \hline
+\SetCell[r=8]{c}  
+\begin{array}{c}
+v_3(t)= 1 \\[3pt] 
+v_3(t/3-1)= 1
+\end{array} &  \SetCell[r=4]{c} \nu_2(t)  > 0 & (1,1,1) & 1,5\\
+ & & (2,2,2) & 2,7,10,11 \\
+ & & (3,3,1) & 9\\
+ & &  (6,6,2) & 3,6\\
+  & \SetCell[r=4]{c} \nu_2(t) \le 0 & (1,1,1) & 1,2,5,10\\
+  & & (2,2,2) & 7,11\\
+ & &  (3,3,1) & 6,9\\
+ & &  (6,6,2) & 3\\
+\hline
+\SetCell[r=4]{c}  
+\begin{array}{c}
+v_3(t)= 1 \\[3pt] 
+v_3(t/3-1)\ge 1\\[3pt] 
+m=-v_3(W_9(t))
+\end{array}&  \SetCell[r=2]{c} \nu_2(t)  > 0 & (1,1,1) & 1,5,9\\
+ & & (2,2,2) & 2,3,6,7,10,11 \\
+  & \SetCell[r=2]{c} \nu_2(t) \le 0 & (1,1,1) & 1,2,5,6,9,10\\
+  & & (2,2,2) & 3,7,11\\
+ \hline
+\SetCell[r=8]{c}  
+\begin{array}{c}
+v_3(t)= 1 \\[3pt] 
+v_3(t/3-2)\ge 1
+\end{array}&  \SetCell[r=4]{c} \nu_2(t)  > 0 & (1,1,1) & 1,5\\
+ & & (2,2,2) & 2,7,10,11 \\
+ & & (3,3,1) & 9\\
+ & &  (6,6,2) & 3,6\\
+  & \SetCell[r=4]{c} \nu_2(t) \le 0 & (1,1,1) & 1,2,5,10\\
+  & & (2,2,2) & 7,11\\
+ & &  (3,1,1) & 6,9\\
+ & &  (6,2,2) & 3\\
+ \end{tblr}\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Proof $p=3$}
+$$
+t=3^n u,\qquad u\in \Z_3^*
+$$
+\subsection{$E_1$}
+$$
+	\begin{array}{lll}
+	c_4(E_1)=	2^4\ 3^{n+3} u \left(3^{3 n-1} u^3-2^3\right),\\[1mm]
+	c_6(E_1)=-2^6 3^6 \left(3^{6 n-3} u^6-2^2 3^{3 n-1} u^3+2^3\right),\\[1mm]
+	\Delta(E_1)=2^{12} 3^9 \left(3^{n-1} u-1\right) \left(3^{2 n-2} u^2+3^{n-1} u+1\right)
+	\end{array}
+	$$
+	
+\fbox{$n>1$}  	$\gamma_3(E_1)=(n+3,6,9)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_1)=\text{IV}^*$ since $P_5(E_1)\equiv 3 \!\!\pmod 9$.
+ %or $\text{III}^*$:
+
+\
+
+\fbox{$n<0$} $n=-m$, $m>0$:
+$$
+	\begin{array}{lll}
+	c_4(E_1)=	 2^4 3^{2-4 m} u \left(u^3-2^3 3^{3 m+1}\right)            ,\\[1mm]
+	c_6(E_1)=  -2^6 3^{3-6 m} \left(-2^2 3^{3 m+2} u^3+2^3 3^{6 m+3}+u^6\right)           .\\[1mm]
+	\Delta(E_1)=   2^{12} 3^{6-3 m} \left(u-3^{m+1}\right) \left(3^{m+1} u+3^{2 m+2}+u^2\right)         .
+	\end{array}
+$$
+Change $U=3^m$ $\longrightarrow$ $\gamma_3(E_1)=(2,3,6+9 m)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_1)=\text{I}_{9m}^*$.
+ 
+ \
+ 
+ \fbox{$n=0$} 
+ $$
+	\begin{array}{lll}
+	c_4(E_1)=	 2^4 3^2 u \left(u^3-3\ 2^3\right)            ,\\[1mm]
+	c_6(E_1)=    -2^6 3^3 \left(u^6-2^2 3^2 u^3+2^3 3^3\right)         .\\[1mm]
+	\Delta(E_1)=    2^{12} 3^6 (u-3) \left(u^2+3 u+3^2\right)        .
+	\end{array}
+$$
+$\gamma_3(E_1)=(2,3,6)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_1)=\text{I}_{0}^*$.
+
+\
+
+ \fbox{$n=1\,\, \& \,\, u\equiv 1\pmod 3$}  $u=1+3^m v$, $m>0$, $v\in\mathbb Z_3$ ($v=0\Longleftrightarrow t=3\Longleftrightarrow$ $E_1$ singular).
+
+$$
+	\begin{array}{lll}
+	c_4(E_1)=	  2^4 3^4 \left(3^m v+1\right) \left(3^{3 m+2} v^3+3^{2 m+3} v^2+3^{m+3} v+1\right)           ,\\[1mm]
+	c_6(E_1)=    -2^6 3^6 \left(3^{6 m+3} v^6+2\ 3^{5 m+4} v^5+5\ 3^{4 m+4} v^4+56\ 3^{3 m+2} v^3+11\ 3^{2 m+3} v^2+2\ 3^{m+3} v-1\right)         .\\[1mm]
+	\Delta(E_1)=  2^{12} 3^{m+10} v \left(3^{2 m-1} v^2+3^m v+1  \right)     .
+	\end{array}
+$$
+$m=1$ $\Longrightarrow$ $\gamma_3(E_1)=(4,6,11)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_1)=\text{II}^*$.
+
+\noindent $m>1$ $\Longrightarrow$  Change $U=1/3$: $\Longrightarrow$ $\gamma_3(E_1)=(0,0,m-2)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_1)=\text{I}_{m-2}$, $\nu_3(W_3(t))=2-m$.
+
+\
+
+ \fbox{$n=1\,\, \& \,\, u\equiv 2\pmod 3$}  $u=2+3^m v$, $m>0$, $v\in\mathbb Z_3\cup \{0\}$.
+
+
+$$
+	\begin{array}{l}
+	c_4(E_1)=	  2^4 3^4 \left(3^m v+2\right) \left(3^{3 m+2} v^3+2\ 3^{2 m+3} v^2+2^2 3^{m+3} v+2^6\right)           ,\\[1mm]
+	c_6(E_1)=  -2^6 3^6 \left(3^{6 m+3} v^6+4\ 3^{5 m+4} v^5+5\ 2^2 3^{4 m+4} v^4+7\ 17\ 2^2 3^{3 m+2} v^3+\right. \\[1mm]
+	\qquad\qquad\qquad \left.+29\ 2^3 3^{2 m+3} v^2+11\ 2^4 3^{m+3} v+181\ 2^3\right)           \\[1mm]
+	\Delta(E_1)=   2^{12} 3^9 \left(3^m v+1\right) \left(3^{2 m} v^2+5\ 3^m v+7\right)         .
+	\end{array}
+$$
+$\gamma_3(E_1)=(4,6,9)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_1)=\text{IV}^*$ since $P_5(E_1)\equiv 6 \!\!\pmod 9$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{$E_5$}
+$$
+	\begin{array}{lll}
+	c_4(E_5)=	2^4 3^{n+5} u \left(3^{n-1} u+2\right) \left(3^{2 n-2} u^2-2\ 3^{n-1} u+2^2\right)             ,\\[1mm]
+	c_6(E_5)=  -2^6 3^9 \left(3^{2 n-2} u^2-2\ 3^{n-1} u-2\right) \left(3^{4 n-4} u^4+2\ 3^{3 n-3} u^3+2\ 3^{2 n-1} u^2-2^2 3^{n-1} u+2^2\right)           .\\[1mm]
+	\Delta(E_5)=  2^{12} 3^{15} \left(3^{n-1} u-1\right)^3 \left(3^{2 n-2} u^2+3^{n-1} u+1\right)^3          .
+	\end{array}
+$$
+
+
+\noindent \fbox{$n>1$} Change $U=1/3$: 
+
+
+$\gamma_3(E_5)=(n+1,3,3)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_5)=\text{II}$ since $P_2(E_5)\equiv 3 \!\!\pmod 9$.
+
+\
+
+
+\noindent \fbox{$n<0$} $n=-m$, $m>0$:
+$$
+	\begin{array}{lll}
+	c_4(E_5)=2^4 3^{2-4 m} u \left(2\ 3^{m+1}+u\right) \left(-2\ 3^{m+1} u+2^2 3^{2 m+2}+u^2\right)	             ,\\[1mm]
+	c_6(E_5)=   -2^6 3^{3-6 m} \left(-2\ 3^{m+1} u-2\ 3^{2 m+2}+u^2\right) \left(2\ 3^{m+1} u^3+2\ 3^{2 m+3} u^2-4\ 3^{3 m+3} u+2^2 3^{4 m+4}+u^4\right)          .\\[1mm]
+	\Delta(E_5)=     2^{12} 3^{6-9 m} \left(u-3^{m+1}\right)^3 \left(3^{m+1} u+3^{2 m+2}+u^2\right)^3       .
+	\end{array}
+$$
+Change $U=3^m$ $\longrightarrow$ $\gamma_3(E_5)=(2,3,6+3 m)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_5)=\text{I}_{3m}^*$.
+ 
+ \
+ 
+ \noindent \fbox{$n=0$} 
+ $$
+	\begin{array}{lll}
+	c_4(E_5)=	2^4 3^2 u (u+2\ 3) \left(u^2-2\ 3 u+2^2 3^2\right)             ,\\[1mm]
+	c_6(E_5)=  -2^6 3^3 \left(u^2-2\ 3 u-2\ 3^2\right) \left(u^4+2\ 3 u^3+2\ 3^3 u^2-2^2 3^3 u+2^2 3^4\right)           .\\[1mm]
+	\Delta(E_5)=      2^{12} 3^6 (u-3)^3 \left(u^2+3 u+9\right)^3      .
+	\end{array}
+$$
+$\gamma_3(E_5)=(2,3,6)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_5)=\text{I}_{0}^*$.
+
+\
+
+
+\noindent \fbox{$n=1\,\, \& \,\, u\equiv 1\pmod 3$}  $u=1+3^m v$, $m>0$, $v\in\mathbb Z_3$ ($v=0\Longleftrightarrow t=3\Longleftrightarrow$ $E_5$ singular).
+
+
+$$
+	\begin{array}{lll}
+	c_4(E_5)=	 2^4 3^8 \left(3^m v+1\right) \left(3^{m-1} v+1\right) \left(3^{2 m-1} v^2+1\right)            ,\\[1mm]
+	c_6(E_5)=  -2^6 3^{12} \left(3^{2 m-1} v^2-1\right) \left(3^{4 m-2} v^4+2\ 3^{3 m-1} v^3+2\ 3^{2 m} v^2+2\ 3^m v+1\right)           .\\[1mm]
+	\Delta(E_5)=   2^{12} 3^{3 m+18} v^3 \left(3^{2 m-1} v^2+3^m v+1\right)^3         .
+	\end{array}
+$$
+$m=1$: $U=1/3$ $\Longrightarrow$ $\gamma_3(E_5)=(\ge 4,6,9)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_5)=\text{IV}^*$ since $P_5(E_5)\equiv 3v^2 \!\!\pmod 9$.
+
+\noindent $m>1$: $U=1/9$  $\Longrightarrow$ $\gamma_3(E_5)=(0,0,3m-6)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_5)=\text{I}_{3(m-2)}$, $\nu_3(W_3(t))=2-m$.
+
+
+
+\
+
+\noindent \fbox{$n=1\,\, \& \,\, u\equiv 2\pmod 3$}  $u=2+3^m v$, $m>0$, $v\in\mathbb Z_3\cup \{0\}$.
+
+
+$$
+	\begin{array}{lll}
+	c_4(E_5)=2^4 3^6 \left(3^m w+2\right) \left(3^m w+4\right) \left(3^{2 m} w^2+2\ 3^m w+4\right)	             ,\\[1mm]
+	c_6(E_5)= -2^6 3^9 \left(3^{2 m} w^2+2\ 3^m w-2\right) \left(3^{4 m} w^4+2\ 5\ 3^{3 m} w^3+2\ 7\ 3^{2 m+1} w^2+19\ 2^2 3^m w+13\ 2^2\right)            .\\[1mm]
+	\Delta(E_5)=   2^{12} 3^{15} \left(3^m w+1\right)^3 \left(3^{2 m} w^2+5\ 3^m w+7\right)^3         .
+	\end{array}
+$$
+$m=1$: $U=1/3$ $\Longrightarrow$ $\gamma_3(E_5)=(\ge 2,3,3)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_5)=\text{II}$ since $P_2(E_5)\equiv 3 \!\!\pmod 9$.
+
+\noindent $m>1$: $U=1/3$ $\Longrightarrow$ $\gamma_3(E_5)=( 2,3,3)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_5)=\text{II}$ since $P_2(E_5)\equiv 2 \!\!\pmod 9$.
+
+\
+
+\
+
+
+\subsection{$E_{25}$}
+
+$$
+	\begin{array}{lll}
+	c_4(E_{25})=2^4 3^6 \left(3^{n-1} u+2\right) \left(3^{3 n-3} u^3+2\ 13\ 3^{2 n-1} u^2+7\ 2^2 3^n u+5\ 2^4\right)	             ,\\[1mm]
+	c_6(E_{25})=  -2^6 3^9 \left(3^{6 n-6} u^6-2^3 7\ 3^{5 n-4} u^5-2^3 7\ 11\ 3^{4 n-3} u^4-2^2 17\ 67\ 3^{3 n-3} u^3-2^4 7\ 19\ 3^{2 n-1} u^2-2^5 7^2 3^n u+11\ 23 \left(-2^3\right)\right)           .\\[1mm]
+	\Delta(E_{25})= 2^{12} 3^{17} \left(3^{n-1} u-1\right)^9 \left(3^{2 n-2} u^2+3^{n-1} u+1\right)        .	
+		\end{array}
+$$
+\noindent \fbox{$n>1$} Change $U=1/3$: 
+$\gamma_3(E_{25})=(2,3,5)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_{25})=\text{IV}$.
+
+\
+
+
+\noindent \fbox{$n<0$} $n=-m$, $m>0$:
+$$
+	\begin{array}{lll}
+	c_4(E_{25})=2^4 3^{2-4 m} \left(2\ 3^{m+1}+u\right) \left(2\ 13\ 3^{m+2} u^2+7\ 2^2 3^{2 m+3} u+5\ 2^4 3^{3 m+3}+u^3\right)	             ,\\[1mm]
+	c_6(E_{25})=   2^6 3^{3-6 m} \left(7\ 2^3 3^{m+2} u^5+7\ 11\ 2^3 3^{2 m+3} u^4+17\ 67\ 2^2 3^{3 m+3} u^3+7\ 19\ 2^4 3^{4 m+5} u^2+2^5 7^2 3^{5 m+6} u+11\ 23\ 2^3 3^{6 m+6}-u^6\right)          .\\[1mm]
+	\Delta(E_{25})=  -2^{12}  3^{6-11 m} \left(3^{m+1}-u\right)^9 \left(3^{m+1} u+3^{2 m+2}+u^2\right)       .	
+		\end{array}
+$$
+Change $U=3^m$ $\Longrightarrow$ $\gamma_3(E_{25})=(2,3,6+ m)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_{25})=\text{I}_{m}^*$.
+ 
+ \
+ 
+ \noindent \fbox{$n=0$} 
+ $$
+	\begin{array}{l}
+		c_4(E_{25})=2^4 3^2 (u+6) \left(u^3+2\ 13\ 3^2 u^2+7\ 2^2 3^3 u+5\ 2^4 3^3\right)	             ,\\[1mm]
+	c_6(E_{25})=  -2^6 3^3 \left(u^6-2^3 3^2 7 u^5-2^3 3^3 7\ 11 u^4-2^2 3^3 17\ 67 u^3-2^4 3^5 7\ 19 u^2-2^5 3^6 7^2 u+11\ 23 \left(-2^3\right) 3^6\right)           .\\[1mm]
+	\Delta(E_{25})=  	2^{12} 3^6 (u-3)^9 \left(u^2+3 u+9\right).
+		\end{array}
+$$
+$\gamma_3(E_{25})=(2,3,6)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_{25})=\text{I}_{0}^*$.
+
+\
+
+
+\noindent \fbox{$n=1\,\, \& \,\, u\equiv 1\pmod 3$}  $u=1+3^m v$, $m>0$, $v\in\mathbb Z_3$ ($v=0\Longleftrightarrow t=3\Longleftrightarrow$ $E_{25}$ singular).
+
+\noindent $m=1$:
+
+$$
+	\begin{array}{lll}
+	c_4(E_{25})=2^4 3^2 (v+1) \left(v^3+27 v^2+27 v+9\right)	             ,\\[1mm]
+	c_6(E_{25})= -2^6 3^3 \left(v^6-2\ 3^3 v^5-3^3 11 v^4-2^3 3^2 7 v^3-3^4 5 v^2-2\ 3^4 v-3^3\right)            .\\[1mm]
+	\Delta(E_{25})=  	2^{12} 3^3 v^9 \left(3 v^2+3 v+1\right).
+	\end{array}
+$$
+$U=1/9$ $\Longrightarrow$ $\gamma_3(E_{25})=(\ge 2,3,3)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_{25})=\text{II}$ since $P_2(E_{25})\equiv v^{12}+6 v^4+6 v^3+2 \!\!\pmod 9$, and $v=1,2$.
+
+\noindent $m>1$: 
+$$
+	\begin{array}{lll}
+	c_4(E_{25})=2^4 3^{12} \left(3^{m-1} v+1\right) \left(3^{3 m-5} v^3+3^{2 m-1} v^2+3^m v+1\right)	             ,\\[1mm]
+	c_6(E_{25})= -2^6 3^{18} \left(3^{6 m-9} v^6-2\ 3^{5 m-5} v^5-11\ 3^{4 m-4} v^4-56\ 3^{3 m-4} v^3-5\ 3^{2 m-1} v^2-2\ 3^m v-1\right)           .\\[1mm]
+	\Delta(E_{25})= 2^{12} 3^{9 m+18} v^9 \left(3^{2 m-1} v^2+3^m v+1\right) 	.
+	\end{array}
+$$
+$U=1/27$  $\Longrightarrow$ $\gamma_3(E_{25})=(0,0,9m-18)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_{25})=\text{I}_{9(m-2)}$, $\nu_3(W_3(t))=2-m$.
+
+
+
+\
+
+\noindent \fbox{$n=1\,\, \& \,\, u\equiv 2\pmod 3$}  $u=2+3^m v$, $m>0$, $v\in\mathbb Z_3\cup \{0\}$.
+
+
+$$
+	\begin{array}{lll}
+	c_4(E_{25})=	2^4 3^6 \left(3^m v+4\right) \left(3^{3 m} v^3+7\ 2^2 3^{2 m+1} v^2+17\ 2^3 3^{m+1} v+71\ 2^3\right)             ,\\[1mm]
+	c_6(E_{25})= -2^6 3^9 \left(3^{6 m} v^6-2^2 13\ 3^{5 m+1} v^5-2^2 17^2 3^{4 m+1} v^4-2^2 5^2 7\ 37\ 3^{3 m} v^3-2^3 3803\ 3^{2 m+1} v^2-2^4 29\ 113\ 3^{m+1} v+13537 (-1) 2^3\right)            ,\\[1mm]
+	\Delta(E_{25})=2^{12} 3^{17} \left(3^m v+1\right)^9 \left(3^{2 m} v^2+5\ 3^m v+7\right).  
+	\end{array}
+$$
+$U=1/3$ $\Longrightarrow$ $\gamma_3(E_{25})=( 2,3,5)$ $\stackrel{Papa}{\longrightarrow}$ $3$-$\text{Kod}(E_{25})=\text{IV}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\subsection{Proof $p\ne 2,3$}
+
+$$
+t=u p^n,\qquad u\in \Z_p^*
+$$
+\subsection{$E_1$}
+$$
+\begin{array}{l}
+	c_4(E_1)=	  2^4 3^2 u p^n \left(u^3 p^{3 n}-2^3 3\right)           ,\\[1mm]
+	c_6(E_1)=  -2^6 3^3 \left(-36 u^3 p^{3 n}+u^6 p^{6 n}+2^3 3^3\right)           .\\[1mm]
+	\Delta(E_1)= 2^{12} 3^6 \left(u p^n-3\right) \left(u^2 p^{2 n}+3 u p^n+3^2\right)           .
+	\end{array}
+$$
+\fbox{$n>1$}  	$\gamma_p(E_1)=(n,0,0)$ $\stackrel{Papa}{\longrightarrow}$ $p$-$\text{Kod}(E_1)=\text{I}_0$.
+
+\
+
+\noindent \fbox{$n=0$}  TODO
+ $$
+	\begin{array}{l}
+	c_4(E_1)=	 2^4 3^2 u \left(u^3-3\ 2^3\right)            ,\\[1mm]
+	c_6(E_1)=    -2^6 3^3 \left(u^6-2^2 3^2 u^3+2^3 3^3\right)         .\\[1mm]
+	\Delta(E_1)=    2^{12} 3^6 (u-3) \left(u^2+3 u+3^2\right)        .
+	\end{array}
+$$
+%$\gamma_p(E_1)=(0,0,0)$ $\stackrel{Papa}{\longrightarrow}$ $p$-$\text{Kod}(E_1)=\text{I}_{0}$.
+
+\
+
+\noindent \fbox{$n<0$} $n=-m$, $m>0$:
+$$
+	\begin{array}{l}
+	c_4(E_1)=	   2^4 3^2 u p^{-4 m} \left(u^3-24 p^{3 m}\right)        ,\\[1mm]
+	c_6(E_1)=     -2^6 3^3 p^{-6 m} \left(-36 u^3 p^{3 m}+216 p^{6 m}+u^6\right)        .\\[1mm]
+	\Delta(E_1)=    2^{12} 3^6 p^{-3 m} \left(u-3 p^m\right) \left(3 u p^m+9 p^{2 m}+u^2\right)      .
+	\end{array}
+$$
+Change $U=p^m$: $\gamma_p(E_1)=(0,0,9m)$ $\stackrel{Papa}{\longrightarrow}$ $p$-$\text{Kod}(E_1)=\text{I}_{9m}$.
+ 
+\newpage
+
+
+\SetTblrInner{rowsep=2pt}
+\[
+\begin{tblr}[mode=imath]{|c|c|c|l|}
+\hline
+ L_3(25) & (\lambda,\mu) 
+ &  3\operatorname{-Kod}(E_1,E_5,E_{25}) 
+ &  \SetCell[c=1]{c} (u_1(d),u_3(d),u_9(d))  \\
+ \hline
+ \SetCell[r=5]{c}
+ v_3(t)\leq 0 &
+  \SetCell[r=5]{c}
+ (1/3,1/3) & 
+  \SetCell[r=5]{c} 
+ {(I^*_{9n},I^*_{3n}, I^*_n) \\[5pt] $n=-v_3(t)$} 
+  & \SetCell[r=1,c=1]{c}(u,u,u)  \\ 
+   & & &  1 \text{ if } d \equiv 1,5 \, (12) \\
+   & & &  2 \text{ if } d \equiv 2,7,10,11\, (12) \\
+   & & &  3 \text{ if } d \equiv 9 \, (12) \\ 
+   & & &  6 \text{ if } d \equiv 3,6 \, (12) \\
+\hline
+ \SetCell[r=13]{c}
+ {
+ \multirow{2}{c}{} & {v_3(t)=1} \\[5pt]
+  {t/3 \equiv 1 \, (3)} 
+ }
+ &
+ \SetCell[r=13]{c}
+ (1,1) & 
+ (I_n,I_{3n},I_{9n}) & \SetCell[r=1,c=1]{c}(u,u,u)  \\
+ & & n=-v_3(W_9(t)) & 1 \text{ if } d\equiv 1,5,9 \, (12) \\
+ & &  
+ t/3\equiv 1 \, (9) & 
+ 2 \text{ if } d\equiv 2,3,6,7,10,11 \, (12)
+ \\
+ \hline  
+ & & \SetCell[r=10]{t} 
+ {(II^*,IV^*,II)\\[5pt] $t/3\not\equiv 1 \, (9)$} & 
+ \SetCell[r=1,c=1]{c}(u,u,u)  \text{ if } d\not \equiv 0 \, (3)\\
+ & & & 
+ 1 \text{ if } d\equiv 1,2,5,10 \, (12) \,,
+ t/3\equiv 4 \, (9)
+ \\
+ & & & 
+ 2 \text{ if } d\equiv 7,11 \, (12) \,,
+ t/3\equiv 4 \, (9)
+ \\
+& & & 
+ 1 \text{ if } d\equiv 1,5 \, (12) \,,
+ t/3\equiv 7 \, (9)
+ \\
+ & & & 
+ 2 \text{ if } d\equiv 2,7,10,11 \, (12) \,,
+ t/3\equiv 7 \, (9)
+ \\
+  \hline
+ & & &  \SetCell[r=1,c=1]{c}(3u,3u,u)  \text{ if } d\equiv 0 \, (3)\\
+ & & & 
+ 1 \text{ if } d\equiv 6,9 \, (12) \,,
+ t/3\equiv 4 \, (9)
+ \\
+ & & & 
+ 2 \text{ if } d\equiv 3 \, (12) \,,
+ t/3\equiv 4 \, (9)
+ \\
+& & & 
+ 1 \text{ if } d\equiv 9 \, (12) \,,
+ t/3\equiv 7 \, (9)
+ \\
+ & & & 
+ 2 \text{ if } d\equiv 3,6 \, (12) \,,
+ t/3\equiv 7 \, (9)
+ \\
+ \hline
+  \SetCell[r=6]{c,3.5cm}
+   {
+ \multirow{2}{c}{}
+ v_3(t)=1 \,, t/3 \equiv 2 \, (3) & \\[4pt]
+ \text{or} & \\[4pt]
+v_3(t)\geq 2 & \\
+ }
+  &
+ \SetCell[r=6]{c}
+ (1,1/3) & 
+  \SetCell[r=6]{c}
+ (IV^*,II,IV) & \SetCell[r=1,c=1]{c}(u,u,u) \text{ if } d\not\equiv 0 \, (3)  \\
+    & & & 1 \text{ if } d\equiv 1,2,5,10 \, (12) \\
+    & & & 2 \text{ if } d\equiv 7,11 \, (12)\\
+ \hline
+ & & & \SetCell[r=1,c=1]{c}(3u,u,u) \text{ if } d\equiv 0 \, (3)  \\
+     & & & 1 \text{ if } d\equiv 6,9 \, (12) \\
+    & & & 2 \text{ if } d\equiv 3 \, (12)\\
+\hline
+\end{tblr}
+\]
+
+\vskip 0.7truecm
+
+\noindent{\bf  Corollary 1.}
+Let 
+$ \begin{tikzcd}
+E_1 \arrow[dash]{r}{5}  & E_5 \arrow[dash]{r}{5} & E_{25} 
+\end{tikzcd}
+$
+be the $\mathbf{Q}$-isogeny graph of type $L_3(25)$ corresponding to a given $t$ in $\mathbf{Q}$, $t\neq 3$. Let $d$ be a square-free integer. Then, the orientation of graph the
+twisted graph $ \begin{tikzcd}
+E_1^d \arrow[dash]{r}{5}  & E_5^d\arrow[dash]{r}{5} & E_{25}^d 
+\end{tikzcd}
+$ is given by:
+
+\[
+\begin{tblr}[mode=math]{|c|c|c|c|}
+\hline
+ L_3(25) 
+ &  3\operatorname{-Kod}(E_1,E_5,E_{25}) 
+ &  
+E_1^d \mathdash 
+E_5^d\mathdash 
+E_{25}^d 
+ & \text{prob} \\
+ \hline
+ \SetCell[r=2]{c}
+v_3(t)\leq 0 &
+(I^*_{9n},I^*_{3n}, I^*_n) & \SetCell[r=2]{c}
+\circled[0.8]{$E_1^d$} \longrightarrow 
+E_5^d\longrightarrow 
+E_{25}^d  
+&  \SetCell[r=2]{c}1
+\\
+& n=-v_3(t) & & \\
+\hline
+ \SetCell[r=5]{c}
+ {
+ \multirow{2}{c}{} & {v_3(t)=1} \\[5pt]
+                     {t/3 \equiv 1 \, (3)} 
+ }
+  & 
+  (I_n,I_{3n},I_{9n}) 
+  &  
+ \SetCell[r=3]{c}   
+E_1^d \longleftarrow  
+E_5^d\longleftarrow  
+\circled[0.8]{$E_{25}^d$} 
+& 
+\SetCell[r=3]{c} 1 \\
+  & n=-v_3(W_9(t)) & & \\
+  & t/3\equiv 1\,(9) & & \\
+\hline
+  & \SetCell[r=2]{t} 
+ {(II^*,IV^*,II)\\[4pt] $t/3\not\equiv 1 \, (9)$} &    E_1^d \longleftarrow 
+      \circled[0.8]{$E_5^d$} \longrightarrow 
+      E_{25}^d  & 1/4
+ \\
+
+ & & E_1^d \longleftarrow 
+     E_5^d\longleftarrow 
+     \circled[0.8]{$E_{25}^d$} & 3/4 \\
+ \hline
+  \SetCell[r=2]{c}
+{ v_3(t)=1 \,, t/3 \equiv 2 \, 
+(3)\\
+\text{or} \\
+$v_3(t)\geq 2$}
+& 
+ \SetCell[r=2]{c} (IV^*,II,IV) & 
+  \SetCell[r=1]{c} 
+ \circled[0.8]{$E_1^d$} \longrightarrow 
+  E_5^d\longrightarrow 
+  E_{25}^d 
+  & 1/4  
+\\
+  & &
+  \SetCell[r=1]{c} 
+  E_1^d \longleftarrow 
+  E_5^d\longleftarrow 
+  \circled[0.8]{$E_{25}^d$}  
+  & 3/4  \\
+\hline
+\end{tblr}
+\]
+
+The column labeled {\it prob} indicates the probability that the circled vertex is a Falting-Stevens elliptic curve in the corresponding isogeny class.
+
+
+
+\end{document}

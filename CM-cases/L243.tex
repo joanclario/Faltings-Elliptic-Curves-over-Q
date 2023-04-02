@@ -1,0 +1,238 @@
+\documentclass[11pt]{article}
+%--------------------------------------------------------------------------
+\usepackage{amsfonts,amssymb,amsmath,amsthm,latexsym,graphics,epsfig,amsfonts}
+\usepackage{verbatim,enumerate,array,booktabs,color,bigstrut,prettyref,tikz-cd}
+\usepackage{multirow}
+\usepackage[all]{xy}
+\usepackage[backref]{hyperref}
+\usepackage[OT2,T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{tabularray}
+\UseTblrLibrary{amsmath,varwidth}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{arydshln}
+%--------------------------------------------------------------------------
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\mathdash}{\relbar\mkern-8mu\relbar}
+\newcommand*\circled[2][1.6]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height={\f@size*#1},] (char) {\vphantom{WAH1g}#2};}}
+\makeatother
+%\addtolength{\textwidth}{4cm} 
+\addtolength{\textheight}{3.5cm} 
+\addtolength{\topmargin}{-2cm}
+%\addtolength{\marginparwidth}{-2cm} 
+\newcommand\myiso{\stackrel{\mathclap{\normalfont\mbox{\small $p$}}}{-}}
+\newcommand\myisot{\stackrel{\mathclap{\normalfont\mbox{\small $3$}}}{-}}
+\newcommand{\pref}[1]{\prettyref{#1}}
+%------------------------------------
+\newcommand{\Kd}{\operatorname{K}}
+\newcommand{\kI}{\operatorname{I}}
+\newcommand{\kII}{\operatorname{II}}
+\newcommand{\kIII}{\operatorname{III}}
+\newcommand{\kIV}{\operatorname{IV}}
+%-------------------------------------
+\newrefformat{eq}{\textup{(\ref{#1})}}
+\newrefformat{prty}{\textup{(\ref{#1})}}
+
+\definecolor{mylinkcolor}{rgb}{0.8,0,0}
+\definecolor{myurlcolor}{rgb}{0,0,0.8}
+\definecolor{mycitecolor}{rgb}{0,0,0.8}
+\hypersetup{colorlinks=true,urlcolor=myurlcolor,citecolor=mycitecolor,linkcolor=mylinkcolor,linktoc=page,breaklinks=true}
+%\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+%\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}
+\addtolength{\textwidth}{4cm} \addtolength{\hoffset}{-2cm}
+\addtolength{\marginparwidth}{-2cm}
+%\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{definition}[defn]{Definition}
+\newtheorem{claim}[defn]{Claim}
+%\theoremstyle{plain}
+\newtheorem{thmA}{Theorem A}
+\newtheorem{thmB}{Theorem B}
+\newtheorem{thm2}{Theorem}
+\newtheorem{prop2}{Proposition}
+\newtheorem{note}{Note}
+\newtheorem{corollary}[defn]{Corollary}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{property}[defn]{Property}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{theorem}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{proposition}[defn]{Proposition}
+\newtheorem{thmnn}{Theorem}
+\newtheorem{conj}[defn]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{remarks}{Remarks}
+\newtheorem{ack}{Acknowledgements}
+\newtheorem{remark}[defn]{Remark}
+\newtheorem{question}[defn]{Question}
+\newtheorem{example}[defn]{Example}
+%-------------------------------------
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Qbar}{\overline{\Q}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\modQ}{\,\text{mod}\,(\Q^)^2}
+%-------------------------------------
+\newcommand{\mysquare}[1]{\tikz{\path[draw] (0,0) rectangle node{\tiny #1} (8pt,8pt) ;}}
+\newcommand{\mycircle}[1]{\tikz{\path[draw] (0,0) circle (4pt) node{\tiny #1};}}
+%-------------------------------------
+\begin{document}
+\title{Type $L_2(43)$}
+\date{\today}
+\maketitle
+%-------------------------------------
+\section{Setting}
+The isogeny graphs of type $L_2(43)$ are given by two isogenous elliptic curves:
+
+\[ 
+\begin{tikzcd}
+E_1 \arrow[dash]{r}{43} & E_{43}\,.
+\end{tikzcd}
+\]
+
+\noindent The modular curve $X_0(43)$ has genus $3$. Its rational points are: two rational cusps and one rational CM point $\tau=\frac{1}{2}+\frac{\sqrt{-43}}{2\cdot 43}\in\mathbb H$. Its corresponding $j$-invariants is:
+$$
+j(\tau)=-2^{18}\cdot 3^{3}\cdot 5^{3}.
+$$
+We have $j(43\tau)=j(\tau)$.
+
+\
+
+We can (and do) choose Weierstrass equations:
+\vskip 0.5truecm
+\begin{tblr}
+{cells={mode=imath},hlines,vlines,measure=vbox,
+colspec=clll}
+E & \text{Minimal Weierstrass model} & j(E) &\text{label}\\
+\hline
+E_{1} & y^2 + y = x^3 - 860 x + 9707  & -2^{18}\cdot 3^{3}\cdot 5^{3} & \texttt{1849a1}\\
+E_{43} & y^2 + y = x^3 - 1590140x - 771794326 & -2^{18}\cdot 3^{3}\cdot 5^{3} & \texttt{1849a2}\\
+\end{tblr}
+\vskip 0.5truecm
+
+so that one has:
+\vskip 0.5truecm
+
+\begin{tblr}
+{cells={mode=imath},hlines,vlines,measure=vbox,
+colspec=cll}
+%-------------------------------------------------
+ E  & E_{1}& E_{43}\\
+c_4(E) & 2^{6}\cdot 3\cdot 5\cdot 43 & 2^{6}\cdot 3\cdot 5\cdot 43^{3} \\
+c_6(E) & -2^{3}\cdot 3^{4}\cdot 7\cdot 43^{2} & 2^{3}\cdot 3^{4}\cdot 7\cdot 43^{5} \\  
+\Delta(E) &-43^{3}  &-43^{9} \\
+\end{tblr}
+
+
+\vskip 0.5truecm
+\noindent and, with this choice, the isogeny graph is normalized. 
+
+\
+
+We have that the Faltings curve (circled)
+in the graph is
+\[
+\begin{tblr}[mode=imath]{|c|c|}
+\hline
+ \circled[0.8]{$E_{1}$} \longrightarrow E_{43} \\
+\hline
+\end{tblr}
+\]
+Then any $\mathbb Q$-isogeny class of type $L_2(43)$ is isomorphic to $ 
+\begin{tikzcd}
+E_{1} \arrow[dash]{r}{43}  & E_{43} \,.
+\end{tikzcd}
+$
+Note that $E_{1}$ and $E_{43}$ have complex multiplication by the ring of integers of $\mathbf{Q}(\sqrt{-43})$ and $E_{43}=E_{1}^{-43}$.
+
+\newpage 
+
+\section{Signatures, minimal models, Kodaira symbols, and Pal values}
+
+\vskip 0.3truecm
+
+
+
+$$
+\begin{tblr}
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-3}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cllcc}
+%----------------------------------------------
+\SetCell[c=5]{c} p=43   & & &  \\ 
+ E & \SetCell[c=1]{c} \operatorname{sig}_{43}(E)  & \SetCell[c=1]{c} \Kd_{43}(E) & \SetCell[c=2]{c} u_{43}(d)  \\
+%----------------------------------------------
+ E_{1} & (1,2,3)  & \kIII & 1 & 1  \\
+ E_{43} &(3,5,9)   & \kIII^* & 43 & 1 \\
+ %----------------------------------------------
+ \SetCell[c=3,r=2]{c}   & & &  d\equiv 0 &  d\not\equiv 0  \\
+                        & & & \SetCell[c=2]{c} d \Mod{43}   \\
+\end{tblr}
+$$
+
+\vskip 0.75truecm
+
+%\newpage
+\section{Conclusion}
+
+\begin{prop}
+%Let 
+%$ 
+%\begin{tikzcd}
+%E_1 \arrow[dash]{r}{11}  & E_{11} 
+%\end{tikzcd}
+%$
+%be a $\mathbf{Q}$-isogeny graph of type $L_{2}(11)$. 
+For every square-free integer $d$, 
+the probability of a vertex
+to be the Faltings curve (circled)
+in the twisted isogeny graph 
+$
+\begin{tikzcd} 
+E_{1}^d \arrow[dash]{r}{43}  & E_{43}^d
+\end{tikzcd}
+$ 
+is given by:
+
+\[
+\begin{tblr}[mode=imath]{|c|c|c|}
+\hline
+\text{twisted isogeny graph} & \text{condition}  &\text{Prob} \\
+\hline
+ \circled[0.8]{$E_{1}^d$} \longrightarrow E_{43}^d  & d\not\equiv 0\,(43) & 43/44 \\
+\hline
+ E_{1}^d \longrightarrow \circled[0.8]{$E_{43}^d$}  &  d\equiv 0\,(43) & 1/44 \\
+\hline
+\end{tblr}
+\]
+
+
+
+\end{prop}
+
+\vskip 0.35truecm
+
+\noindnet{\it Proof.} From the previous tables one gets:
+
+\vskip 0.5truecm
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%-------------------------------------------------
+ \SetCell[c=1]{c} [u(E)(d)] & \SetCell[c=1]{c} d & \SetCell[c=1]{c}\text{Prob}\\
+%-------------------------------------------------
+ \SetCell[r=1]{c} (1:1) & d\not\equiv 0\,(43)&\SetCell[r=2]{c} \left(\frac{43}{44},\frac{1}{44}\right) \\
+  \SetCell[r=1]{c} (1:43) & d\equiv 0\,(43)& \\
+%-------------------------------------------------
+\end{tblr}
+
+\end{document}
+
+
+

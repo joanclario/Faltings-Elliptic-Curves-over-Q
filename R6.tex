@@ -1,0 +1,521 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,latexsym,graphics,epsfig,amsfonts}
+\usepackage{verbatim,enumerate,array,booktabs,color,bigstrut,prettyref,tikz-cd}
+\usepackage{multirow}
+\usepackage[all]{xy}
+\usepackage[backref]{hyperref}
+\usepackage[OT2,T1]{fontenc}
+%\usepackage{ctable}
+\usepackage{mathtools}
+
+\usepackage{longtable}
+
+\usepackage{mathtools}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\mathdash}{\relbar\mkern-8mu\relbar}
+\newcommand*\circled[2][1.6]{\tikz[baseline=(char.base)]{
+    \node[shape=circle, draw, inner sep=1pt, 
+        minimum height={\f@size*#1},] (char) {\vphantom{WAH1g}#2};}}
+\makeatother
+
+\usepackage{tabularray}
+\UseTblrLibrary{amsmath,varwidth}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{arydshln}
+
+\newcommand\myiso{\stackrel{\mathclap{\normalfont\mbox{\small $p$}}}{-}}
+\newcommand\myisot{\stackrel{\mathclap{\normalfont\mbox{\small $3$}}}{-}}
+
+\newcommand{\pref}[1]{\prettyref{#1}}
+\newrefformat{eq}{\textup{(\ref{#1})}}
+\newrefformat{prty}{\textup{(\ref{#1})}}
+
+\definecolor{mylinkcolor}{rgb}{0.8,0,0}
+\definecolor{myurlcolor}{rgb}{0,0,0.8}
+\definecolor{mycitecolor}{rgb}{0,0,0.8}
+\hypersetup{colorlinks=true,urlcolor=myurlcolor,citecolor=mycitecolor,linkcolor=mylinkcolor,linktoc=page,breaklinks=true}
+
+%\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+%\DeclareMathSymbol{\Sha}{\mathalpha}{cyrletters}{"58}
+
+\addtolength{\textwidth}{4cm} \addtolength{\hoffset}{-2cm}
+\addtolength{\marginparwidth}{-2cm}
+
+%\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{definition}[defn]{Definition}
+\newtheorem{claim}[defn]{Claim}
+
+%\theoremstyle{plain}
+\newtheorem{thmA}{Theorem A}
+\newtheorem{thmB}{Theorem B}
+\newtheorem{thm2}{Theorem}
+\newtheorem{prop2}{Proposition}
+\newtheorem{note}{Note}
+
+\newtheorem{corollary}[defn]{Corollary}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{property}[defn]{Property}
+\newtheorem{thm}[defn]{Theorem}
+\newtheorem{theorem}[defn]{Theorem}
+\newtheorem{cor}[defn]{Corollary}
+\newtheorem{prop}[defn]{Proposition}
+\newtheorem{proposition}[defn]{Proposition}
+\newtheorem{thmnn}{Theorem}
+\newtheorem{conj}[defn]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{remarks}{Remarks}
+\newtheorem{ack}{Acknowledgements}
+\newtheorem{remark}[defn]{Remark}
+\newtheorem{question}[defn]{Question}
+\newtheorem{example}[defn]{Example}
+
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Qbar}{\overline{\Q}}
+\newcommand{\Z}{\mathbb Z}
+
+\newcommand{\modQ}{\,\text{mod}\,(\Q^)^2}
+
+\newcommand{\mysquare}[1]{\tikz{\path[draw] (0,0) rectangle node{\tiny #1} (8pt,8pt) ;}}
+\newcommand{\mycircle}[1]{\tikz{\path[draw] (0,0) circle (4pt) node{\tiny #1};}}
+
+%------------------------------------
+\newcommand{\Kd}{\operatorname{K}}
+\newcommand{\kI}{\operatorname{I}}
+\newcommand{\kII}{\operatorname{II}}
+\newcommand{\kIII}{\operatorname{III}}
+\newcommand{\kIV}{\operatorname{IV}}
+%-------------------------------------
+
+\begin{document}
+\title{Type $R_6$}
+\date{\today}
+\maketitle
+
+\noindent{\bf Graph.} The isogeny graphs of type $R_6$ are given by
+six isogenous elliptic curves:
+
+\[ \begin{tikzcd}
+  & E_1 \ar[dash,swap,d,"2"] \ar[dash,r,"3"]   & E_3\ar[dash,d,"2"] \ar[dash,r,"3"]  & E_9  \ar[dash,d,"2"]  \\
+  & E_2 \ar[dash,swap,r,"3"] & E_{6} \ar[dash,swap,r,"3"] & E_{18}  \\
+\end{tikzcd}
+\]
+
+
+\noindent{\bf Hauptmodul.} A hauptmodul for $X_0(18)$ is  
+$$
+t = 
+\displaystyle{
+  2 + 2\cdot  3 \cdot  \frac{\eta(2\tau) \eta(3\tau) \eta(18\tau)^2}{\eta(\tau)^2 \eta(6\tau) \eta(9\tau)}}\,.
+$$
+
+\newpage
+
+\noindent{\bf $j$-invariants.} One has 
+$$
+\begin{tblr}{ll}
+j(E_1)=j(\tau)= & t^{-9} \cdot (t + 1)^{-2} \cdot (t - 2)^{-1} \cdot (t^{2} - t + 1)^{-2} \cdot (t^{2} + 2 t + 4)^{-1} \cdot (t^{3} - 2)^{3} \cdot (t^{9} - 6 t^{6} - 12 t^{3} - 8)^{3}  \\[5pt] 
+j(E_2)=j(2\tau)= & t^{-18} \cdot (t - 2)^{-2} \cdot (t + 1)^{-1} \cdot (t^{2} + 2 t + 4)^{-2} \cdot (t^{2} - t + 1)^{-1} \cdot (t^{3} + 4)^{3} \cdot (t^{9} - 12 t^{6} + 48 t^{3} + 64)^{3}  \\[5pt] 
+j(E_3)=j(3\tau)= & (t + 1)^{-6} \cdot (t - 2)^{-3} \cdot t^{-3} \cdot (t^{2} - t + 1)^{-6} \cdot (t^{2} + 2 t + 4)^{-3} \cdot (t^{3} - 2)^{3} \cdot (t^{3} + 6 t - 2)^{3} \cdot (t^{6} - 6 t^{4} - 4 t^{3} + 36 t^{2} + 12 t + 4)^{3}  \\[5pt] 
+j(E_6)=j(6\tau)= & (t - 2)^{-6} \cdot t^{-6} \cdot (t + 1)^{-3} \cdot (t^{2} + 2 t + 4)^{-6} \cdot (t^{2} - t + 1)^{-3} \cdot (t^{3} + 4)^{3} \cdot (t^{3} + 6 t^{2} + 4)^{3} \cdot (t^{6} - 6 t^{5} + 36 t^{4} + 8 t^{3} - 24 t^{2} + 16)^{3}  \\[5pt] 
+j(E_9)=j(9\tau)= & (t + 1)^{-18} \cdot (t - 2)^{-9} \cdot t^{-1} \cdot (t^{2} - t + 1)^{-2} \cdot (t^{2} + 2 t + 4)^{-1} \cdot (t^{3} + 6 t - 2)^{3} \cdot (t^{9} + 234 t^{7} - 6 t^{6} + 756 t^{5} - 936 t^{4} + 2172 t^{3} - 1512 t^{2} + 936 t - 8)^{3}  \\[5pt] 
+j(E_{18})=j(18\tau)= & (t - 2)^{-18} \cdot (t + 1)^{-9} \cdot t^{-2} \cdot (t^{2} + 2 t + 4)^{-2} \cdot (t^{2} - t + 1)^{-1} \cdot (t^{3} + 6 t^{2} + 4)^{3} \cdot (t^{9} + 234 t^{8} + 756 t^{7} + 2172 t^{6} + 1872 t^{5} + 3024 t^{4} + 48 t^{3} + 3744 t^{2} + 64)^{3}   \,.
+\end{tblr}
+$$
+
+
+\vskip 0.3truecm
+
+\noindent{\bf Automorphisms.}
+The subgroup of $\operatorname{Aut} X_0(18)$ that fixes the set of vertices of the graph is
+isomorphic to the Klein group of order $4$  with elements:
+
+$$
+t \mapsto
+ t\,, 
+ -2/t\,, 
+ 2(t+1)/(t-2)\,, 
+ -(t-2)/(t+1)\,.
+$$
+
+\newpage
+
+
+
+
+\noindent{\bf Signatures.}
+We can (and do) choose Weierstrass equations for the elliptic curves so that their signatures are:
+
+\[
+\begin{tblr}{|c|l|}
+\hline \SetCell[c=2]{c} R_6 \text{ signatures}\\ \hline
+c_4(E_1) & (t^{3} - 2) \cdot (t^{9} - 6 t^{6} - 12 t^{3} - 8)  \\ 
+c_6(E_1) & (t^{6} - 4 t^{3} - 8) \cdot (t^{12} - 8 t^{9} - 8 t^{3} - 8)  \\ 
+\Delta(E_1) & (t - 2) \cdot (t + 1)^{2} \cdot t^{9} \cdot (t^{2} + 2 t + 4) \cdot (t^{2} - t + 1)^{2}  \\  \hline
+% --------------
+c_4(E_2) & (t^{3} + 4) \cdot (t^{9} - 12 t^{6} + 48 t^{3} + 64)  \\ 
+c_6(E_2) & (t^{6} - 4 t^{3} - 8) \cdot (t^{12} - 8 t^{9} - 512 t^{3} - 512)  \\ 
+\Delta(E_2) & (t + 1) \cdot (t - 2)^{2} \cdot t^{18} \cdot (t^{2} - t + 1) \cdot (t^{2} + 2 t + 4)^{2}  \\  \hline
+% --------------
+c_4(E_3) & (t^{3} - 2) \cdot (t^{3} + 6 t - 2) \cdot (t^{6} - 6 t^{4} - 4 t^{3} + 36 t^{2} + 12 t + 4)  \\ 
+c_6(E_3) & (t^{2} + 2 t - 2) \cdot (t^{4} - 2 t^{3} - 8 t - 2) \cdot (t^{4} - 2 t^{3} + 6 t^{2} + 4 t + 4) \cdot (t^{8} + 2 t^{7} + 4 t^{6} - 16 t^{5} - 14 t^{4} + 8 t^{3} + 64 t^{2} - 16 t + 4)  \\ 
+\Delta(E_3) & (t - 2)^{3} \cdot t^{3} \cdot (t + 1)^{6} \cdot (t^{2} + 2 t + 4)^{3} \cdot (t^{2} - t + 1)^{6}  \\  \hline
+% --------------
+c_4(E_6) & (t^{3} + 4) \cdot (t^{3} + 6 t^{2} + 4) \cdot (t^{6} - 6 t^{5} + 36 t^{4} + 8 t^{3} - 24 t^{2} + 16)  \\ 
+c_6(E_6) & (t^{2} + 2 t - 2) \cdot (t^{4} - 8 t^{3} - 8 t - 8) \cdot (t^{4} - 2 t^{3} + 6 t^{2} + 4 t + 4) \cdot (t^{8} + 8 t^{7} + 64 t^{6} - 16 t^{5} - 56 t^{4} + 128 t^{3} + 64 t^{2} - 64 t + 64)  \\ 
+\Delta(E_6) & (t + 1)^{3} \cdot (t - 2)^{6} \cdot t^{6} \cdot (t^{2} - t + 1)^{3} \cdot (t^{2} + 2 t + 4)^{6}  \\  \hline
+% --------------
+c_4(E_9) & (t^{3} + 6 t - 2) \cdot (t^{9} + 234 t^{7} - 6 t^{6} + 756 t^{5} - 936 t^{4} + 2172 t^{3} - 1512 t^{2} + 936 t - 8)  \\ 
+c_6(E_9) & (t^{6} + 24 t^{5} + 24 t^{4} + 92 t^{3} - 48 t^{2} + 96 t - 8) \cdot (t^{12} - 24 t^{11} + 48 t^{10} - 680 t^{9} + 792 t^{8} - 3312 t^{7} + 4704 t^{6} - 10656 t^{5} + 13968 t^{4} - 14792 t^{3} + 7968 t^{2} - 2112 t - 8)  \\ 
+\Delta(E_9) & t \cdot (t - 2)^{9} \cdot (t + 1)^{18} \cdot (t^{2} + 2 t + 4) \cdot (t^{2} - t + 1)^{2}  \\  \hline
+% --------------
+c_4(E_{18}) & (t^{3} + 6 t^{2} + 4) \cdot (t^{9} + 234 t^{8} + 756 t^{7} + 2172 t^{6} + 1872 t^{5} + 3024 t^{4} + 48 t^{3} + 3744 t^{2} + 64)  \\ 
+c_6(E_{18}) & (t^{6} + 24 t^{5} + 24 t^{4} + 92 t^{3} - 48 t^{2} + 96 t - 8) \cdot (t^{12} - 528 t^{11} - 3984 t^{10} - 14792 t^{9} - 27936 t^{8} - 42624 t^{7} - 37632 t^{6} - 52992 t^{5} - 25344 t^{4} - 43520 t^{3} - 6144 t^{2} - 6144 t - 512)  \\ 
+\Delta(E_{18}) & t^{2} \cdot (t + 1)^{9} \cdot (t - 2)^{18} \cdot (t^{2} - t + 1) \cdot (t^{2} + 2 t + 4)^{2}  \\  \hline
+\end{tblr}
+\]
+
+\newpage
+
+\noindent{\bf Action of Aut on the graph.}
+
+$$
+\begin{tblr}{l@{\,=\,}lcc}
+ \hline
+ \SetCell[c=2]{l} \text{automorphism }  & &
+ \SetCell[c=1]{c} \text{permutation}  &  \text{order}  \\
+ \hline
+   \operatorname{id}(t) & t  &  (\,) & 1 \\
+    \sigma(t) & 2(t+1)/(t-2) & 
+    (j_1,j_{18})(j_2,j_9)(j_3,j_6) & 2 \\
+    \tau(t)  & -2/t  &  (j_1,j_2)
+    (j_3,j_6)(j_9,j_{18}) & 2 \\
+    \sigma \tau(t) & -(t-2)/(t+1) & 
+    (j_1,j_{9}) (j_2,j_{18})(j_3)(j_6) & 2 \\
+ \hline
+\end{tblr}
+$$
+
+\vskip 0.5truecm
+
+$$
+\begin{tblr}{|l|c|}
+ \hline
+ \SetCell[c=2]{c} \text{Automorphism action on the graph}  &   \\
+ \hline
+\operatorname{id} & (\,) \\
+\sigma &  (E_1,E_{18})^{\otimes -3}(E_2,E_9)^{\otimes -3}(E_3,E_6)^{\otimes -3} \\
+\tau &  (E_1,E_2) (E_3,E_6)(E_9,E_{18}) \\
+\sigma \tau &  (E_1,E_{9})^{\otimes -3} (E_2,E_{18})^{\otimes -3}(E_3)^{\otimes -3}(E_6)^{\otimes -3}  \\
+\hline
+\end{tblr}
+$$
+
+
+
+\newpage
+
+
+\noindent{\bf Kodaira symbols.}
+
+\begin{longtblr}
+[caption = {$R_6$ data for $p\neq 2,3$}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-5}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cclclcc}
+%--------------------------------------
+\SetCell[c=1]{c} R_6 &\SetCell[c=6]{c} p\neq 2,3  & & & & & \\ t & E & 
+\SetCell[c=1]{c} \operatorname{sig}_p(E) & u & \Kd_p(E) & \SetCell[c=2]{c} u_p(d)   \\
+%--------------------------------------
+\SetCell[r=6]{c}
+     m = v_p(t)>0  
+& E_{1}    & ( 0 , 0 , 9m ) & 1  &   \kI_{9m}   & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , 18m ) & 1  &  \kI_{18m}   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , 3m ) & 1  &  \kI_{3m}   & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 6m ) & 1  &  \kI_{6m}   & 1 & 1  \\
+& E_{9} & ( 0 , 0 , m ) & 1  &  \kI_{m}   & 1 & 1  \\
+& E_{18} & ( 0 , 0 , 2m ) & 1  &   \kI_{2m}   & 1 & 1  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+\begin{array}{c}
+          v_p(t)=0  \\[3pt]
+         m= v_p(t-2)>0 
+\end{array}
+& E_{1}    & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , 2m ) & 1   &   \kI_{2m}   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , 3m ) & 1   &   \kI_{3m}   & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 6m ) & 1   &  \kI_{6m}   & 1 & 1  \\
+& E_{9} & ( 0 , 0 , 9m ) & 1  &  \kI_{9m}   & 1 & 1  \\
+& E_{18} & ( 0 , 0 , 18m ) & 1  &  \kI_{18m}   & 1 & 1  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+\begin{array}{c}
+          v_p(t)=0  \\[3pt]
+         m= v_p(t+1)>0 
+\end{array}
+& E_{1}    & ( 0 , 0 , 2m ) & 1  &   \kI_{2m}   & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , m ) & 1   &   \kI_{m}   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , 6m ) & 1   &   \kI_{6m}   & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 3m ) & 1   &  \kI_{3m}   & 1 & 1  \\
+& E_{9} & ( 0 , 0 , 18m ) & 1  &  \kI_{18m}   & 1 & 1  \\
+& E_{18} & ( 0 , 0 , 9m ) & 1  &  \kI_{9m}   & 1 & 1  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+\begin{array}{c}
+          v_p(t)=0  \\[3pt]
+         m= v_p(t^2+2t+4)>0 
+\end{array}
+& E_{1}    & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , 2m ) & 1   &   \kI_{2m}   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , 3m ) & 1   &   \kI_{3m}   & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 6m ) & 1   &  \kI_{6m}   & 1 & 1  \\
+& E_{9} & ( 0 , 0 , m ) & 1  &  \kI_{m}   & 1 & 1  \\
+& E_{18} & ( 0 , 0 , 2m ) & 1  &  \kI_{2m}   & 1 & 1  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+\begin{array}{c}
+          v_p(t)=0  \\[3pt]
+         m= v_p(t^2-t+1)>0 
+\end{array}
+& E_{1}    & ( 0 , 0 , 2m ) & 1  &   \kI_{2m}   & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , m ) & 1   &   \kI_{m}   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , 6m ) & 1   &   \kI_{6m}   & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 3m ) & 1   &  \kI_{3m}   & 1 & 1  \\
+& E_{9} & ( 0 , 0 , 2m ) & 1  &  \kI_{2m}   & 1 & 1  \\
+& E_{18} & ( 0 , 0 , m ) & 1  &  \kI_{m}   & 1 & 1  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+     -m = v_3(t)<0  
+& E_{1}    & ( 0 , 0 , 18m ) & p^{-3m}  &   \kI_{18m}   & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , 9m ) & p^{-3m}   &   \kI_{9m}   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , 6m ) & p^{-3m}   &   \kI_{6m}   & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 3m ) & p^{-3m}   &  \kI_{3m}   & 1 & 1  \\
+& E_{9} & ( 0 , 0 , 2m ) & p^{-3m}   &  \kI_{2m}   & 1 & 1  \\
+& E_{18} & ( 0 , 0 , m ) & p^{-3m}   &  \kI_{m}   & 1 & 1  \\
+%--------------------------------------
+\SetCell[c=5,r=2]{c} & & & & & d\equiv 0  & d\not\equiv 0 \\
+                      & & & & & \SetCell[c=2]{c} d \Mod p & \\
+\end{longtblr}
+
+
+
+\newpage
+
+
+\begin{longtblr}
+[caption = {$R_6$ data for $p=3$}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-5}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cclclcc}
+%--------------------------------------
+\SetCell[c=1]{c} S &\SetCell[c=6]{c} p=3  & & & & & \\ t & E & 
+\SetCell[c=1]{c} \operatorname{sig}_3(E) & u & \Kd_3(E) & \SetCell[c=2]{c} u_3(d)   \\
+%--------------------------------------
+\SetCell[r=6]{c}
+    m = v_3(t)> 0  
+& E_{1}    & ( 0 , 0 , 9m ) & 1  &   \kI_{9m}   & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , 18m ) & 1  &   \kI_{18m}   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , 3m ) & 1  &   \kI_{3m}   & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 6m ) & 1  &   \kI_{6m}   & 1 & 1  \\
+& E_{9} & ( 0 , 0 , m ) & 1  &   \kI_{m}   & 1 & 1  \\
+& E_{18} & ( 0 , 0 , 2m ) & 1  &   \kI_{2m}   & 1 & 1  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+\begin{array}{c}
+    v_3(t)= 0\\
+    t\equiv 2\,(9)  \\
+    m=v_3(t-2)
+\end{array}
+& E_{1}    & ( 2, 3,m+5 ) & 1  & \kI_{m-1}^*   & 3 & 1  \\
+& E_{2}    & ( 2, 3, 2m+4 ) & 1  & \kI_{2m-2}^*   & 3 & 1  \\
+& E_{3}    & ( 2, 3, 3m+3 ) & 3  & \kI_{3m-3}^*   & 3 & 1  \\
+& E_{6}    & ( 2, 3, 6m ) & 3  & \kI_{6m-6}^*   & 3 & 1  \\
+& E_{9}    & ( 2, 3, 9m-3 ) & 3^2  & \kI_{9m-9}^*   & 3 & 1  \\
+& E_{18}    & ( 2, 3, 18m-12 ) & 3^2  & \kI_{18m-18}^*   & 3 & 1  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+\begin{array}{c}
+    v_3(t)= 0\\
+    t\equiv 5\,(9)  
+\end{array}
+& E_{1}    & ( 2, 3, 6 ) & 1  & \kI_{0}^*   & 3 & 1  \\
+& E_{2}    & ( 2, 3, 6 ) & 1  & \kI_{0}^*   & 3 & 1  \\
+& E_{3}    & ( 2, 3, 6 ) & 3  & \kI_{0}^*   & 3 & 1  \\
+& E_{6}    & ( 2, 3, 6 ) & 3  & \kI_{0}^*   & 3 & 1  \\
+& E_{9}    & ( 2, 3, 6 ) & 3^2  & \kI_{0}^*   & 3 & 1  \\
+& E_{18}    & ( 2, 3, 6 ) & 3^2  & \kI_{0}^*   & 3 & 1  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+\begin{array}{c}
+    v_3(t)= 0\\
+    t\equiv 8\,(9)  \\
+    m=v_3(t+1)
+\end{array}
+& E_{1}    & ( 2, 3,2m+4 ) & 1  & \kI_{2m-2}^*   & 3 & 1  \\
+& E_{2}    & ( 2, 3, m+5 ) & 1  & \kI_{m-1}^*   & 3 & 1  \\
+& E_{3}    & ( 2, 3, 6m ) & 3  & \kI_{6m-6}^*   & 3 & 1  \\
+& E_{6}    & ( 2, 3, 3m+3 ) & 3  & \kI_{3m-3}^*   & 3 & 1  \\
+& E_{9}    & ( 2, 3, 18m-12 ) & 3^2  & \kI_{18m-18}^*   & 3 & 1  \\
+& E_{18}    & ( 2, 3, 9m-3 ) & 3^2  & \kI_{9m-9}^*   & 3 & 1  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+    -m = v_3(t)< 0  
+& E_{1}    & ( 0 , 0 , 18m ) & 3^{-3m}  & \kI_{18m}   & 1 & 1  \\
+& E_{2}    & ( 0 , 0 , 9m ) & 3^{-3m}   & \kI_{9m}   & 1 & 1  \\
+& E_{3}    & ( 0 , 0 , 6m ) & 3^{-3m}   & \kI_{6m}   & 1 & 1  \\
+& E_{6}    & ( 0 , 0 , 3m ) & 3^{-3m}   &  \kI_{3m}   & 1 & 1  \\
+& E_{9} & ( 0 , 0 , 2m ) & 3^{-3m}   &  \kI_{2m}   & 1 & 1  \\
+& E_{18} & ( 0 , 0 , m ) & 3^{-3m}   &  \kI_{m}   & 1 & 1  \\
+%--------------------------------------
+\SetCell[c=5,r=2]{c} & & & & & d\equiv 0  & d\not\equiv 0 \\
+                      & & & & & \SetCell[c=2]{c} d \Mod 3 & \\
+\end{longtblr}
+
+\newpage 
+
+\begin{longtblr}
+[caption = {$R_6$ data for $p$=2}]
+{cells = {mode=imath},hlines,vlines,measure=vbox,
+hline{Z} = {1-5}{0pt},
+vline{1} = {Y-Z}{0pt},
+colspec  = cclclccc}
+%--------------------------------------
+\SetCell[c=1]{c} S &\SetCell[c=7]{c} p=2  & & & &  & & \\
+\SetCell[c=1]{c} t & E & 
+\SetCell[c=1]{c}\operatorname{sig}_2(E) & u & \Kd_2(E) & \SetCell[c=3]{c} u_2(d) & & \\
+%--------------------------------------
+%--------------------------------------
+\SetCell[r=6]{c}
+     m = v_2(t)>1  
+& E_{1}    & ( 4 , 6 , 9m+3) & 1  &   \kI_{9m-5}^*   & 1 & 1 & 2  \\
+& E_{2}    & ( 4 , 6 , 18m-6) & 2  &   \kI_{18m-14}^*   & 1 & 1 & 2  \\
+& E_{3}    & ( 4 , 6 , 3m+9) & 1  &   \kI_{3m+1}^*   & 1 & 1 & 2  \\
+& E_{6}    & ( 4 , 6 , 6m+6) & 2  &   \kI_{6m-2}^*   & 1 & 1 & 2  \\
+& E_{9}    & ( 4 , 6 , m+11) & 1  &   \kI_{m+3}^*   & 1 & 1 & 2  \\
+& E_{18}    & ( 4 , 6 , 2m+10) & 2  &   \kI_{2m+2}^*   & 1 & 1 & 2  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+\begin{array}{c}
+     v_2(t)=1\\
+     m=v_2(t-2)
+\end{array}  
+& E_{1}    & ( 4 , 6 , m+11) & 1  &   \kI_{m+3}^*   & 1 & 1 & 2  \\
+& E_{2}    & ( 4 , 6 , 2m+10) & 2  &   \kI_{2m+2}^*   & 1 & 1 & 2  \\
+& E_{3}    & ( 4 , 6 , 3m+9) & 1  &   \kI_{3m+1}^*   & 1 & 1 & 2  \\
+& E_{6}    & ( 4 , 6 , 6m+6) & 2  &   \kI_{6m-2}^*   & 1 & 1 & 2  \\
+& E_{9}    & ( 4 , 6 , 9m+3) & 1  &   \kI_{9m-5}^*   & 1 & 1 & 2  \\
+& E_{18}    & ( 4 , 6 , 18m-6) & 2  &   \kI_{18m-14}^*   & 1 & 1 & 2  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+\begin{array}{c}
+     v_2(t)=0\\
+     m=v_2(t+1)
+\end{array}  
+& E_{1}    & ( 4 , 6 , 2m+12) & 2^{-1}  &   \kI_{2m+4}^*   & 1 & 1 & 2  \\
+& E_{2}    & ( 4 , 6 , m+12) & 2^{-1}  &   \kI_{m+4}^*   & 1 & 1 & 2  \\
+& E_{3}    & ( 4 , 6 , 6m+12) & 2^{-1}  &   \kI_{6m+4}^*   & 1 & 1 & 2  \\
+& E_{6}    & ( 4 , 6 , 3m+12) & 2^{-1}  &   \kI_{3m+4}^*   & 1 & 1 & 2  \\
+& E_{9}    & ( 4 , 6 , 18m+12) & 2^{-1}  &   \kI_{18m+4}^*   & 1 & 1 & 2  \\
+& E_{18}    & ( 4 , 6 , 9m+12) & 2^{-1}  &   \kI_{9m+4}^*   & 1 & 1 & 2  \\
+%--------------------------------------
+\SetCell[r=6]{c}
+     -m = v_2(t)<0  
+& E_{1}    & ( 4 , 6 , 18m+12) & 2^{-3m-1}  &   \kI_{18m+4}^*   & 1 & 1 & 2  \\
+& E_{2}    & ( 4 , 6 , 9m+12) & 2^{-3m-1}  &   \kI_{9m+4}^*   & 1 & 1 & 2  \\
+& E_{3}    & ( 4 , 6 , 6m+12) & 2^{-3m-1}  &   \kI_{6m+4}^*   & 1 & 1 & 2  \\
+& E_{6}    & ( 4 , 6 , 3m+12) & 2^{-3m-1}  &   \kI_{3m+4}^*   & 1 & 1 & 2  \\
+& E_{9}    & ( 4 , 6 , 2m+12) & 2^{-3m-1}  &   \kI_{2m+4}^*   & 1 & 1 & 2  \\
+& E_{18}    & ( 4 , 6 , m+12) & 2^{-3m-1}  &   \kI_{m+4}^*   & 1 & 1 & 2  \\
+%--------------------------------------
+ \SetCell[c=5,r=2]{c} & & & & &  d\equiv 1 &  d\equiv 2  & d\equiv 3 \\
+                      & & & & & \SetCell[c=3]{c} d \Mod{4} & \\
+\end{longtblr}
+
+
+\section{Conclusion}
+
+\begin{prop}
+Let 
+\[ \begin{tikzcd}
+  & E_1 \ar[dash,swap,d,"2"] \ar[dash,r,"3"]   & E_3\ar[dash,d,"2"] \ar[dash,r,"3"]  & E_9  \ar[dash,d,"2"]  \\
+  & E_2 \ar[dash,swap,r,"3"] & E_{6} \ar[dash,swap,r,"3"] & E_{18}  \\
+\end{tikzcd}
+\]
+be a $\mathbf{Q}$-isogeny graph of type $R_6$ corresponding to a given $t$ in $\mathbf{Q}\setminus \{0,-1,2\}$ as above. 
+For every square-free integer $d$, 
+the probability of a vertex
+to be the Faltings curve (circled)
+in the twisted graph 
+\[ \begin{tikzcd}
+  & E_1^d \ar[dash,swap,d,"2"] \ar[dash,r,"3"]   & E_3^d\ar[dash,d,"2"] \ar[dash,r,"3"]  & E_9^d  \ar[dash,d,"2"]  \\
+  & E_2^d \ar[dash,swap,r,"3"] & E_{6}^d \ar[dash,swap,r,"3"] & E_{18}^d  \\
+\end{tikzcd}
+\]is given by:
+
+\begin{longtblr}{|c|c|c|c|c|}
+\hline
+\SetCell[c=2]{c} R_4(6) & & \SetCell[c=1]{c}\text{twisted isogeny graph}  & \SetCell[c=1]{c}\text{prob} \\
+ \hline
+ v_2(t)>0 & v_3(t)\ne 0 &
+\makecell{%
+        \begin{tikzcd}[ampersand replacement=\&]
+\& E_1^d \ar[d] \ar[dash,r,"3"]   \& E_3^d\ar[d] \ar[r]  \& E_9^d  \ar[d]  \\
+  \& \circled[0.8]{$E_2^d$} \ar[r] \& E_{6}^d \ar[r] \& E_{18}^d  
+        \end{tikzcd}}  
+&   1 \\
+%--------------------------------------
+ \hline
+  v_2(t)>0 & v_3(t)= 0  &
+\makecell{%
+        \begin{tikzcd}[ampersand replacement=\&]
+  \& E_1^d \ar[d] \ar[dash,r,"3"]   \& E_3^d\ar[d] \ar[r]  \& E_9^d  \ar[d]  \\
+  \& E_2^d \ar[r] \& E_{6}^d \ar[r] \& \circled[0.8]{$E_{18}^d$}  
+        \end{tikzcd}} 
+&   1 \\
+%--------------------------------------
+\hline
+  v_2(t)\le 0 & v_3(t)\ne 0  &
+\makecell{%
+        \begin{tikzcd}[ampersand replacement=\&]
+  \&  \circled[0.8]{$E_1^d$} \ar[d] \ar[dash,r,"3"]   \& E_3^d\ar[d] \ar[r]  \& E_9^d  \ar[d]  \\
+  \& E_2^d \ar[r] \& E_{6}^d \ar[r] \&E_{18}^d 
+        \end{tikzcd}}  
+&  1 \\
+%--------------------------------------
+ \hline
+ v_2(t)\le 0 & v_3(t) = 0  &
+\makecell{%
+        \begin{tikzcd}[ampersand replacement=\&]
+  \& E_1^d \ar[d] \ar[dash,r,"3"]   \& E_3^d\ar[d] \ar[r]  \& \circled[0.8]{$E_9^d$}  \ar[d]  \\
+  \& E_2^d \ar[r] \& E_{6}^d \ar[r] \& E_{18}^d
+        \end{tikzcd}}  
+ &  1 \\
+\hline
+\end{longtblr}
+
+\end{prop}
+
+
+
+\noindent{\it Proof.} From the previous tables one gets:
+
+\vskip 0.5truecm
+
+
+\begin{tblr}{cells={mode=imath},hlines,vlines,measure=vbox}
+%\hline
+\SetCell[c=1]{c} t &\SetCell[c=1]{c} [u(E)]  & \SetCell[c=1]{c} [u(E)(d)]  \\
+\hline
+ \SetCell[c=1]{c} v_2(t)>0 & \SetCell[r=1]{c} (1:2:1:2:1:2) & (1:1:1:1:1:1)     \\
+\SetCell[r=1]{c} v_2(t)\leq 0 & \SetCell[r=1]{c} (1:1:1:1:1:1) & (1:1:1:1:1:1)   \\
+\hline
+ \SetCell[c=1]{c} v_3(t)=0 & \SetCell[r=1]{c} (1:1:3:3:3^2:3^2) & (1:1:1:1:1:1)     \\
+\SetCell[r=1]{c} v_3(t)\ne 0 & \SetCell[r=1]{c} (1:1:1:1:1:1) & (1:1:1:1:1:1)   \\
+\end{tblr}
+
+\end{document}
