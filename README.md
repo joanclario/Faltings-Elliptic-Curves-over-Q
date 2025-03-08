@@ -1,4 +1,4 @@
-This document contains the tables providing supplementary material for the article "Faltings elliptic curves in twisted $QQ$-isogeny classes".
+This document contains the tables providing supplementary material for the article "Faltings elliptic curves in twisted QQ-isogeny classes".
 
 Let $G$ be the $Q$-isogeny graph attached to an elliptic curve defined over $Q$.
 Stevens shows that there is a unique elliptic curve in $G$ with minimal Faltings height. 
