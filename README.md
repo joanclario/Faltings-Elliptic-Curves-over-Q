@@ -8,5 +8,5 @@ For every square-free integer $d$, we consider the graph $G^d$
 attached to the twisted elliptic curves in $G$ 
 by the quadratic character of $Q(\sqrt{d})$.
 
-In this paper we determine which vertex is the Faltings elliptic curve in $G^d$. 
+In that paper we determine which vertex is the Faltings elliptic curve in $G^d$. 
 We also obtain the probability of a vertex to be the Faltings elliptic curve in $G^d$. 
