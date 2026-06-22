@@ -8,7 +8,7 @@ This repository contains the Magma files associated with the article.
 
 This Magma script constructs parametrized representatives, up to quadratic twist, for the rational isogeny graph types of elliptic curves over $\mathbb{Q}$.
 
-More precisely, the script computes, for each graph type considered in the article:
+More precisely, the script computes, for each isogeny graph type:
 
 - a parametrized representative of the corresponding family of elliptic curves;
 - the associated signature
@@ -23,4 +23,3 @@ The output is written in factored form to the file
 
 ```text
 signatures_output.txt
-``
