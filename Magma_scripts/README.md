@@ -14,5 +14,5 @@ It also computes the corresponding signatures
 \]
 and \(j\)-invariants, writing a factored output to the file
 
-```text
+`text
 signatures_output.txt
