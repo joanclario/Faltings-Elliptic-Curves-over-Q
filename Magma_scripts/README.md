@@ -1,20 +1,26 @@
-# Magma Files
+# Magma Files for the Article
 
-Here you will find the Magma files associated with the article.
+This repository contains the Magma files associated with the article.
 
-## File description
+## Contents
 
 ### `ParametrizationIsogGraphSignatureFaltings.m`
 
-This script constructs parametrized representatives, up to quadratic twist, for rational isogeny graph types of elliptic curves over $\mathbb{Q}$.
+This Magma script constructs parametrized representatives, up to quadratic twist, for the rational isogeny graph types of elliptic curves over $\mathbb{Q}$.
 
-It also computes the corresponding signatures
+More precisely, the script computes, for each graph type considered in the article:
+
+- a parametrized representative of the corresponding family of elliptic curves;
+- the associated signature
 
 $$
-(c_4, c_6, \Delta)
+(c_4, c_6, \Delta);
 $$
 
-and $j$-invariants, writing a factored output to the file
+- the corresponding $j$-invariant.
+
+The output is written in factored form to the file
 
 ```text
 signatures_output.txt
+``
