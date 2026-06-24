@@ -1,14 +1,16 @@
 # Magma Files for the Article
 
-This repository contains the Magma files associated with the article.
+This folder contains the Magma files associated with the supplementary material results presented in the file `Faltings_types.pdf`, which accompanies the manuscript *Faltings elliptic curves in twisted Q-isogeny classes*, by Enrique González-Jiménez and Joan-C. Lario ([arXiv:2509.23283](https://arxiv.org/abs/2509.23283)).
 
 ## Contents
 
 ### `ParametrizationIsogGraphSignatureFaltings.m`
 
-This Magma script constructs parametrized representatives, up to quadratic twist, for the rational isogeny graph types of elliptic curves over $\mathbb{Q}$.
+This Magma script constructs parametrized representatives, up to quadratic twist, for the rational isogeny graph types of elliptic curves over $\mathbb{Q}$. The types considered are:
 
-More precisely, the script computes, for each isogeny graph type:
+$L_2(2)$, $L_2(3)$, $L_2(5)$, $L_2(7)$, $L_2(13)$, $L_3(9)$, $L_3(25)$, $R_4(6)$, $R_4(10)$, $R_6$, $T_4$, $T_6$, $T_8$, and $S$.
+
+More precisely, for each isogeny graph type, the script computes:
 
 - a parametrized representative of the corresponding family of elliptic curves;
 - the associated signature
