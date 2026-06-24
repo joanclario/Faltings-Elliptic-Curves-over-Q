@@ -1,10 +1,6 @@
-# Wolfram Mathematica Files for the Article
+# Wolfram Mathematica notebooks for Infinite Families of Isogeny Graphs
 
-This repository contains the Wolfram Mathematica notebooks associated with the manuscript *Faltings elliptic curves in twisted Q-isogeny classes*, by Enrique González-Jiménez and Joan-C. Lario, ([arXiv:2509.23283](https://arxiv.org/abs/2509.23283)).
-
-# Notebooks for Infinite Families of Isogeny Graphs
-
-This folder contains notebooks for the cases listed below. These give the infinite families of isogeny graphs considered in the accompanying computations.
+This repository contains the Wolfram Mathematica notebooks for the cases listed below. These give the infinite families of isogeny graphs considered in the accompanying computations.
 
 The types considered are:
 
