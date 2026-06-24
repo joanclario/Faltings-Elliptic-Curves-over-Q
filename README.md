@@ -1,6 +1,6 @@
 # Supplementary Material for Faltings Elliptic Curves in Twisted Q-Isogeny Classes
 
-The document `Faltings_types.pdf` contains the tables providing supplementary material for the manuscript [*Faltings elliptic curves in twisted Q-isogeny classes*](https://arxiv.org/abs/2509.23283), by Enrique González-Jiménez and Joan-C. Lario, arXiv:2509.23283 (2025).
+The document `Faltings_types.pdf` contains the tables providing supplementary material for the manuscript [*Faltings elliptic curves in twisted Q-isogeny classes*](https://arxiv.org/abs/2509.23283), by Enrique González-Jiménez and Joan-C. Lario (arXiv:2509.23283).
 
 ## Repository Structure
 
