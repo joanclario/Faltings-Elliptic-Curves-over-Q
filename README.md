@@ -26,8 +26,6 @@ More precisely, the Magma scripts compute, for each of these isogeny graph types
 
 The folder `Mathematica_scripts` contains, for each of the types listed above, the corresponding Wolfram Mathematica notebook with the detailed computations underlying the associated isogeny graph.
 
-In particular, the notebook for the type $L_3(9)$ contains extensive explanatory text throughout, in order to clarify the intermediate steps and make the procedure reproducible. The remaining cases can be followed in a similar way, using the $L_3(9)$ notebook as a detailed guide.
-
 ## Finite Cases
 
 The remaining cases, for which there are only finitely many isomorphism classes, are listed below. The corresponding results appearing in `Faltings_types.pdf` can be obtained from the LMFDB database of elliptic curves over $\mathbb{Q}$:
