@@ -6,7 +6,7 @@ The types considered are:
 
 $L_2(2)$, $L_2(3)$, $L_2(5)$, $L_2(7)$, $L_2(13)$, $L_3(9)$, $L_3(25)$, $R_4(6)$, $R_4(10)$, $R_6$, $T_4$, $T_6$, $T_8$, and $S$.
 
-For each of these types, the corresponding notebook contains the detailed computations underlying the associated isogeny graph, as well as the results presented in the file `Faltings_types.pdf`, which accompanies the manuscript * [*Faltings elliptic curves in twisted Q-isogeny classes*](https://arxiv.org/abs/2509.23283), by Enrique González-Jiménez and Joan-C. Lario (arXiv:2509.23283), as supplementary material.
+For each of these types, the corresponding notebook contains the detailed computations underlying the associated isogeny graph, as well as the results presented in the file `Faltings_types.pdf`, which accompanies the manuscript [*Faltings elliptic curves in twisted Q-isogeny classes*](https://arxiv.org/abs/2509.23283), by Enrique González-Jiménez and Joan-C. Lario (arXiv:2509.23283), as supplementary material.
 
 The parametrizations for these infinite cases were obtained using Magma. The corresponding scripts used to compute them are available in the folder `Magma_scripts` of this repository.
 
