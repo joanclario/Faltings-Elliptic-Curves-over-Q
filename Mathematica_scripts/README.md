@@ -10,4 +10,4 @@ For each of these types, the corresponding notebook contains the detailed comput
 
 The parametrizations for these infinite cases were obtained using Magma. The corresponding scripts used to compute them are available in the folder `Magma_scripts` of this repository.
 
-In particular, in the case of the type `L3(9)`, extensive explanatory text is included throughout the notebook in order to clarify the intermediate steps and to make the procedure reproducible. The remaining cases can be followed in a similar way, using the `L3(9)` notebook as a detailed guide.
+In particular, in the case of the type $L_3(9)$, extensive explanatory text is included throughout the notebook in order to clarify the intermediate steps and to make the procedure reproducible. The remaining cases can be followed in a similar way, using the `L3(9)` notebook as a detailed guide.
