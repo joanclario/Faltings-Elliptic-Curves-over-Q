@@ -1,6 +1,6 @@
 # Magma Files for the Article
 
-This folder contains the Magma files associated with the supplementary material results presented in the file `Faltings_types.pdf`, which accompanies the manuscript *Faltings elliptic curves in twisted Q-isogeny classes*, by Enrique González-Jiménez and Joan-C. Lario ([arXiv:2509.23283](https://arxiv.org/abs/2509.23283)).
+This folder contains the Magma files associated with the supplementary material results presented in the file `Faltings_types.pdf`, which accompanies the manuscript  [*Faltings elliptic curves in twisted Q-isogeny classes*](https://arxiv.org/abs/2509.23283), by Enrique González-Jiménez and Joan-C. Lario (arXiv:2509.23283).
 
 ## Contents
 
