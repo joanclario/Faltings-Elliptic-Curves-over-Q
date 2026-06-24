@@ -1,6 +1,6 @@
 # Wolfram Mathematica notebooks for Infinite Families of Isogeny Graphs
 
-This repository contains the Wolfram Mathematica notebooks for the cases listed below. These give the infinite families of isogeny graphs considered in the accompanying computations.
+This folder contains the Wolfram Mathematica notebooks for the cases listed below. These give the infinite families of isogeny graphs considered in the accompanying computations.
 
 The types considered are:
 
