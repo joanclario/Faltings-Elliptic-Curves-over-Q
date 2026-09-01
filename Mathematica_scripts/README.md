@@ -16,9 +16,15 @@ For each of these types, the corresponding notebook contains the detailed comput
 
 The parametrizations, including the signatures and $j$-invariants, for these infinite families were obtained using Magma. The corresponding scripts used to compute them are available in the `Magma_scripts` folder of this repository.
 
+For further information about the auxiliary functions used for each isogeny graph type to obtain the tables corresponding to the different $p$-adic valuations, see the section **Auxiliary Functions** of each notebook.
+
+The section **Signatures** (of each notebook) contains the signatures for the corresponding isogeny graph type obtained using Magma; see the `Magma_scripts` folder of this repository for the relevant scripts.
+
+
 In particular, the notebook `L_3(9).nb` includes extensive explanatory text throughout in order to clarify the intermediate steps and make the procedure reproducible. The remaining cases can be treated similarly, using `L_3(9).nb` as a detailed guide.
 
-The notebook `L_3(9).nb` contains the computations needed to obtain Tables 8, 9, and 10 of the article [*Faltings elliptic curves in twisted Q-isogeny classes*](https://arxiv.org/abs/2509.23283). These computations are organized into sections according to the prime $p$ under consideration:
+
+The notebook `L_3(9).nb` also contains the computations needed to obtain Tables 8, 9, and 10 of the manuscript [*Faltings elliptic curves in twisted Q-isogeny classes*]. These computations are organized into sections according to the prime $p$ under consideration:
 
 - the section for $p \neq 2,3$ gives Table 8;
 - the section for $p=3$ gives Table 9;
@@ -27,3 +33,4 @@ The notebook `L_3(9).nb` contains the computations needed to obtain Tables 8, 9,
 In each case, the corresponding table is obtained by distinguishing the possible values of the $p$-adic valuation of the parameter $t$. All the cases, intermediate calculations, and resulting conditions are explained in detail in the notebook.
 
 Moreover, in the section corresponding to $p=3$, the notebook derives conditions $3_a$ and $3_b$ appearing in Table 4 of the article. These conditions are denoted by $P_2$ and $P_5$, respectively, in Papadopoulos's notation.
+
