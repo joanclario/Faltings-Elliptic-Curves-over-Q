@@ -18,7 +18,7 @@ The parametrizations, including the signatures and $j$-invariants, for these inf
 
 In particular, the notebook `L_3(9).nb` includes extensive explanatory text throughout in order to clarify the intermediate steps and make the procedure reproducible. The remaining cases can be treated similarly, using `L_3(9).nb` as a detailed guide.
 
-The notebook `L_3(9).nb` contains the computations needed to obtain Tables 8, 9, and 10 of the article. These computations are organized into sections according to the prime $p$ under consideration:
+The notebook `L_3(9).nb` contains the computations needed to obtain Tables 8, 9, and 10 of the article [*Faltings elliptic curves in twisted Q-isogeny classes*](https://arxiv.org/abs/2509.23283). These computations are organized into sections according to the prime $p$ under consideration:
 
 - the section for $p \neq 2,3$ gives Table 8;
 - the section for $p=3$ gives Table 9;
